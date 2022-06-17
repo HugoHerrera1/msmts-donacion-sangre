@@ -1,5 +1,7 @@
 package mx.gob.imss;
 
+import io.swagger.v3.oas.annotations.OpenAPIDefinition;
+import io.swagger.v3.oas.annotations.info.Info;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
@@ -7,11 +9,12 @@ import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
 @ComponentScan(basePackages = "mx.gob.imss")
-public class CtrlArticulosApplication {
+@OpenAPIDefinition(info = @Info(title = "Donacion de Sangre"))
+public class DonacionSangreApplication {
 
 	public static void main(String[] args) {
 
-		SpringApplication.run(CtrlArticulosApplication.class, args);
+		SpringApplication.run(DonacionSangreApplication.class, args);
 	}
 	
 

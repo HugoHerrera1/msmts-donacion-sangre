@@ -1,10 +1,20 @@
 package mx.gob.imss.componentes;
 
+import com.google.gson.Gson;
 import lombok.extern.slf4j.Slf4j;
+import mx.gob.imss.constantes.DonacionSangreConstantes;
+import mx.gob.imss.donacionsangre.modelos.CiudadesModel;
+import mx.gob.imss.donacionsangre.modelos.DelegacionMunicipioModel;
+import mx.gob.imss.donacionsangre.modelos.EstadosModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Component;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
 
 @Slf4j
 @Component
@@ -16,21 +26,70 @@ public class AgendaDigitalCliente {
     @Autowired
     private MessageSource messageSource;
 
-//    public List<DiagnosticoMedico> getDiagnosticoMedico(String desDiagnostico) {
-//
-//        try {
-//            Client client = ClientBuilder.newClient().register(new JacksonFeature());
-//            return client.target(agendaDigitalUrl + messageSource.getMessage("DIAGNOSTICO_MEDICO_PATH", new Object[]{}, Locale.getDefault()))
-//                    .request(MediaType.APPLICATION_JSON).get(new GenericType<List<DiagnosticoMedico>>() {
-//                    });
-//        } catch (Exception e) {
-//            //log.error(messageSource.getMessage("AGENDA_DIGITAL_DIAGNOSTICO", new Object[]{e.getMessage()}, Locale.getDefault()));
-//            e.printStackTrace();
-//            return new ArrayList<>();
-//        }
-//
-//    }
+    public EstadosModel getEstado(Integer idEstado) {
+        Gson gson = new Gson();
+        try {
+            URL url = new URL(agendaDigitalUrl + DonacionSangreConstantes.GET_ESTADO_PATH + "/" + idEstado);
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            conn.setRequestProperty("Accept", "application/json");
+            BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+            StringBuilder responseBuilder = new StringBuilder();
+            String line;
+            while ((line = reader.readLine()) != null) {
+                responseBuilder.append(line);
+            }
+            EstadosModel cat = gson.fromJson(String.valueOf(responseBuilder), EstadosModel.class);
+            return cat;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new EstadosModel();
+        }
 
+    }
 
+    public DelegacionMunicipioModel getDelegacion(Integer idEstado, Integer idDelegacion) {
+        Gson gson = new Gson();
+        try {
+            URL url = new URL(agendaDigitalUrl + DonacionSangreConstantes.GET_DELEGACION_PATH + "/" + idEstado + "/" + idDelegacion );
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            conn.setRequestProperty("Accept", "application/json");
+            BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+            StringBuilder responseBuilder = new StringBuilder();
+            String line;
+            while ((line = reader.readLine()) != null) {
+                responseBuilder.append(line);
+            }
+            DelegacionMunicipioModel cat = gson.fromJson(String.valueOf(responseBuilder),DelegacionMunicipioModel.class);
+            return cat;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new DelegacionMunicipioModel();
+        }
 
+    }
+
+    public CiudadesModel getCiudad(Integer idEstado, Integer idDelegacion, Integer idCiudad) {
+        Gson gson = new Gson();
+        try {
+            URL url = new URL(agendaDigitalUrl + DonacionSangreConstantes.GET_CIUDAD_PATH + "/" + idEstado + "/" + idDelegacion + "/" + idCiudad);
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            conn.setRequestProperty("Accept", "application/json");
+            BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+            StringBuilder responseBuilder = new StringBuilder();
+            String line;
+            while ((line = reader.readLine()) != null) {
+                responseBuilder.append(line);
+            }
+            CiudadesModel cat = gson.fromJson(String.valueOf(responseBuilder), CiudadesModel.class);
+            return cat;
+        } catch (Exception e) {
+            e.printStackTrace();
+            CiudadesModel cd = new CiudadesModel();
+            cd.setIdCiudad(idCiudad);
+            cd.setIdEstado(idEstado);
+            cd.setIdDelegacionMunicipio(idDelegacion);
+            cd.setNomCiudad("");
+            return cd;
+        }
+    }
 }
