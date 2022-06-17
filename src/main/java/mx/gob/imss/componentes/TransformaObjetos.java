@@ -78,29 +78,29 @@ public class TransformaObjetos {
         //nombre estado
         EstadosModel edos = client.getEstado(msmdstDonacionSangre.getIdEstado());
         String nombreEdo = edos.getNomCompleto();
-        if(nombreEdo != null || nombreEdo != ""){
+        if (nombreEdo != null || nombreEdo != "") {
             dr.setNombreEstado(nombreEdo);
-        }else{
+        } else {
             dr.setNombreEstado("");
         }
         // fin nombre estado
         dr.setIdDelegacionMunicipio(msmdstDonacionSangre.getIdDelegacionMunicipio());
         //nombre delegacion
-        DelegacionMunicipioModel del = client.getDelegacion(msmdstDonacionSangre.getIdEstado(),msmdstDonacionSangre.getIdDelegacionMunicipio());
+        DelegacionMunicipioModel del = client.getDelegacion(msmdstDonacionSangre.getIdEstado(), msmdstDonacionSangre.getIdDelegacionMunicipio());
         String nombreDel = del.getNomMunicipio();
-        if(nombreDel != null || nombreDel != ""){
+        if (nombreDel != null || nombreDel != "") {
             dr.setNombreDelegacionMunicipio(nombreDel);
-        }else{
+        } else {
             dr.setNombreDelegacionMunicipio("");
         }
         // fin nombre delegacion
         dr.setIdCiudad(msmdstDonacionSangre.getIdCiudad());
         //nombre ciudad
-        CiudadesModel ciudades = client.getCiudad(msmdstDonacionSangre.getIdEstado(),msmdstDonacionSangre.getIdDelegacionMunicipio(),msmdstDonacionSangre.getIdCiudad());
+        CiudadesModel ciudades = client.getCiudad(msmdstDonacionSangre.getIdEstado(), msmdstDonacionSangre.getIdDelegacionMunicipio(), msmdstDonacionSangre.getIdCiudad());
         String nombreCiudades = ciudades.getNomCiudad();
-        if(nombreCiudades != null || nombreCiudades!=""){
+        if (nombreCiudades != null || nombreCiudades != "") {
             dr.setNombreCiudad(nombreCiudades);
-        }else{
+        } else {
             dr.setNombreCiudad("");
         }
         dr.setNomColonia(msmdstDonacionSangre.getNomColonia());
@@ -111,7 +111,12 @@ public class TransformaObjetos {
         dr.setDesNssAgregado(msmdstDonacionSangre.getDesNssAgregado());
         dr.setIdServicio(msmdstDonacionSangre.getIdServicio());
         // nombre servicio
-        dr.setNombreServicio("");
+        ServiciosModel servicios = client.getServicio(msmdstDonacionSangre.getIdServicio().toString());
+        if (servicios.getNomEspecialidad() != null || servicios.getNomEspecialidad() != "") {
+            dr.setNombreServicio(servicios.getNomEspecialidad());
+        } else {
+            dr.setNombreServicio("");
+        }
         dr.setFecInternamiento(dateFormat.format(msmdstDonacionSangre.getFecInternamiento()));
         dr.setFecCirugia(dateFormat.format(msmdstDonacionSangre.getFecCirugia()));
         dr.setNumTelefonoPaciente(msmdstDonacionSangre.getNumTelefonoPaciente());

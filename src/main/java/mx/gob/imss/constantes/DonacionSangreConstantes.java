@@ -20,5 +20,6 @@ public class DonacionSangreConstantes {
      public static final String GET_DELEGACION_PATH = "/getDelegacionMunicipioById";
      public static final String GET_CIUDAD_PATH = "/getCiudadesByID";
      public static final String GET_OCUPACION_PATH = "/getOcupacionByID";
+     public static final String GET_SERVICIOS_PATH = "/listEspecialidad";
 
 }

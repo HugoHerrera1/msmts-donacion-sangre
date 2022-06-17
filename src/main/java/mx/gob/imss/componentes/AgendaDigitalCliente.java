@@ -6,6 +6,7 @@ import mx.gob.imss.constantes.DonacionSangreConstantes;
 import mx.gob.imss.donacionsangre.modelos.CiudadesModel;
 import mx.gob.imss.donacionsangre.modelos.DelegacionMunicipioModel;
 import mx.gob.imss.donacionsangre.modelos.EstadosModel;
+import mx.gob.imss.donacionsangre.modelos.ServiciosModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.MessageSource;
@@ -25,6 +26,29 @@ public class AgendaDigitalCliente {
 
     @Autowired
     private MessageSource messageSource;
+
+    public ServiciosModel getServicio(String idServicio) {
+        Gson gson = new Gson();
+        try {
+            URL url = new URL(agendaDigitalUrl + DonacionSangreConstantes.GET_SERVICIOS_PATH + "/" + idServicio);
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            conn.setRequestProperty("Accept", "application/json");
+            BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+            StringBuilder responseBuilder = new StringBuilder();
+            String line;
+            while ((line = reader.readLine()) != null) {
+                responseBuilder.append(line);
+            }
+            String newJson = responseBuilder.substring(1,responseBuilder.length() - 1);
+            ServiciosModel servicios = gson.fromJson(String.valueOf(newJson), ServiciosModel.class);
+            return servicios;
+        } catch (Exception ex) {
+            System.out.println("Exception servicios [" + ex.getMessage() + "]");
+            ServiciosModel servicios = new ServiciosModel();
+            servicios = null;
+            return servicios;
+        }
+    }
 
     public EstadosModel getEstado(Integer idEstado) {
         Gson gson = new Gson();
@@ -50,7 +74,7 @@ public class AgendaDigitalCliente {
     public DelegacionMunicipioModel getDelegacion(Integer idEstado, Integer idDelegacion) {
         Gson gson = new Gson();
         try {
-            URL url = new URL(agendaDigitalUrl + DonacionSangreConstantes.GET_DELEGACION_PATH + "/" + idEstado + "/" + idDelegacion );
+            URL url = new URL(agendaDigitalUrl + DonacionSangreConstantes.GET_DELEGACION_PATH + "/" + idEstado + "/" + idDelegacion);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestProperty("Accept", "application/json");
             BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
@@ -59,7 +83,7 @@ public class AgendaDigitalCliente {
             while ((line = reader.readLine()) != null) {
                 responseBuilder.append(line);
             }
-            DelegacionMunicipioModel cat = gson.fromJson(String.valueOf(responseBuilder),DelegacionMunicipioModel.class);
+            DelegacionMunicipioModel cat = gson.fromJson(String.valueOf(responseBuilder), DelegacionMunicipioModel.class);
             return cat;
         } catch (Exception e) {
             e.printStackTrace();
