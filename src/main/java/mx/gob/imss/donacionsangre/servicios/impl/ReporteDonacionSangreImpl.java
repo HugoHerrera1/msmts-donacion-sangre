@@ -8,7 +8,6 @@ import java.util.Locale;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.MessageSource;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Service;
 
@@ -24,13 +23,13 @@ import net.sf.jasperreports.engine.JasperRunManager;
 @Service
 public class ReporteDonacionSangreImpl implements ReporteDonacionSangreServices {
 	
-	@Autowired
-	private MessageSource messageSource;
+
 	
 	public byte[] imprimeDonacionSangre (ReporteDonacionSangre reporte) {
+		Map <String, Object> parameters = new HashMap<String, Object>();
 		byte [] filePdf= new byte [0];
 		
-		Map <String, Object> parameters = new HashMap<>();
+		
 		   parameters.put("uMedicaH", reporte.getUMedicaH());
 	        parameters.put("fechaSolc", reporte.getFechaSolc());
 	        parameters.put("nombreBancoS", reporte.getNombreBancoS());
@@ -55,7 +54,7 @@ public class ReporteDonacionSangreImpl implements ReporteDonacionSangreServices 
 	        
 	        try {
 
-	            InputStream reportStream = Files.newInputStream(Paths.get("src/main/resources/reports/ReporteVolanteDonacionSangre.jrxml"));
+	            InputStream reportStream =new ClassPathResource("reports/ReporteVolanteDonacionSangre.jrxml").getInputStream();
 
 	            JasperReport report = JasperCompileManager.compileReport(reportStream);
 	            reportStream.close();
@@ -64,13 +63,14 @@ public class ReporteDonacionSangreImpl implements ReporteDonacionSangreServices 
 
 	        } catch (Exception e) {
 
-	            log.error(messageSource.getMessage("JASPER_ERROR", new Object[]{e.getMessage()}, Locale.getDefault()));
-	            e.printStackTrace();
+	        	 e.printStackTrace();
 
+	        }finally {
+	        	return filePdf; 
 	        }
 		
 		
-		return filePdf;       
+		      
 	        
 	}
 
