@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="JpbDataSourceConfig">
+    <data-sources>
+      <data-source id="c36b91ad-172a-49af-9aa5-f05a353183ea" name="msmts-donacion-sangre" url="jdbc:mariadb://localhost/mtssdds?useSSL=false&amp;allowMultiQueries=true&amp;serverTimezone=UTC" driverClass="org.mariadb.jdbc.Driver" />
+    </data-sources>
+  </component>
+</project>
