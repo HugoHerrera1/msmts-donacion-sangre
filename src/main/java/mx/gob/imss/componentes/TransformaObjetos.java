@@ -7,6 +7,7 @@ import mx.gob.imss.donacionsangre.modelos.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.nio.charset.StandardCharsets;
 import java.sql.Time;
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -20,8 +21,8 @@ public class TransformaObjetos {
     @Autowired
     AgendaDigitalCliente client;
 
-    public MsmdstDonacionSangre dtoToDonacionSangreModel(DonacionSangre donacionSangre) throws ParseException {
-        MsmdstDonacionSangre msmdstDonacionSangre = new MsmdstDonacionSangre();
+    public MtstVolanteDonacionSangre dtoToDonacionSangreModel(DonacionSangre donacionSangre) throws ParseException {
+        MtstVolanteDonacionSangre msmdstDonacionSangre = new MtstVolanteDonacionSangre();
         SimpleDateFormat format = new SimpleDateFormat(DonacionSangreConstantes.YYYY_MM_DD);
         SimpleDateFormat formatTime = new SimpleDateFormat(DonacionSangreConstantes.HH_MM_SS);
         // llenado de data Transform
@@ -29,25 +30,25 @@ public class TransformaObjetos {
         //Format DATE
         Date date = format.parse(donacionSangre.getFecha());
         msmdstDonacionSangre.setFecEfec(date);
-        msmdstDonacionSangre.setIdNombreBancoSangre(donacionSangre.getIdBancoSangre());
+        msmdstDonacionSangre.setIdNombreBancoSangre(Long.parseLong(donacionSangre.getIdBancoSangre().toString()));
         //format TIME
         long timeInicial = formatTime.parse(donacionSangre.getHoraInicialAtencion()).getTime();
-        msmdstDonacionSangre.setTimHoraInicialAtencion(new Time(timeInicial));
+        msmdstDonacionSangre.setTimInicialAtencion(new Time(timeInicial));
         //
         long timeFinal = formatTime.parse(donacionSangre.getHoraFinalAtencion()).getTime();
-        msmdstDonacionSangre.setTimHoraFinalAtencion(new Time(timeFinal));
+        msmdstDonacionSangre.setTimFinalAtencion(new Time(timeFinal));
 
         msmdstDonacionSangre.setDesCodigoPostal(donacionSangre.getCodigoPostal());
-        msmdstDonacionSangre.setIdEstado(donacionSangre.getIdEstado());
-        msmdstDonacionSangre.setIdDelegacionMunicipio(donacionSangre.getIdDelegacion());
-        msmdstDonacionSangre.setIdCiudad(donacionSangre.getIdCiudad());
+        msmdstDonacionSangre.setIdEstado(donacionSangre.getIdEstado().toString());
+        msmdstDonacionSangre.setIdDelegacionMunicipio(donacionSangre.getIdDelegacion().toString());
+        msmdstDonacionSangre.setIdCiudad(donacionSangre.getIdCiudad().toString());
         msmdstDonacionSangre.setNomColonia(donacionSangre.getColonia());
         msmdstDonacionSangre.setNomCalle(donacionSangre.getCalle());
-        msmdstDonacionSangre.setNumExterior(donacionSangre.getNumExterior());
-        msmdstDonacionSangre.setNumInterior(donacionSangre.getNumInterior());
+        msmdstDonacionSangre.setNumExterior(donacionSangre.getNumExterior().toString());
+        msmdstDonacionSangre.setNumInterior(donacionSangre.getNumInterior().toString());
         msmdstDonacionSangre.setNomPaciente(donacionSangre.getNombrePaciente());
         msmdstDonacionSangre.setDesNssAgregado(donacionSangre.getDesNSS());
-        msmdstDonacionSangre.setIdServicio(donacionSangre.getIdServicio());
+        msmdstDonacionSangre.setIdServicio(donacionSangre.getIdServicio().longValue());
         Date dateFecInternamiento = format.parse(donacionSangre.getFechaInternamiento());
         msmdstDonacionSangre.setFecInternamiento(dateFecInternamiento);
         Date dateFecCirugia = format.parse(donacionSangre.getFechaCirugia());
@@ -57,36 +58,36 @@ public class TransformaObjetos {
         msmdstDonacionSangre.setDesMatriculaTrabajadorSocial(donacionSangre.getMatriculaTrabajadorSocial());
         msmdstDonacionSangre.setNumTelefonoTrabajadorSocial(donacionSangre.getNumTelefonoTrabajadorSocial());
         msmdstDonacionSangre.setDesObservaciones(donacionSangre.getObservaciones());
-        msmdstDonacionSangre.setIndActivo(1);
+        msmdstDonacionSangre.setIndActivo(true);
         return msmdstDonacionSangre;
     }
 
-    public DonacionSangreResponse buildResponse(MsmdstDonacionSangre msmdstDonacionSangre) {
+    public DonacionSangreResponse buildResponse(MtstVolanteDonacionSangre msmdstDonacionSangre) {
         DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
         DonacionSangreResponse dr = new DonacionSangreResponse();
-        dr.setIdVolanteDonacionSangre(msmdstDonacionSangre.getId());
+        dr.setIdVolanteDonacionSangre(Integer.parseInt(msmdstDonacionSangre.getId().toString()));
         dr.setDesUnidadMedicaHospitalaria(msmdstDonacionSangre.getDesUnidadMedicaHospitalaria());
         dr.setFecEfec(dateFormat.format(msmdstDonacionSangre.getFecEfec()));
-        dr.setIdNombreBancoSangre(msmdstDonacionSangre.getIdNombreBancoSangre());
+        dr.setIdNombreBancoSangre(msmdstDonacionSangre.getIdNombreBancoSangre().intValue());
         // nombre banco de sangre
         //falta consumo AD
         dr.setNombreBancoSangre("");
-        dr.setTimHoraInicialAtencion(msmdstDonacionSangre.getTimHoraInicialAtencion());
-        dr.setTimHoraFinalAtencion(msmdstDonacionSangre.getTimHoraFinalAtencion());
+        dr.setTimHoraInicialAtencion(msmdstDonacionSangre.getTimInicialAtencion());
+        dr.setTimHoraFinalAtencion(msmdstDonacionSangre.getTimFinalAtencion());
         dr.setDesCodigoPostal(msmdstDonacionSangre.getDesCodigoPostal());
-        dr.setIdEstado(msmdstDonacionSangre.getIdEstado());
+        dr.setIdEstado(Integer.valueOf(msmdstDonacionSangre.getIdEstado()));
         //nombre estado
-        EstadosModel edos = client.getEstado(msmdstDonacionSangre.getIdEstado());
+        EstadosModel edos = client.getEstado(Integer.valueOf(msmdstDonacionSangre.getIdEstado()));
         String nombreEdo = edos.getNomCompleto();
-        if (nombreEdo != null || nombreEdo != "") {
+        if (nombreEdo != null || nombreEdo != "") {;
             dr.setNombreEstado(nombreEdo);
         } else {
             dr.setNombreEstado("");
         }
         // fin nombre estado
-        dr.setIdDelegacionMunicipio(msmdstDonacionSangre.getIdDelegacionMunicipio());
+        dr.setIdDelegacionMunicipio(Integer.valueOf(msmdstDonacionSangre.getIdDelegacionMunicipio()));
         //nombre delegacion
-        DelegacionMunicipioModel del = client.getDelegacion(msmdstDonacionSangre.getIdEstado(), msmdstDonacionSangre.getIdDelegacionMunicipio());
+        DelegacionMunicipioModel del = client.getDelegacion(Integer.valueOf(msmdstDonacionSangre.getIdEstado()), Integer.valueOf(msmdstDonacionSangre.getIdDelegacionMunicipio()));
         String nombreDel = del.getNomMunicipio();
         if (nombreDel != null || nombreDel != "") {
             dr.setNombreDelegacionMunicipio(nombreDel);
@@ -94,9 +95,9 @@ public class TransformaObjetos {
             dr.setNombreDelegacionMunicipio("");
         }
         // fin nombre delegacion
-        dr.setIdCiudad(msmdstDonacionSangre.getIdCiudad());
+        dr.setIdCiudad(Integer.valueOf(msmdstDonacionSangre.getIdCiudad()));
         //nombre ciudad
-        CiudadesModel ciudades = client.getCiudad(msmdstDonacionSangre.getIdEstado(), msmdstDonacionSangre.getIdDelegacionMunicipio(), msmdstDonacionSangre.getIdCiudad());
+        CiudadesModel ciudades = client.getCiudad(Integer.valueOf(msmdstDonacionSangre.getIdEstado()),Integer.valueOf( msmdstDonacionSangre.getIdDelegacionMunicipio()),Integer.valueOf( msmdstDonacionSangre.getIdCiudad()));
         String nombreCiudades = ciudades.getNomCiudad();
         if (nombreCiudades != null || nombreCiudades != "") {
             dr.setNombreCiudad(nombreCiudades);
@@ -109,7 +110,7 @@ public class TransformaObjetos {
         dr.setNumInterior(msmdstDonacionSangre.getNumInterior());
         dr.setNomPaciente(msmdstDonacionSangre.getNomPaciente());
         dr.setDesNssAgregado(msmdstDonacionSangre.getDesNssAgregado());
-        dr.setIdServicio(msmdstDonacionSangre.getIdServicio());
+        dr.setIdServicio(msmdstDonacionSangre.getIdServicio().intValue());
         // nombre servicio
         ServiciosModel servicios = client.getServicio(msmdstDonacionSangre.getIdServicio().toString());
         if (servicios.getNomEspecialidad() != null || servicios.getNomEspecialidad() != "") {
