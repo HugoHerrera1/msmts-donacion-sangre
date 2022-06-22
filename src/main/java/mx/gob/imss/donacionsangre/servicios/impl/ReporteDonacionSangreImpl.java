@@ -53,6 +53,7 @@ public class ReporteDonacionSangreImpl implements ReporteDonacionSangreServices 
 	        
 	        try {
 
+
 	            InputStream reportStream = new ClassPathResource("reports/ReporteVolanteDonacionSangre.jrxml").getInputStream();
 
 	            JasperReport report = JasperCompileManager.compileReport(reportStream);
@@ -65,11 +66,10 @@ public class ReporteDonacionSangreImpl implements ReporteDonacionSangreServices 
 	        	 e.printStackTrace();
 
 	        }finally {
-	        	return filePdf;
+
+	        	return filePdf; 
 	        }
 		
-		
-	       
 	        
 	}
 

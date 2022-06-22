@@ -27,9 +27,10 @@ import java.util.List;
 public class DonacionSangreControlador {
     @Autowired
     DonacionSangreServices donaSangre;
+
+    
     @Autowired
 	private ReporteDonacionSangreServices reporteDonacionSangreServices;
-	
 
     @PostMapping(value = "/guardaNuevoVolanteDonacionSangre",
             produces = "application/json",
@@ -56,7 +57,6 @@ public class DonacionSangreControlador {
     			.contentType(MediaType.APPLICATION_OCTET_STREAM).contentLength(filePdf.length).body(resource);
 
     } 
-
 
 }
 
