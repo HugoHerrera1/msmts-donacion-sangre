@@ -23,8 +23,8 @@ public class DonacionSangreResponse {
     private String nombreCiudad;
     private String nomColonia;
     private String nomCalle;
-    private Integer numExterior;
-    private Integer numInterior;
+    private String numExterior;
+    private String numInterior;
     private String nomPaciente;
     private String desNssAgregado;
     private Integer idServicio;

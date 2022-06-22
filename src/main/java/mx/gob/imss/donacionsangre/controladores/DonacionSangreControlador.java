@@ -28,7 +28,8 @@ public class DonacionSangreControlador {
         return new ResponseEntity<>(donaSangre.guardaNuevoVolanteDonacionS(donacionSangre), HttpStatus.OK);
     }
 
-    @GetMapping(path = "/findVolantesByFechas/{fechaInicial}/{fechaFinal}", produces = "application/json")
+    @GetMapping(path = "/findVolantesByFechas/{fechaInicial}/{fechaFinal}",
+            produces = "application/json;charset=UTF-8")
     public ResponseEntity findVolantesByFechas(@PathVariable String fechaInicial, @PathVariable String fechaFinal) {
         return new ResponseEntity<>(donaSangre.findVolantesByFechas(fechaInicial, fechaFinal), HttpStatus.OK);
     }
