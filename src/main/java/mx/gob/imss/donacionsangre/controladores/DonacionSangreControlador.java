@@ -23,15 +23,24 @@ public class DonacionSangreControlador {
             produces = "application/json",
             consumes = "application/json")
     public ResponseEntity guardanuevoVolante(@RequestBody DonacionSangre donacionSangre) {
+        try{
         Gson gson = new Gson();
-        System.out.println(gson.toJson(donacionSangre));
+        log.error("Request -> " + gson.toJson(donacionSangre));
         return new ResponseEntity<>(donaSangre.guardaNuevoVolanteDonacionS(donacionSangre), HttpStatus.OK);
+        }catch (Exception ex){
+            ex.printStackTrace();
+            return new ResponseEntity("Error al guardar el registro [" + ex.getMessage() + "]",HttpStatus.BAD_REQUEST);
+        }
     }
 
     @GetMapping(path = "/findVolantesByFechas/{fechaInicial}/{fechaFinal}",
             produces = "application/json;charset=UTF-8")
     public ResponseEntity findVolantesByFechas(@PathVariable String fechaInicial, @PathVariable String fechaFinal) {
-        return new ResponseEntity<>(donaSangre.findVolantesByFechas(fechaInicial, fechaFinal), HttpStatus.OK);
+        try{
+            return new ResponseEntity<>(donaSangre.findVolantesByFechas(fechaInicial, fechaFinal), HttpStatus.OK);
+        }catch (Exception ex){
+            return new ResponseEntity("Error al consultar [" + ex.getMessage() + "]" , HttpStatus.BAD_REQUEST);
+        }
     }
 
 }

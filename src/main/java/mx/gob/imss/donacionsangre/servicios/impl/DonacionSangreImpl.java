@@ -24,10 +24,12 @@ public class DonacionSangreImpl implements DonacionSangreServices {
     @Override
     public String guardaNuevoVolanteDonacionS(DonacionSangre donacionSangre) {
         try {
+            Gson gson  = new Gson();
             MtstVolanteDonacionSangre msmdstDonacionSangre = transforma.dtoToDonacionSangreModel(donacionSangre);
-            donacionSangreRepositorio.save(msmdstDonacionSangre);
+            String jsonResponse = gson.toJson(donacionSangreRepositorio.save(msmdstDonacionSangre));
+            System.out.println(jsonResponse);
             donacionSangreRepositorio.flush();
-            return "Se guardo con exito";
+            return jsonResponse;
         } catch (Exception ex) {
             return "Error al insertar nuevo Volante donacion de sangre [" + ex.getMessage() + "]";
         }
