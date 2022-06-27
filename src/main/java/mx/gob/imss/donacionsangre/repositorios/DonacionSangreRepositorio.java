@@ -1,6 +1,5 @@
 package mx.gob.imss.donacionsangre.repositorios;
 
-import mx.gob.imss.donacionsangre.modelos.MsmdstDonacionSangre;
 import mx.gob.imss.donacionsangre.modelos.MtstVolanteDonacionSangre;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
