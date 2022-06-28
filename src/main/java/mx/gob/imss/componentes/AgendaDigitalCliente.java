@@ -7,8 +7,13 @@ import mx.gob.imss.donacionsangre.modelos.CiudadesModel;
 import mx.gob.imss.donacionsangre.modelos.DelegacionMunicipioModel;
 import mx.gob.imss.donacionsangre.modelos.EstadosModel;
 import mx.gob.imss.donacionsangre.modelos.ServiciosModel;
+import org.hibernate.annotations.Cache;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cache.annotation.CacheConfig;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Component;
 
@@ -16,6 +21,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.Objects;
 
 @Slf4j
 @Component
@@ -27,8 +33,10 @@ public class AgendaDigitalCliente {
     @Autowired
     private MessageSource messageSource;
 
+    @Cacheable(cacheNames = "servicios")
     public ServiciosModel getServicio(String idServicio) {
         Gson gson = new Gson();
+        log.error("Se hace la consulta servicios por medio del cliente - no caching- ");
         try {
             URL url = new URL(agendaDigitalUrl + DonacionSangreConstantes.GET_SERVICIOS_PATH + "/" + idServicio);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
@@ -43,15 +51,17 @@ public class AgendaDigitalCliente {
             ServiciosModel servicios = gson.fromJson(String.valueOf(newJson), ServiciosModel.class);
             return servicios;
         } catch (Exception ex) {
-            System.out.println("Exception servicios [" + ex.getMessage() + "]");
+            log.error("Exception servicios [" + ex.getMessage() + "]");
             ServiciosModel servicios = new ServiciosModel();
             servicios = null;
             return servicios;
         }
     }
 
+    @Cacheable(cacheNames = "edos")
     public EstadosModel getEstado(Integer idEstado) {
         Gson gson = new Gson();
+        log.error("Se hace la consulta estados por medio del cliente - no caching- ");
         try {
             URL url = new URL(agendaDigitalUrl + DonacionSangreConstantes.GET_ESTADO_PATH + "/" + idEstado);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
@@ -71,8 +81,11 @@ public class AgendaDigitalCliente {
 
     }
 
+
+    @Cacheable(cacheNames = "delegacion")
     public DelegacionMunicipioModel getDelegacion(Integer idEstado, Integer idDelegacion) {
         Gson gson = new Gson();
+        log.error("Se hace la consulta delegacion por medio del cliente - no caching- ");
         try {
             URL url = new URL(agendaDigitalUrl + DonacionSangreConstantes.GET_DELEGACION_PATH + "/" + idEstado + "/" + idDelegacion);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
@@ -91,9 +104,11 @@ public class AgendaDigitalCliente {
         }
 
     }
+    @Cacheable(cacheNames = "ciudad")
 
     public CiudadesModel getCiudad(Integer idEstado, Integer idDelegacion, Integer idCiudad) {
         Gson gson = new Gson();
+        log.error("Se hace la consulta ciudades por medio del cliente - no caching- ");
         try {
             URL url = new URL(agendaDigitalUrl + DonacionSangreConstantes.GET_CIUDAD_PATH + "/" + idEstado + "/" + idDelegacion + "/" + idCiudad);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
