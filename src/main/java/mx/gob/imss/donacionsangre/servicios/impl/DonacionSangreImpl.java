@@ -41,7 +41,6 @@ public class DonacionSangreImpl implements DonacionSangreServices {
 
     @Override
     public String findVolantesByFechas(String fechaInicial, String fechaFinal) {
-        log.error("volantes -no caching-");
         try {
             List<DonacionSangreResponse> volantesDSList = new ArrayList<>();
             List<MtstVolanteDonacionSangre> msmdstDonacionSangreList = donacionSangreRepositorio.findVolantesDSBetwenFechas(fechaInicial, fechaFinal);
@@ -49,8 +48,7 @@ public class DonacionSangreImpl implements DonacionSangreServices {
                 volantesDSList.add(transforma.buildResponse(msmdstDonacionSangre));
             }
             Gson jsonArray = new Gson();
-            String jsonResponse = jsonArray.toJson(volantesDSList);
-            return jsonResponse;
+            return jsonArray.toJson(volantesDSList);
         }catch (Exception ex){
             ex.printStackTrace();
             return "Error al consultar [" + ex.getMessage() + "]";

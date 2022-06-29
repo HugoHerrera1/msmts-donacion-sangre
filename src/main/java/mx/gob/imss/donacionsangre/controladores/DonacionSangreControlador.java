@@ -6,10 +6,13 @@ import mx.gob.imss.donacionsangre.dto.DonacionSangre;
 import mx.gob.imss.donacionsangre.modelos.DonacionSangreResponse;
 import mx.gob.imss.donacionsangre.servicios.DonacionSangreServices;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Slf4j
@@ -34,10 +37,10 @@ public class DonacionSangreControlador {
     }
 
     @GetMapping(path = "/findVolantesByFechas/{fechaInicial}/{fechaFinal}",
-            produces = "application/json;charset=UTF-8")
+            produces = "application/json")
     public ResponseEntity findVolantesByFechas(@PathVariable String fechaInicial, @PathVariable String fechaFinal) {
         try{
-            return new ResponseEntity<>(donaSangre.findVolantesByFechas(fechaInicial, fechaFinal), HttpStatus.OK);
+            return new ResponseEntity<>(donaSangre.findVolantesByFechas(fechaInicial, fechaFinal),HttpStatus.OK);
         }catch (Exception ex){
             return new ResponseEntity("Error al consultar [" + ex.getMessage() + "]" , HttpStatus.BAD_REQUEST);
         }

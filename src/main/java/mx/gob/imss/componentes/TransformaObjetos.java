@@ -13,6 +13,7 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.Objects;
 
 
@@ -102,8 +103,8 @@ public class TransformaObjetos {
         dr.setDesNssAgregado(msmdstDonacionSangre.getDesNssAgregado());
         dr.setIdServicio(msmdstDonacionSangre.getIdServicio().intValue());
         // nombre servicio
-        ServiciosModel servicios = client.getServicio(msmdstDonacionSangre.getIdServicio().toString());
-        String nombreServicio = Objects.isNull(servicios) ? "No se encontro registro" : servicios.getNomEspecialidad();
+        List<ServiciosModel> servicios = client.getServicio(msmdstDonacionSangre.getIdServicio().toString());
+        String nombreServicio = servicios.isEmpty() ? "No se encontro registro" : servicios.get(0).getNomEspecialidad();
         dr.setNombreServicio(nombreServicio);
         dr.setFecInternamiento(dateFormat.format(msmdstDonacionSangre.getFecInternamiento()));
         dr.setFecCirugia(dateFormat.format(msmdstDonacionSangre.getFecCirugia()));
