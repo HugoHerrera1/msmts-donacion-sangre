@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReporteVolanteDonacionSangre" language="groovy" pageWidth="791" pageHeight="945" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="25b96f8f-9971-40ce-871d-06fa2647eae4">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReporteVolanteDonacionSangre" language="groovy" pageWidth="791" pageHeight="970" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="25b96f8f-9971-40ce-871d-06fa2647eae4">
 	<property name="ireport.zoom" value="1.4641000000000135"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="562"/>
+	<property name="ireport.y" value="0"/>
 	<parameter name="uMedicaH" class="java.lang.String"/>
 	<parameter name="fechaSolc" class="java.lang.String"/>
 	<parameter name="nombreBancoS" class="java.lang.String"/>
@@ -406,15 +406,9 @@
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="545" splitType="Stretch">
+		<band height="567" splitType="Stretch">
 			<rectangle>
 				<reportElement x="31" y="417" width="660" height="56" uuid="09857d07-64cc-4b2d-8a1a-edf7ddc3352c"/>
-				<graphicElement>
-					<pen lineWidth="1.5"/>
-				</graphicElement>
-			</rectangle>
-			<rectangle>
-				<reportElement x="31" y="486" width="660" height="42" uuid="b550245f-e2d2-4fdf-aa3d-d93ccac2b5ad"/>
 				<graphicElement>
 					<pen lineWidth="1.5"/>
 				</graphicElement>
@@ -594,13 +588,21 @@ Si usted tiene la presión arterial alta y esta controlado, podria ser candidato
 				<text><![CDATA[OBSERVACIONES]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="35" y="501" width="649" height="26" uuid="856fc67b-9aa6-4efa-bce5-17fe07f8b68d"/>
-				<textFieldExpression><![CDATA[$P{observaciones}]]></textFieldExpression>
-			</textField>
-			<textField>
 				<reportElement x="590" y="443" width="100" height="20" uuid="10f20269-989a-4136-b0af-4cbe93ea9641"/>
 				<textFieldExpression><![CDATA[$P{telTS}]]></textFieldExpression>
 			</textField>
+			<elementGroup>
+				<rectangle>
+					<reportElement stretchType="RelativeToTallestObject" mode="Transparent" x="31" y="486" width="660" height="42" uuid="b550245f-e2d2-4fdf-aa3d-d93ccac2b5ad"/>
+					<graphicElement>
+						<pen lineWidth="1.5"/>
+					</graphicElement>
+				</rectangle>
+				<textField isStretchWithOverflow="true">
+					<reportElement x="35" y="501" width="649" height="27" uuid="856fc67b-9aa6-4efa-bce5-17fe07f8b68d"/>
+					<textFieldExpression><![CDATA[$P{observaciones}]]></textFieldExpression>
+				</textField>
+			</elementGroup>
 		</band>
 	</detail>
 </jasperReport>
