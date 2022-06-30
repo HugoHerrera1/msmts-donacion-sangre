@@ -1,0 +1,608 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReporteVolanteDonacionSangre" language="groovy" pageWidth="791" pageHeight="970" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="25b96f8f-9971-40ce-871d-06fa2647eae4">
+	<property name="ireport.zoom" value="1.4641000000000135"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="uMedicaH" class="java.lang.String"/>
+	<parameter name="fechaSolc" class="java.lang.String"/>
+	<parameter name="nombreBancoS" class="java.lang.String"/>
+	<parameter name="calleBanco" class="java.lang.String"/>
+	<parameter name="noBanco" class="java.lang.String"/>
+	<parameter name="colBanco" class="java.lang.String"/>
+	<parameter name="cpBanco" class="java.lang.String"/>
+	<parameter name="alcaldiaBanco" class="java.lang.String"/>
+	<parameter name="hrDesde" class="java.lang.String"/>
+	<parameter name="hrHasta" class="java.lang.String"/>
+	<parameter name="nss" class="java.lang.String"/>
+	<parameter name="agregado" class="java.lang.String"/>
+	<parameter name="fechaInter" class="java.lang.String"/>
+	<parameter name="fechaCir" class="java.lang.String"/>
+	<parameter name="servicio" class="java.lang.String"/>
+	<parameter name="telPaciente" class="java.lang.String"/>
+	<parameter name="nombreTS" class="java.lang.String"/>
+	<parameter name="matricula" class="java.lang.String"/>
+	<parameter name="telTS" class="java.lang.String"/>
+	<parameter name="observaciones" class="java.lang.String"/>
+	<parameter name="nombrePac" class="java.lang.String"/>
+	<title>
+		<band height="129" splitType="Stretch">
+			<staticText>
+				<reportElement x="212" y="27" width="294" height="20" uuid="e598aec1-cac1-4b23-bbe1-d9a25d46e492"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DIRECCIÓN DE PRESTACIONES MÉDICAS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="262" y="55" width="204" height="20" uuid="1ad43843-fe08-4b19-a71b-645a2ad4d42a"/>
+				<textElement>
+					<font size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[UNIDAD DE ATÉNCION MÉDICA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="185" y="80" width="399" height="20" uuid="ac84fadf-ecca-457b-bb5f-abd4698b0751"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[VOLANTE DE ENVÍO DEL DONADOR DE SANGRE FBS-11]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="489" y="104" width="215" height="20" uuid="328755e7-f02c-4db1-906c-05bd0508c49f"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA["DONAR SANGRE ES UN REGALO DE VIDA"]]></text>
+			</staticText>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="210" splitType="Stretch">
+			<rectangle>
+				<reportElement mode="Transparent" x="31" y="122" width="660" height="86" uuid="dcdc174f-3acd-4474-a15e-7e091a36e1ee"/>
+				<graphicElement>
+					<pen lineWidth="1.5"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement positionType="Float" mode="Transparent" x="31" y="48" width="660" height="62" uuid="80a48bba-bc55-4cfc-8028-55addf9781f1"/>
+				<graphicElement>
+					<pen lineWidth="1.5"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement mode="Transparent" x="31" y="5" width="660" height="32" uuid="1ce1b2c9-74e1-42b8-a0d5-c1a9da1952c9"/>
+				<graphicElement>
+					<pen lineWidth="1.5"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="38" y="6" width="183" height="20" uuid="5005c217-3b95-4751-b444-c3ad50efe35a"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[UNIDAD MÉDICA HOSPITALARIA:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="173" y="21" width="177" height="20" uuid="7c875f54-3b1c-479c-bcaf-2aa2efc2eed3"/>
+				<textFieldExpression><![CDATA[$P{uMedicaH}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="577" y="8" width="117" height="20" uuid="eb5f36ff-5c00-4b8e-8646-9c86a2cee622"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{fechaSolc}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="571" y="20" width="73" height="1" uuid="b9b08e78-bdc2-4b9e-b4cd-d59726cfda25"/>
+			</line>
+			<staticText>
+				<reportElement x="574" y="23" width="60" height="13" uuid="01ff72a9-5912-4f1d-90b7-454f649f5f22"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[DD/MM/AAAA]]></text>
+			</staticText>
+			<line>
+				<reportElement x="445" y="5" width="1" height="32" uuid="63099be0-d8fe-4a1d-884f-c987f0089df5"/>
+				<graphicElement>
+					<pen lineWidth="1.5"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="31" y="63" width="660" height="1" uuid="31e73893-fb81-44a1-a3c6-832199ccbe29"/>
+				<graphicElement>
+					<pen lineWidth="1.5"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="276" y="49" width="205" height="14" uuid="19f478f1-a431-406a-aba7-7e3a6c0f16c8"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[PARA ASISTIR AL BANCO DE SANGRE]]></text>
+			</staticText>
+			<line>
+				<reportElement x="446" y="64" width="1" height="46" uuid="0614d5e1-e4a9-4683-8d87-73ecc616fecc"/>
+				<graphicElement>
+					<pen lineWidth="1.5"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="35" y="66" width="53" height="20" uuid="5b1f7ef7-a467-4071-8c80-e120376587bf"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[NOMBRE:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="37" y="95" width="65" height="20" uuid="822df576-332d-44ec-a7ec-0b23b2262538"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[DOMICILIO:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="105" y="96" width="29" height="17" uuid="b3e4b2ac-62b4-4934-ba9f-b8cf05505fbe"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[Calle]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="158" y="96" width="29" height="17" uuid="7f45f4e0-61e1-47ec-a9c1-7f8de060256f"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[No.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="209" y="97" width="34" height="17" uuid="387e825c-ab70-4575-a697-cd9364a67cfe"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[Colonia]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="295" y="97" width="34" height="17" uuid="0604f8ff-58a8-4914-836f-755ea25eb4f3"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[C.P.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="377" y="96" width="53" height="17" uuid="a70ed2ca-02bc-4dbd-ab3f-96e637863b15"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[Alcaldía]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="94" y="65" width="244" height="20" uuid="7bc9c973-40cc-42d4-a337-0406f8d690ab"/>
+				<textFieldExpression><![CDATA[$P{nombreBancoS}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="37" y="81" width="121" height="20" uuid="e1d09a63-e83a-4c9a-bfcb-8738026f7e5a"/>
+				<textFieldExpression><![CDATA[$P{calleBanco}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="150" y="82" width="45" height="20" uuid="dee7daeb-71c2-4b26-81f1-6c2f54c629c0"/>
+				<textFieldExpression><![CDATA[$P{noBanco}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="192" y="82" width="102" height="20" uuid="2ddf23d7-cb90-4ced-afa5-b60246beaacd"/>
+				<textFieldExpression><![CDATA[$P{colBanco}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="283" y="82" width="62" height="20" uuid="7144018e-f3fd-422e-9585-83e5dae491b8"/>
+				<textFieldExpression><![CDATA[$P{cpBanco}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="346" y="82" width="98" height="20" uuid="0774ce3b-84ae-4f5d-9c08-07a5ebb57a5b"/>
+				<textFieldExpression><![CDATA[$P{alcaldiaBanco}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="454" y="68" width="136" height="15" uuid="d02df0df-4cf3-4a7b-92d8-89b5bf979641"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[HORARIO DE ATENCIÓN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="454" y="83" width="15" height="17" uuid="552ce4d6-1245-4a9e-9a81-b221d76c3a8a"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[De]]></text>
+			</staticText>
+			<line>
+				<reportElement x="469" y="94" width="35" height="1" uuid="14971622-ed71-4b4a-8d1a-a523004efc4c"/>
+			</line>
+			<textField>
+				<reportElement x="474" y="82" width="46" height="19" uuid="ea8d0b85-a406-486a-97c3-18f35e1cf9cc"/>
+				<textFieldExpression><![CDATA[$P{hrDesde}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="510" y="83" width="30" height="20" uuid="555b0cde-5a4d-418c-9c75-3371083bdb8c"/>
+				<text><![CDATA[a las]]></text>
+			</staticText>
+			<line>
+				<reportElement x="533" y="95" width="35" height="1" uuid="69bf8a77-8ea0-4a35-9379-b6b04d384774"/>
+			</line>
+			<textField>
+				<reportElement x="535" y="82" width="63" height="19" uuid="55a18965-5c9c-4c4b-a604-504cd496a856"/>
+				<textFieldExpression><![CDATA[$P{hrHasta}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="31" y="137" width="660" height="1" uuid="785db57c-23c6-4e90-8359-fada4959165b"/>
+				<graphicElement>
+					<pen lineWidth="1.5"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="327" y="123" width="205" height="14" uuid="6daa309a-bfa5-4b70-9e23-727a57df9312"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[DATOS DEL PACIENTE]]></text>
+			</staticText>
+			<line>
+				<reportElement x="446" y="138" width="1" height="35" uuid="362758c4-889d-41fe-a244-29c89649d162"/>
+				<graphicElement>
+					<pen lineWidth="1.5"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="31" y="173" width="660" height="1" uuid="3e23bca5-327c-4128-8499-3fb519f3f779"/>
+				<graphicElement>
+					<pen lineWidth="1.5"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="468" y="139" width="224" height="20" uuid="71cd034a-b53a-4629-8d08-174fb1942a92"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[No. DE SEGURIDAD SOCIAL Y AGREGADO]]></text>
+			</staticText>
+			<line>
+				<reportElement x="460" y="169" width="217" height="1" uuid="05ef6298-1e8c-49a1-8c78-e3c1acccf2ea"/>
+			</line>
+			<textField>
+				<reportElement x="496" y="156" width="99" height="20" uuid="f94de30b-be97-4b65-81b3-6a057f5661e9"/>
+				<textFieldExpression><![CDATA[$P{nss}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="588" y="156" width="100" height="20" uuid="c82d3503-a1af-45d5-bddf-dcace928f8b2"/>
+				<textFieldExpression><![CDATA[$P{agregado}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="39" y="156" width="392" height="1" uuid="94e00e27-4a44-47cc-80d4-9cc23bd18dd2"/>
+				<graphicElement>
+					<pen lineWidth="1.0"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="60" y="159" width="100" height="16" uuid="feedcff8-81d5-4c6b-8175-18f3e56e49c9"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[Apellido paterno]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="189" y="159" width="119" height="16" uuid="aa5a424c-0cbf-4f29-9f9e-0150ded64850"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[Apellido materno         y]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="315" y="159" width="100" height="20" uuid="9fb8bc03-fe99-4cd6-9af1-fc0877203977"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[Nombre(s)]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="156" y="142" width="257" height="20" uuid="6f729864-a694-42c3-ab3b-4b6077c1c1fa"/>
+				<textFieldExpression><![CDATA[$P{nombrePac}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="202" y="173" width="1" height="35" uuid="c8cd2360-4309-4256-b575-dc87a164c546"/>
+				<graphicElement>
+					<pen lineWidth="1.5"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="378" y="173" width="1" height="35" uuid="d7af33c8-1f4a-4543-a850-2812a84ea97a"/>
+				<graphicElement>
+					<pen lineWidth="1.5"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="575" y="173" width="1" height="35" uuid="f6896c20-ebb0-4f65-b345-1299ea084b31"/>
+				<graphicElement>
+					<pen lineWidth="1.5"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="39" y="174" width="144" height="20" uuid="18b616f7-71c0-4ae2-a413-fef381f53700"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[FECHA DE INTERNAMIENTO:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="213" y="174" width="103" height="20" uuid="d44d91a4-25c6-4ff4-b16f-74afa4bdd6c5"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[FECHA DE CIRUGÍA:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="585" y="174" width="65" height="20" uuid="cea1b025-b693-4435-bf69-227e0af1af1c"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[TELEFONO:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="387" y="174" width="63" height="20" uuid="325b2adc-d370-4628-81f4-8335ea97714f"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[SERVICIO:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="44" y="197" width="142" height="1" uuid="b1691f2d-4a48-4024-8f50-c2c9736feb5d"/>
+			</line>
+			<line>
+				<reportElement x="221" y="197" width="146" height="1" uuid="f633c54d-add0-433b-923b-ba2ad9076029"/>
+			</line>
+			<line>
+				<reportElement x="394" y="197" width="167" height="1" uuid="2d7aefc8-b48f-461a-9ad6-ebb87873134f"/>
+			</line>
+			<line>
+				<reportElement x="587" y="196" width="91" height="1" uuid="7f2cdeb5-41b8-4163-ad02-3a97918db029"/>
+			</line>
+			<staticText>
+				<reportElement x="88" y="197" width="60" height="13" uuid="ee931933-3414-44cb-8427-707048efb696"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[DD/MM/AAAA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="266" y="197" width="60" height="13" uuid="57c1ab8c-2cfe-437e-9ab8-404c236d29de"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[DD/MM/AAAA]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="88" y="185" width="88" height="20" uuid="a03de8ac-7528-448c-9d6b-6d7ef0c5b616"/>
+				<textFieldExpression><![CDATA[$P{fechaInter}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="267" y="185" width="64" height="15" uuid="1660e801-dcf3-4f2a-8a62-a8184506d7e5"/>
+				<textFieldExpression><![CDATA[$P{fechaCir}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="441" y="185" width="100" height="20" uuid="bffba3d2-afba-4c73-b82b-5c9244bc10fa"/>
+				<textFieldExpression><![CDATA[$P{servicio}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="597" y="184" width="100" height="15" uuid="ccdf0251-d338-4b01-b445-5850af1c8e8c"/>
+				<textFieldExpression><![CDATA[$P{telPaciente}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="453" y="7" width="115" height="20" uuid="ff2eccc4-a4cc-470a-83c4-651e907d557b"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[FECHA DE SOLICITUD:]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="567" splitType="Stretch">
+			<rectangle>
+				<reportElement x="31" y="417" width="660" height="56" uuid="09857d07-64cc-4b2d-8a1a-edf7ddc3352c"/>
+				<graphicElement>
+					<pen lineWidth="1.5"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement mode="Transparent" x="31" y="64" width="661" height="338" uuid="baf3094a-ae4a-4652-85e3-fdee939662d7"/>
+				<graphicElement>
+					<pen lineWidth="1.5"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="31" y="4" width="660" height="49" uuid="5ac584b4-43ea-48c7-b466-33c0cd91d458"/>
+				<graphicElement>
+					<pen lineWidth="1.5"/>
+				</graphicElement>
+			</rectangle>
+			<line>
+				<reportElement x="89" y="-132" width="341" height="1" uuid="4a77c300-ef49-436a-9bca-0a6bf1b25ab7"/>
+				<graphicElement>
+					<pen lineWidth="1.0"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="36" y="-115" width="394" height="1" uuid="1f35d85a-3dc7-44a7-8dff-88122827a737"/>
+				<graphicElement>
+					<pen lineWidth="1.0"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="41" y="7" width="643" height="46" uuid="45569b18-bf5d-455e-a3b4-8b29f98a2985"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SE COMUNICA A LOS DERECHOHABIENTES QUE CON BASE AL ARTICULO N°322  Y 462 DE LA LEY GENERAL DE SALUD DE LA SECRETARÍA DE SALUD, PUBLICADO EN EL DIARIO OFICIAL DE LA FEDERACIÓN  CON FECHA 07 DE JUNIO DE 2012, SE PROHIBE LA COMERCIALIZACIÓN DE SANGRE, INFRINGIR ESTE ÁRTICULO IMPLICA SANCIONES]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="68" y="98" width="620" height="233" uuid="a4ed779e-3d06-49b7-9485-254630bd7017"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[Acudir con una identificación oficial con fotografia original y vigente (INE, pasaporte, cédula profesional, credencial ADIMSS, cartilla nacional de salud vigente, licencia de manejo, para extranjeros: Pasaporte, carnet de identificación del ciudadano extranjeroo forma migratoria FM2 o FM3 vigente
+Edad de 18 a 65 años.
+Peso mayor de 50 kilos.
+Ayuno minimo de 4 horas/evite consumir alimentos con grasa 24 horas antes de la donacion). Durante las 4 horas de ayuno solo puede ingerir: jugos, frutas (excepto plátano, mamey y aguacate), té, café solo y mantenerse hidratado.
+No exceder de 8 horas de ayuno.
+No haber estado enfermo de gripe, tos, diarrea o infección dental en los últimos 14 dias.
+No haber tomado medicamentos en los últimos 5 dias (por ej. apirina, paracetamol, ibuprofeno, antibióticos, etc. cualquier duda favor de preguntar)
+No haber estado en tratamiento de endodoncia, acapuntura o haberse practicado tatuajes o perforaciones en los últimos doce meses.
+No haberse vacunado en los últimos 30 dias.
+No haber ingerido bebidas alcohólicas en 72 horas previas a la donación.
+Si usted tiene la presión arterial alta y esta controlado, podria ser candidato a donar.
+
+
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="84" width="24" height="236" uuid="805e4120-6b25-4536-b0b8-fbd17d011973"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[
+1.
+
+
+2.
+3.
+4.
+
+5.
+6.
+7.
+
+8.
+
+9.
+10.
+11.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="43" y="334" width="641" height="68" uuid="9e22fe37-d92e-4726-937a-b2f6a7015cad"/>
+				<textElement textAlignment="Justified">
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[Para su comodidad, se recomienda presentarse aseado, con ropa cómoda y manga corta, es necesario disponer de 2 horas, tiempo aproximado de duración del proceso de donación. No se permite el paso a menores de edad ni acompañantes. Si usted ha donado sangre, el personal de Banco de Sangre notificará por correo electrónico a la jefatura de Trabajo Social del Hospital sobre su donación a favor de su paciente. Ante cualquier duda, favor de presentarse con el personal de salud del Banco de Sangre.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="228" y="66" width="293" height="20" uuid="6b154616-2720-4176-bdc6-f9dd08d6e296"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[REQUISITOS MINÍMOS PARA DONAR SANGRE:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="31" y="434" width="660" height="1" uuid="df57d4a9-46be-4354-b530-10383abc31d1"/>
+				<graphicElement>
+					<pen lineWidth="1.5"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="290" y="420" width="260" height="14" uuid="b5bd483e-e058-4a4f-891d-b7f5324a54a1"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[DATOS DE LA TRABAJADORA SOCIAL]]></text>
+			</staticText>
+			<line>
+				<reportElement x="227" y="435" width="1" height="38" uuid="8ea09fbc-7454-492c-944b-7914b5e62b21"/>
+				<graphicElement>
+					<pen lineWidth="1.5"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="384" y="435" width="1" height="38" uuid="4f1dd380-4cf9-412e-a178-68a5ac61fa83"/>
+				<graphicElement>
+					<pen lineWidth="1.5"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="541" y="435" width="1" height="38" uuid="39d828cd-a59e-4d23-ba56-dbfc8b8a2f96"/>
+				<graphicElement>
+					<pen lineWidth="1.5"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="74" y="458" width="134" height="19" uuid="706b4720-96f6-412f-9939-ccc50e3ffcb6"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[NOMBRE COMPLETO]]></text>
+			</staticText>
+			<line>
+				<reportElement x="43" y="457" width="175" height="1" uuid="2064544d-8ebd-40ed-8578-1f4342f3032e"/>
+			</line>
+			<textField>
+				<reportElement x="51" y="443" width="174" height="20" uuid="b81b0473-d15d-47ca-9833-d16b8e0df2bc"/>
+				<textFieldExpression><![CDATA[$P{nombreTS}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="276" y="458" width="69" height="20" uuid="3ab102de-c566-4e38-94a2-19430c59aa5e"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[MATRÍCULA]]></text>
+			</staticText>
+			<line>
+				<reportElement x="240" y="457" width="131" height="1" uuid="e10fbacb-1eab-495a-ab6c-fe497e8b0bd5"/>
+			</line>
+			<textField>
+				<reportElement x="278" y="443" width="100" height="20" uuid="81f133d0-f32d-493b-b4ff-fbf6241c682d"/>
+				<textFieldExpression><![CDATA[$P{matricula}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="446" y="458" width="38" height="20" uuid="4a107b95-7f95-461e-8b8a-891eb110abd2"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[FIRMA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="584" y="458" width="80" height="20" uuid="c2fd57f5-a2c0-423a-b37c-b6756ab33128"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[No. TÉLEFONO]]></text>
+			</staticText>
+			<line>
+				<reportElement x="397" y="457" width="134" height="1" uuid="1796c45d-afc4-4538-9a76-fd8789068e73"/>
+			</line>
+			<line>
+				<reportElement x="559" y="457" width="120" height="1" uuid="154ffd5a-0a47-45df-ae64-6bfdee929076"/>
+			</line>
+			<staticText>
+				<reportElement x="35" y="489" width="151" height="20" uuid="8c730f97-9488-491a-9245-b89479396770"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[OBSERVACIONES]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="590" y="443" width="100" height="20" uuid="10f20269-989a-4136-b0af-4cbe93ea9641"/>
+				<textFieldExpression><![CDATA[$P{telTS}]]></textFieldExpression>
+			</textField>
+			<elementGroup>
+				<rectangle>
+					<reportElement stretchType="RelativeToTallestObject" mode="Transparent" x="31" y="486" width="660" height="42" uuid="b550245f-e2d2-4fdf-aa3d-d93ccac2b5ad"/>
+					<graphicElement>
+						<pen lineWidth="1.5"/>
+					</graphicElement>
+				</rectangle>
+				<textField isStretchWithOverflow="true">
+					<reportElement x="35" y="501" width="649" height="27" uuid="856fc67b-9aa6-4efa-bce5-17fe07f8b68d"/>
+					<textFieldExpression><![CDATA[$P{observaciones}]]></textFieldExpression>
+				</textField>
+			</elementGroup>
+		</band>
+	</detail>
+</jasperReport>
