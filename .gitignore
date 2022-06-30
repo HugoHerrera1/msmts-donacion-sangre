@@ -171,4 +171,5 @@
 /.idea/modules.xml
 /msmts-donacion-sangre.iml
 /.idea/vcs.xml
-/target/
+/target/classes/
+/target/maven-status/
