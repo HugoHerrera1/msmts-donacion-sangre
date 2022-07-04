@@ -6,5 +6,9 @@ import org.springframework.stereotype.Service;
 @Service
 public interface DonacionSangreServices {
     String guardaNuevoVolanteDonacionS(DonacionSangre donacionSangre);
+
     String findVolantesByFechas(String fechaInicial, String fechaFinal);
+
+    String findVolantesById(Integer idVolanteDonacion);
+    String getBancosSangre();
 }

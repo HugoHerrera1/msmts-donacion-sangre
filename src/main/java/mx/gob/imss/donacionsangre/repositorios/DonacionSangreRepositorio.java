@@ -9,5 +9,7 @@ import java.util.List;
 public interface DonacionSangreRepositorio extends JpaRepository<MtstVolanteDonacionSangre,Integer> {
     @Query(value = "select * from MTST_VOLANTE_DONACION_SANGRE mds where mds.FEC_EFEC between ?1 and ?2 and mds.IND_ACTIVO =1", nativeQuery = true)
     List<MtstVolanteDonacionSangre> findVolantesDSBetwenFechas(String fechaInicial, String fechaFinal);
+    @Query(value = "select * from MTST_VOLANTE_DONACION_SANGRE mds where mds.ID_VOLANTE_DONACION_SANGRE =?1 and mds.IND_ACTIVO =1", nativeQuery = true)
+    MtstVolanteDonacionSangre findVolantesDSById(Integer idVolanteDonacion);
 
 }

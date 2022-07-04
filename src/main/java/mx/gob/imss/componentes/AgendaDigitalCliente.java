@@ -50,31 +50,10 @@ public class AgendaDigitalCliente {
                     .request(MediaType.APPLICATION_JSON).get(new GenericType<List<ServiciosModel>>() {
                     });
         } catch (Exception e) {
-            log.error(messageSource.getMessage("NO_ENCONTRADO", new Object[]{"ESTADO [" + idServicio + "]", e.getMessage()}, Locale.getDefault()));
+            log.error(messageSource.getMessage("SERVICIO_NO_ENCONTRADO", new Object[]{"SERVICIOS [" + idServicio + "]", e.getMessage()}, Locale.getDefault()));
             e.printStackTrace();
             return new ArrayList<>();
         }
-//        Gson gson = new Gson();
-//        log.error("Se hace la consulta servicios por medio del cliente - no caching- ");
-//        try {
-//            URL url = new URL(agendaDigitalUrl + DonacionSangreConstantes.GET_SERVICIOS_PATH + "/" + idServicio);
-//            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-//            conn.setRequestProperty("Accept", "application/json");
-//            BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-//            StringBuilder responseBuilder = new StringBuilder();
-//            String line;
-//            while ((line = reader.readLine()) != null) {
-//                responseBuilder.append(line);
-//            }
-//            String newJson = responseBuilder.substring(1, responseBuilder.length() - 1);
-//            ServiciosModel servicios = gson.fromJson(String.valueOf(newJson), ServiciosModel.class);
-//            return servicios;
-//        } catch (Exception ex) {
-//            log.error("Exception servicios [" + ex.getMessage() + "]");
-//            ServiciosModel servicios = new ServiciosModel();
-//            servicios = null;
-//            return servicios;
-//        }
     }
 
     @Cacheable(cacheNames = "edos")
@@ -87,7 +66,7 @@ public class AgendaDigitalCliente {
                     });
         } catch (Exception e) {
 
-            log.error(messageSource.getMessage("NO_ENCONTRADO", new Object[]{"ESTADO [" + idEstado + "]", e.getMessage()}, Locale.getDefault()));
+            log.error(messageSource.getMessage("ESTADO_NO_ENCONTRADO", new Object[]{"ESTADO [" + idEstado + "]", e.getMessage()}, Locale.getDefault()));
             e.printStackTrace();
 
             return new EstadosModel();
@@ -104,7 +83,7 @@ public class AgendaDigitalCliente {
                     .request(MediaType.APPLICATION_JSON).get(new GenericType<DelegacionMunicipioModel>() {
                     });
         } catch (Exception ex) {
-            log.error(messageSource.getMessage("NO_ENCONTRADO", new Object[]{"DELEGACION [" + idDelegacion + "] : ESTADO [" + idEstado + "]", ex.getMessage()}, Locale.getDefault()));
+            log.error(messageSource.getMessage("DELEGACION_NO_ENCONTRADO", new Object[]{"DELEGACION [" + idDelegacion + "] : ESTADO [" + idEstado + "]", ex.getMessage()}, Locale.getDefault()));
             ex.printStackTrace();
             return new DelegacionMunicipioModel();
         }
@@ -120,7 +99,7 @@ public class AgendaDigitalCliente {
                     .request(MediaType.APPLICATION_JSON).get(new GenericType<CiudadesModel>() {
                     });
         } catch (Exception ex) {
-            log.error(messageSource.getMessage("NO_ENCONTRADO", new Object[]{"CIUDAD [" + idDelegacion + "] : ESTADO [" + idEstado + "]", ex.getMessage()}, Locale.getDefault()));
+            log.error(messageSource.getMessage("CIUDAD_NO_ENCONTRADO", new Object[]{"CIUDAD [" + idDelegacion + "] : ESTADO [" + idEstado + "]", ex.getMessage()}, Locale.getDefault()));
             ex.printStackTrace();
             return new CiudadesModel();
         }

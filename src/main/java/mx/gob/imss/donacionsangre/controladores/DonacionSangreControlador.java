@@ -1,14 +1,11 @@
 package mx.gob.imss.donacionsangre.controladores;
 
-import com.google.gson.Gson;
 import lombok.extern.slf4j.Slf4j;
 import mx.gob.imss.donacionsangre.dto.DonacionSangre;
 import mx.gob.imss.donacionsangre.dto.ReporteDonacionSangre;
-import mx.gob.imss.donacionsangre.modelos.DonacionSangreResponse;
 import mx.gob.imss.donacionsangre.servicios.DonacionSangreServices;
 import mx.gob.imss.donacionsangre.servicios.ReporteDonacionSangreServices;
 import net.sf.jasperreports.engine.JRException;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.core.io.Resource;
@@ -19,7 +16,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
-import java.util.List;
 
 @Slf4j
 @RestController
@@ -28,35 +24,58 @@ public class DonacionSangreControlador {
     @Autowired
     DonacionSangreServices donaSangre;
 
-    
+
     @Autowired
-	private ReporteDonacionSangreServices reporteDonacionSangreServices;
+    private ReporteDonacionSangreServices reporteDonacionSangreServices;
 
     @PostMapping(value = "/guardaNuevoVolanteDonacionSangre",
             produces = "application/json",
             consumes = "application/json")
     public ResponseEntity guardanuevoVolante(@RequestBody DonacionSangre donacionSangre) {
-        Gson gson = new Gson();
-        System.out.println(gson.toJson(donacionSangre));
-        return new ResponseEntity<>(donaSangre.guardaNuevoVolanteDonacionS(donacionSangre), HttpStatus.OK);
+       try{
+           return new ResponseEntity(donaSangre.guardaNuevoVolanteDonacionS(donacionSangre), HttpStatus.OK);
+       }catch (Exception ex){
+           return new ResponseEntity(ex.getMessage(), HttpStatus.BAD_REQUEST);
+       }
     }
 
     @GetMapping(path = "/findVolantesByFechas/{fechaInicial}/{fechaFinal}", produces = "application/json")
     public ResponseEntity findVolantesByFechas(@PathVariable String fechaInicial, @PathVariable String fechaFinal) {
-        return new ResponseEntity<>(donaSangre.findVolantesByFechas(fechaInicial, fechaFinal), HttpStatus.OK);
+        try{
+            return new ResponseEntity(donaSangre.findVolantesByFechas(fechaInicial, fechaFinal), HttpStatus.OK);
+        }catch (Exception ex){
+            return new ResponseEntity(ex.getMessage(), HttpStatus.BAD_REQUEST);
+        }
     }
-    
-    @PostMapping (path = "/reporteDonacionSangre", consumes = "application/json")
+
+    @PostMapping(path = "/reporteDonacionSangre", consumes = "application/json")
     public ResponseEntity<Resource> download(@RequestBody ReporteDonacionSangre reporte)
             throws JRException, IOException {
-    	
-    	byte[] filePdf = reporteDonacionSangreServices.imprimeDonacionSangre(reporte);
-    	ByteArrayResource resource = new ByteArrayResource(filePdf);
-     	return ResponseEntity.ok()
-    			.header(HttpHeaders.CONTENT_DISPOSITION, "attachment;filename=Reporte_DonacionSangre.pdf")
-    			.contentType(MediaType.APPLICATION_OCTET_STREAM).contentLength(filePdf.length).body(resource);
+        byte[] filePdf = reporteDonacionSangreServices.imprimeDonacionSangre(reporte);
+        ByteArrayResource resource = new ByteArrayResource(filePdf);
+        return ResponseEntity.ok()
+                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment;filename=Reporte_DonacionSangre.pdf")
+                .contentType(MediaType.APPLICATION_OCTET_STREAM).contentLength(filePdf.length).body(resource);
 
-    } 
+    }
 
+    @GetMapping(path = "/findVolantesById/{idVolanteDonacion}", produces = "application/json")
+    public ResponseEntity findVolantesByID(@PathVariable Integer idVolanteDonacion) {
+        try {
+            return new ResponseEntity(donaSangre.findVolantesById(idVolanteDonacion), HttpStatus.OK);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            return new ResponseEntity(ex.getMessage(), HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @GetMapping(path = "/getBancosSangre",produces = "application/json")
+    public ResponseEntity getBancosSangre(){
+        try{
+return new ResponseEntity(donaSangre.getBancosSangre(),HttpStatus.OK);
+        }catch (Exception ex){
+            return new ResponseEntity(ex.getMessage(),HttpStatus.BAD_REQUEST);
+        }
+    }
 }
 

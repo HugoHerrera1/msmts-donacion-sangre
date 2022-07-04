@@ -21,5 +21,8 @@ public class DonacionSangreConstantes {
      public static final String GET_CIUDAD_PATH = "/getCiudadesByID";
      public static final String GET_OCUPACION_PATH = "/getOcupacionByID";
      public static final String GET_SERVICIOS_PATH = "/listEspecialidad";
+     public static final String MENSAJE_OK = "Operacion correcta";
+     public static final String MENSAJE_ERROR = "Operacion incorrecta";
+
 
 }
