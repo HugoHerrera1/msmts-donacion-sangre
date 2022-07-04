@@ -15,45 +15,45 @@ public class ReporteDonacionSangre {
 	
 	
 	@JsonProperty
-	private String uMedicaH;
+	private String desUnidadMedicaHospitalaria;
 	@JsonProperty
-    private String fechaSolc;
+    private String fecEfec;
 	@JsonProperty
-    private String nombreBancoS;
+    private String idNombreBancoSangre;
     @JsonProperty
-    private String calleBanco;
+    private String nomCalle;
     @JsonProperty
-    private String noBanco;
+    private String numExterior;
     @JsonProperty
-    private String colBanco;
+    private String nomColonia;
     @JsonProperty
-    private String cpBanco;
+    private String desCodigoPostal;
     @JsonProperty
-    private String alcaldiaBanco;
+    private String idDelegacionMunicipio;
     @JsonProperty
-    private String hrDesde;
+    private String timHoraInicialAtencion;
     @JsonProperty
-    private String hrHasta;
+    private String timHoraFinalAtencion;
     @JsonProperty
     private String nss;
     @JsonProperty
-    private String agregado;
+    private String desNssAgregado;
     @JsonProperty
-    private String fechaInter;
+    private String fecInternamiento;
     @JsonProperty
-    private String fechaCir;
+    private String fecCirugia;
     @JsonProperty
-    private String servicio;
+    private String idServicio;
     @JsonProperty
-    private String telPaciente;
+    private String numTelefonoPaciente;
     @JsonProperty
-    private String nombreTS;
+    private String nomTrabajadorSocial;
     @JsonProperty
-    private String matricula;
+    private String desMatriculaTrabajadorSocial;
     @JsonProperty
-    private String telTS;
+    private String numTelefonoTrabajadorSocial;
     @JsonProperty
-    private String observaciones;
+    private String desObservaciones;
     @JsonProperty
-    private String nombrePac;
+    private String nomPaciente;
 }

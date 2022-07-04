@@ -29,27 +29,27 @@ public class ReporteDonacionSangreImpl implements ReporteDonacionSangreServices 
 		byte [] filePdf= new byte [0];
 		
 		
-		   parameters.put("uMedicaH", reporte.getUMedicaH());
-	        parameters.put("fechaSolc", reporte.getFechaSolc());
-	        parameters.put("nombreBancoS", reporte.getNombreBancoS());
-	        parameters.put("calleBanco", reporte.getCalleBanco());
-	        parameters.put("noBanco", reporte.getNoBanco());
-	        parameters.put("colBanco", reporte.getColBanco());
-	        parameters.put("cpBanco", reporte.getCpBanco());
-	        parameters.put("alcaldiaBanco", reporte.getAlcaldiaBanco());
-	        parameters.put("hrDesde", reporte.getHrDesde());
-	        parameters.put("hrHasta", reporte.getHrHasta());
+		   parameters.put("desUnidadMedicaHospitalaria", reporte.getDesUnidadMedicaHospitalaria());
+	        parameters.put("fecEfec", reporte.getFecEfec());
+	        parameters.put("idNombreBancoSangre", reporte.getIdNombreBancoSangre());
+	        parameters.put("nomCalle", reporte.getNomCalle());
+	        parameters.put("numExterior", reporte.getNumExterior());
+	        parameters.put("nomColonia", reporte.getNomColonia());
+	        parameters.put("desCodigoPostal", reporte.getDesCodigoPostal());
+	        parameters.put("idDelegacionMunicipio", reporte.getIdDelegacionMunicipio());
+	        parameters.put("timHoraInicialAtencion", reporte.getTimHoraInicialAtencion());
+	        parameters.put("timHoraFinalAtencion", reporte.getTimHoraFinalAtencion());
 	        parameters.put("nss", reporte.getNss());
-	        parameters.put("agregado", reporte.getAgregado());
-	        parameters.put("fechaInter", reporte.getFechaInter());
-	        parameters.put("fechaCir", reporte.getFechaCir()); 
-	        parameters.put("servicio", reporte.getServicio());
-	        parameters.put("telPaciente", reporte.getTelPaciente());
-	        parameters.put("nombreTS", reporte.getNombreTS());
-	        parameters.put("matricula", reporte.getMatricula());
-	        parameters.put("telTS", reporte.getTelTS());
-	        parameters.put("observaciones", reporte.getObservaciones());
-	        parameters.put("nombrePac", reporte.getNombrePac());
+	        parameters.put("desNssAgregado", reporte.getDesNssAgregado());
+	        parameters.put("fecInternamiento", reporte.getFecInternamiento());
+	        parameters.put("fecCirugia", reporte.getFecCirugia()); 
+	        parameters.put("idServicio", reporte.getIdServicio());
+	        parameters.put("numTelefonoPaciente", reporte.getNumTelefonoPaciente());
+	        parameters.put("nomTrabajadorSocial", reporte.getNomTrabajadorSocial());
+	        parameters.put("desMatriculaTrabajadorSocial", reporte.getDesMatriculaTrabajadorSocial());
+	        parameters.put("numTelefonoTrabajadorSocial", reporte.getNumTelefonoTrabajadorSocial());
+	        parameters.put("desObservaciones", reporte.getDesObservaciones());
+	        parameters.put("nomPaciente", reporte.getNomPaciente());
 	        
 	        try {
 
