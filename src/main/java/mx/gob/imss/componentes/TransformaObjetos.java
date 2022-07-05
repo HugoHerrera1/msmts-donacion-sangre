@@ -16,7 +16,6 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.List;
-import java.util.Locale;
 import java.util.Objects;
 
 
@@ -79,8 +78,8 @@ public class TransformaObjetos {
         // nombre banco de sangre
         //falta consumo AD
         dr.setNombreBancoSangre("");
-        dr.setTimHoraInicialAtencion(msmdstDonacionSangre.getTimInicialAtencion());
-        dr.setTimHoraFinalAtencion(msmdstDonacionSangre.getTimFinalAtencion());
+        dr.setTimHoraInicialAtencion(msmdstDonacionSangre.getTimInicialAtencion().toString());
+        dr.setTimHoraFinalAtencion(msmdstDonacionSangre.getTimFinalAtencion().toString());
         dr.setDesCodigoPostal(msmdstDonacionSangre.getDesCodigoPostal());
         dr.setIdEstado(Integer.valueOf(msmdstDonacionSangre.getIdEstado()));
         //nombre estado
@@ -159,8 +158,8 @@ public class TransformaObjetos {
             dr.setNombreBancoSangre(Objects.isNull(bcos) ? "No se encontro registro banco de sangre" : bcos.getDesTipo()
                     + " " + bcos.getDesNumero()
                     + " " + bcos.getDesLocalidad());
-            dr.setTimHoraInicialAtencion(Time.valueOf(LocalTime.parse(msmdstDonacionSangre.getTimInicialAtencion().toString()).format(DateTimeFormatter.ofPattern("HH:mm:ss"))));
-            dr.setTimHoraFinalAtencion(Time.valueOf(LocalTime.parse(msmdstDonacionSangre.getTimFinalAtencion().toString()).format(DateTimeFormatter.ofPattern("HH:mm:ss"))));
+            dr.setTimHoraInicialAtencion(LocalTime.parse(msmdstDonacionSangre.getTimInicialAtencion().toString()).format(DateTimeFormatter.ofPattern("HH:mm:ss")));
+            dr.setTimHoraFinalAtencion(LocalTime.parse(msmdstDonacionSangre.getTimFinalAtencion().toString()).format(DateTimeFormatter.ofPattern("HH:mm:ss")));
             dr.setDesCodigoPostal(msmdstDonacionSangre.getDesCodigoPostal());
             dr.setIdEstado(Integer.valueOf(msmdstDonacionSangre.getIdEstado()));
             //nombre estado

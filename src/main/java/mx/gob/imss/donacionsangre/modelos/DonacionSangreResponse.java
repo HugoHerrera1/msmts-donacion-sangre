@@ -2,8 +2,6 @@ package mx.gob.imss.donacionsangre.modelos;
 
 import lombok.Data;
 
-import java.sql.Time;
-
 @Data
 public class DonacionSangreResponse {
 
@@ -12,8 +10,8 @@ public class DonacionSangreResponse {
     private String fecEfec;
     private Integer idNombreBancoSangre;
     private String nombreBancoSangre;
-    private Time timHoraInicialAtencion;
-    private Time timHoraFinalAtencion;
+    private String timHoraInicialAtencion;
+    private String timHoraFinalAtencion;
     private String desCodigoPostal;
     private Integer idEstado;
     private String nombreEstado;
