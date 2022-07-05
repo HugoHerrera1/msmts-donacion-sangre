@@ -1,6 +1,5 @@
 package mx.gob.imss.componentes;
 
-import com.google.gson.Gson;
 import lombok.extern.slf4j.Slf4j;
 import mx.gob.imss.constantes.DonacionSangreConstantes;
 import mx.gob.imss.donacionsangre.dto.DonacionSangre;
@@ -13,7 +12,6 @@ import java.sql.Time;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
@@ -45,13 +43,13 @@ public class TransformaObjetos {
         msmdstDonacionSangre.setTimFinalAtencion(new Time(timeFinal));
 
         msmdstDonacionSangre.setDesCodigoPostal(donacionSangre.getCodigoPostal());
-        msmdstDonacionSangre.setIdEstado(donacionSangre.getIdEstado().toString());
-        msmdstDonacionSangre.setIdDelegacionMunicipio(donacionSangre.getIdDelegacion().toString());
+        msmdstDonacionSangre.setIdEstado(donacionSangre.getIdEstado());
+        msmdstDonacionSangre.setIdDelegacionMunicipio(donacionSangre.getIdDelegacion());
         msmdstDonacionSangre.setIdCiudad(donacionSangre.getIdCiudad().toString());
         msmdstDonacionSangre.setNomColonia(donacionSangre.getColonia());
         msmdstDonacionSangre.setNomCalle(donacionSangre.getCalle());
-        msmdstDonacionSangre.setNumExterior(donacionSangre.getNumExterior().toString());
-        msmdstDonacionSangre.setNumInterior(donacionSangre.getNumInterior().toString());
+        msmdstDonacionSangre.setNumExterior(donacionSangre.getNumExterior());
+        msmdstDonacionSangre.setNumInterior(donacionSangre.getNumInterior());
         msmdstDonacionSangre.setNomPaciente(donacionSangre.getNombrePaciente());
         msmdstDonacionSangre.setDesNssAgregado(donacionSangre.getDesNSS());
         msmdstDonacionSangre.setIdServicio(donacionSangre.getIdServicio());
@@ -107,7 +105,7 @@ public class TransformaObjetos {
         dr.setDesNssAgregado(msmdstDonacionSangre.getDesNssAgregado());
         dr.setIdServicio(msmdstDonacionSangre.getIdServicio());
         // nombre servicio
-        List<ServiciosModel> servicios = client.getServicio(msmdstDonacionSangre.getIdServicio().toString());
+        List<ServiciosModel> servicios = client.getServicio(msmdstDonacionSangre.getIdServicio());
         String nombreServicio = servicios.isEmpty() ? "No se encontro registro de especialidades" : servicios.get(0).getNomEspecialidad();
         dr.setNombreServicio(nombreServicio);
         dr.setFecInternamiento(dateFormat.format(msmdstDonacionSangre.getFecInternamiento()));
@@ -186,7 +184,7 @@ public class TransformaObjetos {
             dr.setDesNssAgregado(msmdstDonacionSangre.getDesNssAgregado());
             dr.setIdServicio(msmdstDonacionSangre.getIdServicio());
             // nombre servicio
-            List<ServiciosModel> servicios = client.getServicio(msmdstDonacionSangre.getIdServicio().toString());
+            List<ServiciosModel> servicios = client.getServicio(msmdstDonacionSangre.getIdServicio());
             String nombreServicio = servicios.isEmpty() ? "No se encontro registro" : servicios.get(0).getNomEspecialidad();
             dr.setNombreServicio(nombreServicio);
             dr.setFecInternamiento(dateFormat.format(msmdstDonacionSangre.getFecInternamiento()));
