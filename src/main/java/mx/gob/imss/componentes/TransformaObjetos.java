@@ -12,8 +12,11 @@ import java.sql.Time;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 import java.util.Objects;
 
 
@@ -145,6 +148,7 @@ public class TransformaObjetos {
     public DonacionSangreResponse detalle(MtstVolanteDonacionSangre msmdstDonacionSangre) {
         DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
         DonacionSangreResponse dr = new DonacionSangreResponse();
+        MtscBancoSangre bcos = bancoSangre.findNameBancobyId(msmdstDonacionSangre.getIdNombreBancoSangre().intValue());
         try {
             dr.setIdVolanteDonacionSangre(Integer.parseInt(msmdstDonacionSangre.getId().toString()));
             dr.setDesUnidadMedicaHospitalaria(msmdstDonacionSangre.getDesUnidadMedicaHospitalaria());
@@ -152,11 +156,11 @@ public class TransformaObjetos {
             dr.setIdNombreBancoSangre(msmdstDonacionSangre.getIdNombreBancoSangre().intValue());
             // nombre banco de sangre
             //falta consumo AD
-            dr.setNombreBancoSangre(Objects.isNull(bancoSangre) ? "No se encontro registro banco de sangre" : bancoSangre.findNameBancobyId(msmdstDonacionSangre.getIdNombreBancoSangre().intValue()).getDesTipo()
-                    + " " + bancoSangre.findNameBancobyId(msmdstDonacionSangre.getIdNombreBancoSangre().intValue()).getDesNumero()
-                    + " " + bancoSangre.findNameBancobyId(msmdstDonacionSangre.getIdNombreBancoSangre().intValue()).getDesLocalidad());
-            dr.setTimHoraInicialAtencion(msmdstDonacionSangre.getTimInicialAtencion());
-            dr.setTimHoraFinalAtencion(msmdstDonacionSangre.getTimFinalAtencion());
+            dr.setNombreBancoSangre(Objects.isNull(bcos) ? "No se encontro registro banco de sangre" : bcos.getDesTipo()
+                    + " " + bcos.getDesNumero()
+                    + " " + bcos.getDesLocalidad());
+            dr.setTimHoraInicialAtencion(Time.valueOf(LocalTime.parse(msmdstDonacionSangre.getTimInicialAtencion().toString()).format(DateTimeFormatter.ofPattern("HH:mm:ss"))));
+            dr.setTimHoraFinalAtencion(Time.valueOf(LocalTime.parse(msmdstDonacionSangre.getTimFinalAtencion().toString()).format(DateTimeFormatter.ofPattern("HH:mm:ss"))));
             dr.setDesCodigoPostal(msmdstDonacionSangre.getDesCodigoPostal());
             dr.setIdEstado(Integer.valueOf(msmdstDonacionSangre.getIdEstado()));
             //nombre estado
