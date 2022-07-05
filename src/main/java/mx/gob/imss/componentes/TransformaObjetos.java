@@ -84,20 +84,20 @@ public class TransformaObjetos {
         dr.setIdEstado(Integer.valueOf(msmdstDonacionSangre.getIdEstado()));
         //nombre estado
         EstadosModel edos = client.getEstado(Integer.valueOf(msmdstDonacionSangre.getIdEstado()));
-        String nombreEdo = Objects.isNull(edos) ? "No se encontro registro de estados" : edos.getNomCompleto();
+        String nombreEdo = Objects.isNull(edos) ? "No se encontro registro de estados" : edos.getDes_nombre_completo();
         dr.setNombreEstado(nombreEdo);
         // fin nombre estado
         dr.setIdDelegacionMunicipio(Integer.valueOf(msmdstDonacionSangre.getIdDelegacionMunicipio()));
         //nombre delegacion
         DelegacionMunicipioModel del = client.getDelegacion(Integer.valueOf(msmdstDonacionSangre.getIdEstado()), Integer.valueOf(msmdstDonacionSangre.getIdDelegacionMunicipio()));
-        String nombreDel = Objects.isNull(del) ? "No se encontro registro Delegacion/Municipio" : del.getNomMunicipio();
+        String nombreDel = Objects.isNull(del) ? "No se encontro registro Delegacion/Municipio" : del.getDes_municipio();
         dr.setNombreDelegacionMunicipio(nombreDel);
 
         // fin nombre delegacion
         dr.setIdCiudad(Integer.valueOf(msmdstDonacionSangre.getIdCiudad()));
         //nombre ciudad
         CiudadesModel ciudades = client.getCiudad(Integer.valueOf(msmdstDonacionSangre.getIdEstado()), Integer.valueOf(msmdstDonacionSangre.getIdDelegacionMunicipio()), Integer.valueOf(msmdstDonacionSangre.getIdCiudad()));
-        String nombreCiudades = Objects.isNull(ciudades) ? "No se encontro registro de ciudades" : ciudades.getNomCiudad();
+        String nombreCiudades = Objects.isNull(ciudades) ? "No se encontro registro de ciudades" : ciudades.getDes_ciudad();
         dr.setNombreCiudad(nombreCiudades);
         dr.setNomColonia(msmdstDonacionSangre.getNomColonia());
         dr.setNomCalle(msmdstDonacionSangre.getNomCalle());
@@ -108,7 +108,7 @@ public class TransformaObjetos {
         dr.setIdServicio(msmdstDonacionSangre.getIdServicio());
         // nombre servicio
         List<ServiciosModel> servicios = client.getServicio(msmdstDonacionSangre.getIdServicio());
-        String nombreServicio = servicios.isEmpty() ? "No se encontro registro de especialidades" : servicios.get(0).getNomEspecialidad();
+        String nombreServicio = servicios.isEmpty() ? "No se encontro registro de especialidades" : servicios.get(0).getDes_especialidad();
         dr.setNombreServicio(nombreServicio);
         dr.setFecInternamiento(dateFormat.format(msmdstDonacionSangre.getFecInternamiento()));
         dr.setFecCirugia(dateFormat.format(msmdstDonacionSangre.getFecCirugia()));
@@ -164,20 +164,20 @@ public class TransformaObjetos {
             dr.setIdEstado(Integer.valueOf(msmdstDonacionSangre.getIdEstado()));
             //nombre estado
             EstadosModel edos = client.getEstado(Integer.valueOf(msmdstDonacionSangre.getIdEstado()));
-            String nombreEdo = Objects.isNull(edos) ? "No se encontro registro estados" : edos.getNomCompleto();
+            String nombreEdo = Objects.isNull(edos) ? "No se encontro registro estados" : edos.getDes_nombre_completo();
             dr.setNombreEstado(nombreEdo);
             // fin nombre estado
             dr.setIdDelegacionMunicipio(Integer.valueOf(msmdstDonacionSangre.getIdDelegacionMunicipio()));
             //nombre delegacion
             DelegacionMunicipioModel del = client.getDelegacion(Integer.valueOf(msmdstDonacionSangre.getIdEstado()), Integer.valueOf(msmdstDonacionSangre.getIdDelegacionMunicipio()));
-            String nombreDel = Objects.isNull(del) ? "No se encontro registros Delegacion/Municipio" : del.getNomMunicipio();
+            String nombreDel = Objects.isNull(del) ? "No se encontro registros Delegacion/Municipio" : del.getDes_municipio();
             dr.setNombreDelegacionMunicipio(nombreDel);
 
             // fin nombre delegacion
             dr.setIdCiudad(Integer.valueOf(msmdstDonacionSangre.getIdCiudad()));
             //nombre ciudad
             CiudadesModel ciudades = client.getCiudad(Integer.valueOf(msmdstDonacionSangre.getIdEstado()), Integer.valueOf(msmdstDonacionSangre.getIdDelegacionMunicipio()), Integer.valueOf(msmdstDonacionSangre.getIdCiudad()));
-            String nombreCiudades = Objects.isNull(ciudades) ? "No se encontro registro" : ciudades.getNomCiudad();
+            String nombreCiudades = Objects.isNull(ciudades) ? "No se encontro registro" : ciudades.getDes_ciudad();
             dr.setNombreCiudad(nombreCiudades);
             dr.setNomColonia(msmdstDonacionSangre.getNomColonia());
             dr.setNomCalle(msmdstDonacionSangre.getNomCalle());
@@ -188,7 +188,7 @@ public class TransformaObjetos {
             dr.setIdServicio(msmdstDonacionSangre.getIdServicio());
             // nombre servicio
             List<ServiciosModel> servicios = client.getServicio(msmdstDonacionSangre.getIdServicio());
-            String nombreServicio = servicios.isEmpty() ? "No se encontro registro" : servicios.get(0).getNomEspecialidad();
+            String nombreServicio = servicios.isEmpty() ? "No se encontro registro" : servicios.get(0).getDes_especialidad();
             dr.setNombreServicio(nombreServicio);
             dr.setFecInternamiento(dateFormat.format(msmdstDonacionSangre.getFecInternamiento()));
             dr.setFecCirugia(dateFormat.format(msmdstDonacionSangre.getFecCirugia()));

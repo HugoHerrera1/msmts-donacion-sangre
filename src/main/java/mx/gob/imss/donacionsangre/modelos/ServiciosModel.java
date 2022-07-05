@@ -6,34 +6,32 @@ import lombok.Data;
 @Data
 public class ServiciosModel {
     @JsonProperty
-    private String id;
+    private String cve_especialidad;
     @JsonProperty
-    private String desClaveEspecialidad;
+    private String des_especialidad;
     @JsonProperty
-    private String nomEspecialidad;
+    private String ind_ce;
     @JsonProperty
-    private String indCe;
+    private String ind_iq;
     @JsonProperty
-    private String indHospital;
+    private String ind_hospital;
     @JsonProperty
-    private String indIq;
+    private String ind_nivel1;
     @JsonProperty
-    private String indNivel1;
+    private String ind_nivel2;
     @JsonProperty
-    private String indNivel2;
+    private String ind_nivel3;
     @JsonProperty
-    private String indNivel3;
+    private String ind_css;
     @JsonProperty
     private String indCss;
     @JsonProperty
-    private String fecExpira;
+    private String fec_baja;
     @JsonProperty
-    private String fecAlta;
+    private String fec_alta;
     @JsonProperty
-    private String fecActualizacion;
+    private String fec_actualizacion;
     @JsonProperty
-    private String fecBaja;
-    @JsonProperty
-    private Boolean indActivo;
+    private String ind_activo;
 
 }

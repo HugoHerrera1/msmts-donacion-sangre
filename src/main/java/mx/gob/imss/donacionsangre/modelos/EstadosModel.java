@@ -7,11 +7,23 @@ import lombok.Data;
 public class EstadosModel {
 
     @JsonProperty
-    private Integer idEstado;
+    private String cve_estado;
 
     @JsonProperty
-    private String nomCompleto;
+    private String des_nombre_completo;
 
     @JsonProperty
-    private String nomAbreviado;
+    private String des_nombre_abreviado;
+
+    @JsonProperty
+    private String fec_alta;
+
+    @JsonProperty
+    private String fec_modificacion;
+
+    @JsonProperty
+    private String fec_baja;
+
+    @JsonProperty
+    private String ind_activo;
 }

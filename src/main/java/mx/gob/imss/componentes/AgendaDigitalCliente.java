@@ -65,10 +65,8 @@ public class AgendaDigitalCliente {
                     .request(MediaType.APPLICATION_JSON).get(new GenericType<EstadosModel>() {
                     });
         } catch (Exception e) {
-
             log.error(messageSource.getMessage("ESTADO_NO_ENCONTRADO", new Object[]{"ESTADO [" + idEstado + "]", e.getMessage()}, Locale.getDefault()));
             e.printStackTrace();
-
             return new EstadosModel();
         }
     }
