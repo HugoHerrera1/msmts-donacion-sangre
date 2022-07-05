@@ -54,7 +54,7 @@ public class TransformaObjetos {
         msmdstDonacionSangre.setNumInterior(donacionSangre.getNumInterior().toString());
         msmdstDonacionSangre.setNomPaciente(donacionSangre.getNombrePaciente());
         msmdstDonacionSangre.setDesNssAgregado(donacionSangre.getDesNSS());
-        msmdstDonacionSangre.setIdServicio(donacionSangre.getIdServicio().longValue());
+        msmdstDonacionSangre.setIdServicio(donacionSangre.getIdServicio());
         Date dateFecInternamiento = format.parse(donacionSangre.getFechaInternamiento());
         msmdstDonacionSangre.setFecInternamiento(dateFecInternamiento);
         Date dateFecCirugia = format.parse(donacionSangre.getFechaCirugia());
@@ -105,7 +105,7 @@ public class TransformaObjetos {
         dr.setNumInterior(msmdstDonacionSangre.getNumInterior());
         dr.setNomPaciente(msmdstDonacionSangre.getNomPaciente());
         dr.setDesNssAgregado(msmdstDonacionSangre.getDesNssAgregado());
-        dr.setIdServicio(msmdstDonacionSangre.getIdServicio().intValue());
+        dr.setIdServicio(msmdstDonacionSangre.getIdServicio());
         // nombre servicio
         List<ServiciosModel> servicios = client.getServicio(msmdstDonacionSangre.getIdServicio().toString());
         String nombreServicio = servicios.isEmpty() ? "No se encontro registro de especialidades" : servicios.get(0).getNomEspecialidad();
@@ -184,7 +184,7 @@ public class TransformaObjetos {
             dr.setNumInterior(msmdstDonacionSangre.getNumInterior());
             dr.setNomPaciente(msmdstDonacionSangre.getNomPaciente());
             dr.setDesNssAgregado(msmdstDonacionSangre.getDesNssAgregado());
-            dr.setIdServicio(msmdstDonacionSangre.getIdServicio().intValue());
+            dr.setIdServicio(msmdstDonacionSangre.getIdServicio());
             // nombre servicio
             List<ServiciosModel> servicios = client.getServicio(msmdstDonacionSangre.getIdServicio().toString());
             String nombreServicio = servicios.isEmpty() ? "No se encontro registro" : servicios.get(0).getNomEspecialidad();

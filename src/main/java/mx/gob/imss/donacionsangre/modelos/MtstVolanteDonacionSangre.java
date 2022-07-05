@@ -28,7 +28,7 @@ public class MtstVolanteDonacionSangre {
     private String idCiudad;
 
     @Column(name = "ID_SERVICIO")
-    private Long idServicio;
+    private String idServicio;
 
     @Column(name = "DES_UNIDAD_MEDICA_HOSPITALARIA", length = 100)
     private String desUnidadMedicaHospitalaria;
@@ -139,11 +139,11 @@ public class MtstVolanteDonacionSangre {
         this.idCiudad = idCiudad;
     }
 
-    public Long getIdServicio() {
+    public String getIdServicio() {
         return idServicio;
     }
 
-    public void setIdServicio(Long idServicio) {
+    public void setIdServicio(String idServicio) {
         this.idServicio = idServicio;
     }
 

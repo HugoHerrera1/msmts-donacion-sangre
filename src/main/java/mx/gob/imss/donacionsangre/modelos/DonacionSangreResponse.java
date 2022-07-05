@@ -27,7 +27,7 @@ public class DonacionSangreResponse {
     private String numInterior;
     private String nomPaciente;
     private String desNssAgregado;
-    private Integer idServicio;
+    private String idServicio;
     private String nombreServicio;
     private String fecInternamiento;
     private String fecCirugia;
