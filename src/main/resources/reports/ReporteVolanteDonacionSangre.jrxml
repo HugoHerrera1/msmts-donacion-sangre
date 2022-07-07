@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReporteVolanteDonacionSangre" language="groovy" pageWidth="791" pageHeight="970" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="25b96f8f-9971-40ce-871d-06fa2647eae4">
 	<property name="ireport.zoom" value="1.9487171000000192"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.y" value="1039"/>
 	<parameter name="desUnidadMedicaHospitalaria" class="java.lang.String"/>
 	<parameter name="fecEfec" class="java.lang.String"/>
 	<parameter name="idNombreBancoSangre" class="java.lang.String"/>
@@ -27,28 +27,28 @@
 	<title>
 		<band height="129" splitType="Stretch">
 			<staticText>
-				<reportElement x="212" y="27" width="365" height="20" uuid="e598aec1-cac1-4b23-bbe1-d9a25d46e492"/>
+				<reportElement x="212" y="27" width="432" height="20" uuid="e598aec1-cac1-4b23-bbe1-d9a25d46e492"/>
 				<textElement>
 					<font size="14" isBold="true"/>
 				</textElement>
 				<text><![CDATA[DIRECCIÓN DE PRESTACIONES MÉDICAS]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="262" y="55" width="259" height="20" uuid="1ad43843-fe08-4b19-a71b-645a2ad4d42a"/>
+				<reportElement x="262" y="55" width="335" height="20" uuid="1ad43843-fe08-4b19-a71b-645a2ad4d42a"/>
 				<textElement>
 					<font size="13" isBold="true"/>
 				</textElement>
 				<text><![CDATA[UNIDAD DE ATÉNCION MÉDICA]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="185" y="80" width="399" height="20" uuid="ac84fadf-ecca-457b-bb5f-abd4698b0751"/>
+				<reportElement x="185" y="80" width="449" height="20" uuid="ac84fadf-ecca-457b-bb5f-abd4698b0751"/>
 				<textElement>
 					<font size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[VOLANTE DE ENVÍO DEL DONADOR DE SANGRE FBS-11]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="478" y="104" width="273" height="20" uuid="328755e7-f02c-4db1-906c-05bd0508c49f"/>
+				<reportElement x="478" y="104" width="252" height="20" uuid="328755e7-f02c-4db1-906c-05bd0508c49f"/>
 				<textElement>
 					<font isBold="true"/>
 				</textElement>
@@ -84,7 +84,7 @@
 				<text><![CDATA[UNIDAD MÉDICA HOSPITALARIA:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="173" y="21" width="177" height="20" uuid="7c875f54-3b1c-479c-bcaf-2aa2efc2eed3"/>
+				<reportElement x="173" y="21" width="268" height="20" uuid="7c875f54-3b1c-479c-bcaf-2aa2efc2eed3"/>
 				<textFieldExpression><![CDATA[$P{desUnidadMedicaHospitalaria}]]></textFieldExpression>
 			</textField>
 			<textField>
@@ -117,7 +117,7 @@
 				</graphicElement>
 			</line>
 			<staticText>
-				<reportElement x="276" y="49" width="274" height="14" uuid="19f478f1-a431-406a-aba7-7e3a6c0f16c8"/>
+				<reportElement x="276" y="49" width="342" height="14" uuid="19f478f1-a431-406a-aba7-7e3a6c0f16c8"/>
 				<textElement>
 					<font isBold="true"/>
 				</textElement>
@@ -144,42 +144,42 @@
 				<text><![CDATA[DOMICILIO:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="105" y="96" width="29" height="17" uuid="b3e4b2ac-62b4-4934-ba9f-b8cf05505fbe"/>
+				<reportElement x="105" y="96" width="45" height="17" uuid="b3e4b2ac-62b4-4934-ba9f-b8cf05505fbe"/>
 				<textElement>
 					<font size="9"/>
 				</textElement>
 				<text><![CDATA[Calle]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="158" y="96" width="29" height="17" uuid="7f45f4e0-61e1-47ec-a9c1-7f8de060256f"/>
+				<reportElement x="158" y="96" width="37" height="17" uuid="7f45f4e0-61e1-47ec-a9c1-7f8de060256f"/>
 				<textElement>
 					<font size="9"/>
 				</textElement>
 				<text><![CDATA[No.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="209" y="97" width="34" height="17" uuid="387e825c-ab70-4575-a697-cd9364a67cfe"/>
+				<reportElement x="209" y="97" width="58" height="17" uuid="387e825c-ab70-4575-a697-cd9364a67cfe"/>
 				<textElement>
 					<font size="9"/>
 				</textElement>
 				<text><![CDATA[Colonia]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="295" y="97" width="34" height="17" uuid="0604f8ff-58a8-4914-836f-755ea25eb4f3"/>
+				<reportElement x="295" y="97" width="72" height="17" uuid="0604f8ff-58a8-4914-836f-755ea25eb4f3"/>
 				<textElement>
 					<font size="9"/>
 				</textElement>
 				<text><![CDATA[C.P.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="377" y="96" width="53" height="17" uuid="a70ed2ca-02bc-4dbd-ab3f-96e637863b15"/>
+				<reportElement x="377" y="96" width="64" height="17" uuid="a70ed2ca-02bc-4dbd-ab3f-96e637863b15"/>
 				<textElement>
 					<font size="9"/>
 				</textElement>
 				<text><![CDATA[Alcaldía]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="94" y="65" width="244" height="20" uuid="7bc9c973-40cc-42d4-a337-0406f8d690ab"/>
+				<reportElement x="94" y="65" width="347" height="20" uuid="7bc9c973-40cc-42d4-a337-0406f8d690ab"/>
 				<textFieldExpression><![CDATA[$P{idNombreBancoSangre}]]></textFieldExpression>
 			</textField>
 			<textField>
@@ -220,7 +220,7 @@
 				<reportElement x="469" y="94" width="48" height="1" uuid="14971622-ed71-4b4a-8d1a-a523004efc4c"/>
 			</line>
 			<textField>
-				<reportElement x="471" y="82" width="122" height="19" uuid="ea8d0b85-a406-486a-97c3-18f35e1cf9cc"/>
+				<reportElement x="471" y="82" width="46" height="19" uuid="ea8d0b85-a406-486a-97c3-18f35e1cf9cc"/>
 				<textFieldExpression><![CDATA[$P{timHoraInicialAtencion}]]></textFieldExpression>
 			</textField>
 			<staticText>
@@ -231,7 +231,7 @@
 				<reportElement positionType="Float" x="544" y="94" width="49" height="1" uuid="69bf8a77-8ea0-4a35-9379-b6b04d384774"/>
 			</line>
 			<textField>
-				<reportElement positionType="Float" x="544" y="82" width="133" height="19" uuid="55a18965-5c9c-4c4b-a604-504cd496a856"/>
+				<reportElement positionType="Float" x="544" y="82" width="44" height="19" uuid="55a18965-5c9c-4c4b-a604-504cd496a856"/>
 				<textFieldExpression><![CDATA[$P{timHoraFinalAtencion}]]></textFieldExpression>
 			</textField>
 			<line>
@@ -260,7 +260,7 @@
 				</graphicElement>
 			</line>
 			<staticText>
-				<reportElement x="468" y="139" width="224" height="20" uuid="71cd034a-b53a-4629-8d08-174fb1942a92"/>
+				<reportElement x="468" y="139" width="250" height="20" uuid="71cd034a-b53a-4629-8d08-174fb1942a92"/>
 				<textElement>
 					<font isBold="true"/>
 				</textElement>
@@ -270,11 +270,11 @@
 				<reportElement x="460" y="169" width="217" height="1" uuid="05ef6298-1e8c-49a1-8c78-e3c1acccf2ea"/>
 			</line>
 			<textField>
-				<reportElement x="496" y="156" width="99" height="20" uuid="f94de30b-be97-4b65-81b3-6a057f5661e9"/>
+				<reportElement x="496" y="156" width="122" height="20" uuid="f94de30b-be97-4b65-81b3-6a057f5661e9"/>
 				<textFieldExpression><![CDATA[$P{nss}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="588" y="156" width="100" height="20" uuid="c82d3503-a1af-45d5-bddf-dcace928f8b2"/>
+				<reportElement x="588" y="156" width="174" height="20" uuid="c82d3503-a1af-45d5-bddf-dcace928f8b2"/>
 				<textFieldExpression><![CDATA[$P{desNssAgregado}]]></textFieldExpression>
 			</textField>
 			<line>
@@ -305,7 +305,8 @@
 				<text><![CDATA[Nombre(s)]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="156" y="142" width="257" height="20" uuid="6f729864-a694-42c3-ab3b-4b6077c1c1fa"/>
+				<reportElement x="41" y="142" width="389" height="20" uuid="6f729864-a694-42c3-ab3b-4b6077c1c1fa"/>
+				<textElement textAlignment="Center"/>
 				<textFieldExpression><![CDATA[$P{nomPaciente}]]></textFieldExpression>
 			</textField>
 			<line>
@@ -327,14 +328,14 @@
 				</graphicElement>
 			</line>
 			<staticText>
-				<reportElement x="39" y="174" width="163" height="20" uuid="18b616f7-71c0-4ae2-a413-fef381f53700"/>
+				<reportElement x="39" y="174" width="170" height="20" uuid="18b616f7-71c0-4ae2-a413-fef381f53700"/>
 				<textElement>
 					<font isBold="true"/>
 				</textElement>
 				<text><![CDATA[FECHA DE INTERNAMIENTO:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="213" y="174" width="154" height="20" uuid="d44d91a4-25c6-4ff4-b16f-74afa4bdd6c5"/>
+				<reportElement x="213" y="174" width="166" height="20" uuid="d44d91a4-25c6-4ff4-b16f-74afa4bdd6c5"/>
 				<textElement>
 					<font isBold="true"/>
 				</textElement>
@@ -381,23 +382,23 @@
 				<text><![CDATA[DD/MM/AAAA]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="88" y="185" width="88" height="20" uuid="a03de8ac-7528-448c-9d6b-6d7ef0c5b616"/>
+				<reportElement x="88" y="185" width="115" height="20" uuid="a03de8ac-7528-448c-9d6b-6d7ef0c5b616"/>
 				<textFieldExpression><![CDATA[$P{fecInternamiento}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="267" y="185" width="64" height="15" uuid="1660e801-dcf3-4f2a-8a62-a8184506d7e5"/>
+				<reportElement x="267" y="185" width="111" height="15" uuid="1660e801-dcf3-4f2a-8a62-a8184506d7e5"/>
 				<textFieldExpression><![CDATA[$P{fecCirugia}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="441" y="185" width="100" height="20" uuid="bffba3d2-afba-4c73-b82b-5c9244bc10fa"/>
+				<reportElement x="441" y="185" width="136" height="20" uuid="bffba3d2-afba-4c73-b82b-5c9244bc10fa"/>
 				<textFieldExpression><![CDATA[$P{idServicio}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="597" y="184" width="91" height="15" uuid="ccdf0251-d338-4b01-b445-5850af1c8e8c"/>
+				<reportElement x="597" y="184" width="133" height="15" uuid="ccdf0251-d338-4b01-b445-5850af1c8e8c"/>
 				<textFieldExpression><![CDATA[$P{numTelefonoPaciente}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="453" y="7" width="124" height="20" uuid="ff2eccc4-a4cc-470a-83c4-651e907d557b"/>
+				<reportElement x="453" y="7" width="165" height="20" uuid="ff2eccc4-a4cc-470a-83c4-651e907d557b"/>
 				<textElement>
 					<font isBold="true"/>
 				</textElement>
@@ -438,7 +439,7 @@
 				</graphicElement>
 			</line>
 			<staticText>
-				<reportElement x="41" y="7" width="643" height="46" uuid="45569b18-bf5d-455e-a3b4-8b29f98a2985"/>
+				<reportElement x="40" y="7" width="644" height="46" uuid="45569b18-bf5d-455e-a3b4-8b29f98a2985"/>
 				<textElement>
 					<font size="11" isBold="true"/>
 				</textElement>
@@ -495,7 +496,7 @@ Si usted tiene la presión arterial alta y esta controlado, podria ser candidato
 				<text><![CDATA[Para su comodidad, se recomienda presentarse aseado, con ropa cómoda y manga corta, es necesario disponer de 2 horas, tiempo aproximado de duración del proceso de donación. No se permite el paso a menores de edad ni acompañantes. Si usted ha donado sangre, el personal de Banco de Sangre notificará por correo electrónico a la jefatura de Trabajo Social del Hospital sobre su donación a favor de su paciente. Ante cualquier duda, favor de presentarse con el personal de salud del Banco de Sangre.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="228" y="66" width="293" height="20" uuid="6b154616-2720-4176-bdc6-f9dd08d6e296"/>
+				<reportElement x="228" y="66" width="349" height="20" uuid="6b154616-2720-4176-bdc6-f9dd08d6e296"/>
 				<textElement>
 					<font size="11" isBold="true"/>
 				</textElement>
@@ -543,7 +544,7 @@ Si usted tiene la presión arterial alta y esta controlado, podria ser candidato
 				<reportElement x="43" y="457" width="175" height="1" uuid="2064544d-8ebd-40ed-8578-1f4342f3032e"/>
 			</line>
 			<textField>
-				<reportElement x="51" y="443" width="174" height="15" uuid="b81b0473-d15d-47ca-9833-d16b8e0df2bc"/>
+				<reportElement x="44" y="443" width="181" height="15" uuid="b81b0473-d15d-47ca-9833-d16b8e0df2bc"/>
 				<textFieldExpression><![CDATA[$P{nomTrabajadorSocial}]]></textFieldExpression>
 			</textField>
 			<staticText>
@@ -557,19 +558,20 @@ Si usted tiene la presión arterial alta y esta controlado, podria ser candidato
 				<reportElement x="240" y="457" width="131" height="1" uuid="e10fbacb-1eab-495a-ab6c-fe497e8b0bd5"/>
 			</line>
 			<textField>
-				<reportElement x="278" y="443" width="135" height="20" uuid="81f133d0-f32d-493b-b4ff-fbf6241c682d"/>
+				<reportElement x="241" y="443" width="136" height="20" uuid="81f133d0-f32d-493b-b4ff-fbf6241c682d"/>
+				<textElement textAlignment="Center"/>
 				<textFieldExpression><![CDATA[$P{desMatriculaTrabajadorSocial}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="446" y="458" width="85" height="20" uuid="4a107b95-7f95-461e-8b8a-891eb110abd2"/>
-				<textElement>
+				<reportElement x="397" y="458" width="134" height="20" uuid="4a107b95-7f95-461e-8b8a-891eb110abd2"/>
+				<textElement textAlignment="Center">
 					<font isBold="true"/>
 				</textElement>
 				<text><![CDATA[FIRMA]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="584" y="458" width="104" height="20" uuid="c2fd57f5-a2c0-423a-b37c-b6756ab33128"/>
-				<textElement>
+				<reportElement x="544" y="458" width="144" height="20" uuid="c2fd57f5-a2c0-423a-b37c-b6756ab33128"/>
+				<textElement textAlignment="Center">
 					<font isBold="true"/>
 				</textElement>
 				<text><![CDATA[No. TÉLEFONO]]></text>
@@ -581,7 +583,8 @@ Si usted tiene la presión arterial alta y esta controlado, podria ser candidato
 				<reportElement x="559" y="457" width="120" height="1" uuid="154ffd5a-0a47-45df-ae64-6bfdee929076"/>
 			</line>
 			<textField>
-				<reportElement x="590" y="443" width="100" height="20" uuid="10f20269-989a-4136-b0af-4cbe93ea9641"/>
+				<reportElement x="561" y="443" width="129" height="20" uuid="10f20269-989a-4136-b0af-4cbe93ea9641"/>
+				<textElement textAlignment="Center"/>
 				<textFieldExpression><![CDATA[$P{numTelefonoTrabajadorSocial}]]></textFieldExpression>
 			</textField>
 			<elementGroup/>
