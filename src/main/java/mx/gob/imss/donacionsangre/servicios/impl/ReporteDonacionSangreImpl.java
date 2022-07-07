@@ -26,7 +26,7 @@ public class ReporteDonacionSangreImpl implements ReporteDonacionSangreServices 
 	
 	  @SuppressWarnings("finally")
 	public byte[] imprimeDonacionSangre (ReporteDonacionSangre reporte) {
-		Map <String, Object> parameters = new HashMap<String, Object>();
+		Map <String, Object> parameters = new HashMap<>();
 		byte [] filePdf= new byte [0];
 		
 		
@@ -73,5 +73,5 @@ public class ReporteDonacionSangreImpl implements ReporteDonacionSangreServices 
 		
 	        
 	}
-
 }
+
