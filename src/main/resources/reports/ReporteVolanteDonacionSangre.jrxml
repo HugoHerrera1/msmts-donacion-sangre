@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReporteVolanteDonacionSangre" language="groovy" pageWidth="791" pageHeight="970" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="25b96f8f-9971-40ce-871d-06fa2647eae4">
 	<property name="ireport.zoom" value="1.9487171000000192"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="1039"/>
+	<property name="ireport.y" value="0"/>
 	<parameter name="desUnidadMedicaHospitalaria" class="java.lang.String"/>
 	<parameter name="fecEfec" class="java.lang.String"/>
 	<parameter name="idNombreBancoSangre" class="java.lang.String"/>
@@ -219,7 +219,7 @@
 			<line>
 				<reportElement x="469" y="94" width="48" height="1" uuid="14971622-ed71-4b4a-8d1a-a523004efc4c"/>
 			</line>
-			<textField isStretchWithOverflow="true">
+			<textField>
 				<reportElement x="471" y="82" width="122" height="19" uuid="ea8d0b85-a406-486a-97c3-18f35e1cf9cc"/>
 				<textFieldExpression><![CDATA[$P{timHoraInicialAtencion}]]></textFieldExpression>
 			</textField>
@@ -230,7 +230,7 @@
 			<line>
 				<reportElement positionType="Float" x="544" y="94" width="49" height="1" uuid="69bf8a77-8ea0-4a35-9379-b6b04d384774"/>
 			</line>
-			<textField isStretchWithOverflow="true">
+			<textField>
 				<reportElement positionType="Float" x="544" y="82" width="133" height="19" uuid="55a18965-5c9c-4c4b-a604-504cd496a856"/>
 				<textFieldExpression><![CDATA[$P{timHoraFinalAtencion}]]></textFieldExpression>
 			</textField>
