@@ -23,9 +23,9 @@ public class DonacionSangre {
     @JsonProperty
     private String codigoPostal;
     @JsonProperty
-    private Integer idEstado;
+    private String idEstado;
     @JsonProperty
-    private Integer idDelegacion;
+    private String idDelegacion;
     @JsonProperty
     private Integer idCiudad;
     @JsonProperty
@@ -33,15 +33,15 @@ public class DonacionSangre {
     @JsonProperty
     private String calle;
     @JsonProperty
-    private Integer numExterior;
+    private String numExterior;
     @JsonProperty
-    private Integer numInterior;
+    private String numInterior;
     @JsonProperty
     private String nombrePaciente;
     @JsonProperty
     private String desNSS;
     @JsonProperty
-    private Integer idServicio;
+    private String idServicio;
     @JsonProperty
     private String fechaInternamiento;
     @JsonProperty

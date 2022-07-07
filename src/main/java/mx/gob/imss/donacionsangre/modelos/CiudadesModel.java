@@ -6,11 +6,19 @@ import lombok.Data;
 @Data
 public class CiudadesModel {
     @JsonProperty
-    private Integer idCiudad;
+    private String cve_ciudad;
     @JsonProperty
-    private Integer idEstado;
+    private String cve_estado;
     @JsonProperty
-    private Integer idDelegacionMunicipio;
+    private String cve_delegacion_municipio;
     @JsonProperty
-    private String nomCiudad;
+    private String des_ciudad;
+    @JsonProperty
+    private String fec_alta;
+    @JsonProperty
+    private String fec_actualizacion;
+    @JsonProperty
+    private String fec_baja;
+    @JsonProperty
+    private String ind_activo;
 }

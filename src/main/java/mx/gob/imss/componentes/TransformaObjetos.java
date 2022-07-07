@@ -1,6 +1,5 @@
 package mx.gob.imss.componentes;
 
-import com.google.gson.Gson;
 import lombok.extern.slf4j.Slf4j;
 import mx.gob.imss.constantes.DonacionSangreConstantes;
 import mx.gob.imss.donacionsangre.dto.DonacionSangre;
@@ -13,7 +12,8 @@ import java.sql.Time;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
@@ -45,16 +45,16 @@ public class TransformaObjetos {
         msmdstDonacionSangre.setTimFinalAtencion(new Time(timeFinal));
 
         msmdstDonacionSangre.setDesCodigoPostal(donacionSangre.getCodigoPostal());
-        msmdstDonacionSangre.setIdEstado(donacionSangre.getIdEstado().toString());
-        msmdstDonacionSangre.setIdDelegacionMunicipio(donacionSangre.getIdDelegacion().toString());
+        msmdstDonacionSangre.setIdEstado(donacionSangre.getIdEstado());
+        msmdstDonacionSangre.setIdDelegacionMunicipio(donacionSangre.getIdDelegacion());
         msmdstDonacionSangre.setIdCiudad(donacionSangre.getIdCiudad().toString());
         msmdstDonacionSangre.setNomColonia(donacionSangre.getColonia());
         msmdstDonacionSangre.setNomCalle(donacionSangre.getCalle());
-        msmdstDonacionSangre.setNumExterior(donacionSangre.getNumExterior().toString());
-        msmdstDonacionSangre.setNumInterior(donacionSangre.getNumInterior().toString());
+        msmdstDonacionSangre.setNumExterior(donacionSangre.getNumExterior());
+        msmdstDonacionSangre.setNumInterior(donacionSangre.getNumInterior());
         msmdstDonacionSangre.setNomPaciente(donacionSangre.getNombrePaciente());
         msmdstDonacionSangre.setDesNssAgregado(donacionSangre.getDesNSS());
-        msmdstDonacionSangre.setIdServicio(donacionSangre.getIdServicio().longValue());
+        msmdstDonacionSangre.setIdServicio(donacionSangre.getIdServicio());
         Date dateFecInternamiento = format.parse(donacionSangre.getFechaInternamiento());
         msmdstDonacionSangre.setFecInternamiento(dateFecInternamiento);
         Date dateFecCirugia = format.parse(donacionSangre.getFechaCirugia());
@@ -78,26 +78,26 @@ public class TransformaObjetos {
         // nombre banco de sangre
         //falta consumo AD
         dr.setNombreBancoSangre("");
-        dr.setTimHoraInicialAtencion(msmdstDonacionSangre.getTimInicialAtencion());
-        dr.setTimHoraFinalAtencion(msmdstDonacionSangre.getTimFinalAtencion());
+        dr.setTimHoraInicialAtencion(msmdstDonacionSangre.getTimInicialAtencion().toString());
+        dr.setTimHoraFinalAtencion(msmdstDonacionSangre.getTimFinalAtencion().toString());
         dr.setDesCodigoPostal(msmdstDonacionSangre.getDesCodigoPostal());
         dr.setIdEstado(Integer.valueOf(msmdstDonacionSangre.getIdEstado()));
         //nombre estado
         EstadosModel edos = client.getEstado(Integer.valueOf(msmdstDonacionSangre.getIdEstado()));
-        String nombreEdo = Objects.isNull(edos) ? "No se encontro registro de estados" : edos.getNomCompleto();
+        String nombreEdo = Objects.isNull(edos) ? "No se encontro registro de estados" : edos.getDes_nombre_completo();
         dr.setNombreEstado(nombreEdo);
         // fin nombre estado
         dr.setIdDelegacionMunicipio(Integer.valueOf(msmdstDonacionSangre.getIdDelegacionMunicipio()));
         //nombre delegacion
         DelegacionMunicipioModel del = client.getDelegacion(Integer.valueOf(msmdstDonacionSangre.getIdEstado()), Integer.valueOf(msmdstDonacionSangre.getIdDelegacionMunicipio()));
-        String nombreDel = Objects.isNull(del) ? "No se encontro registro Delegacion/Municipio" : del.getNomMunicipio();
+        String nombreDel = Objects.isNull(del) ? "No se encontro registro Delegacion/Municipio" : del.getDes_municipio();
         dr.setNombreDelegacionMunicipio(nombreDel);
 
         // fin nombre delegacion
         dr.setIdCiudad(Integer.valueOf(msmdstDonacionSangre.getIdCiudad()));
         //nombre ciudad
         CiudadesModel ciudades = client.getCiudad(Integer.valueOf(msmdstDonacionSangre.getIdEstado()), Integer.valueOf(msmdstDonacionSangre.getIdDelegacionMunicipio()), Integer.valueOf(msmdstDonacionSangre.getIdCiudad()));
-        String nombreCiudades = Objects.isNull(ciudades) ? "No se encontro registro de ciudades" : ciudades.getNomCiudad();
+        String nombreCiudades = Objects.isNull(ciudades) ? "No se encontro registro de ciudades" : ciudades.getDes_ciudad();
         dr.setNombreCiudad(nombreCiudades);
         dr.setNomColonia(msmdstDonacionSangre.getNomColonia());
         dr.setNomCalle(msmdstDonacionSangre.getNomCalle());
@@ -105,10 +105,10 @@ public class TransformaObjetos {
         dr.setNumInterior(msmdstDonacionSangre.getNumInterior());
         dr.setNomPaciente(msmdstDonacionSangre.getNomPaciente());
         dr.setDesNssAgregado(msmdstDonacionSangre.getDesNssAgregado());
-        dr.setIdServicio(msmdstDonacionSangre.getIdServicio().intValue());
+        dr.setIdServicio(msmdstDonacionSangre.getIdServicio());
         // nombre servicio
-        List<ServiciosModel> servicios = client.getServicio(msmdstDonacionSangre.getIdServicio().toString());
-        String nombreServicio = servicios.isEmpty() ? "No se encontro registro de especialidades" : servicios.get(0).getNomEspecialidad();
+        List<ServiciosModel> servicios = client.getServicio(msmdstDonacionSangre.getIdServicio());
+        String nombreServicio = servicios.isEmpty() ? "No se encontro registro de especialidades" : servicios.get(0).getDes_especialidad();
         dr.setNombreServicio(nombreServicio);
         dr.setFecInternamiento(dateFormat.format(msmdstDonacionSangre.getFecInternamiento()));
         dr.setFecCirugia(dateFormat.format(msmdstDonacionSangre.getFecCirugia()));
@@ -147,6 +147,7 @@ public class TransformaObjetos {
     public DonacionSangreResponse detalle(MtstVolanteDonacionSangre msmdstDonacionSangre) {
         DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
         DonacionSangreResponse dr = new DonacionSangreResponse();
+        MtscBancoSangre bcos = bancoSangre.findNameBancobyId(msmdstDonacionSangre.getIdNombreBancoSangre().intValue());
         try {
             dr.setIdVolanteDonacionSangre(Integer.parseInt(msmdstDonacionSangre.getId().toString()));
             dr.setDesUnidadMedicaHospitalaria(msmdstDonacionSangre.getDesUnidadMedicaHospitalaria());
@@ -154,29 +155,29 @@ public class TransformaObjetos {
             dr.setIdNombreBancoSangre(msmdstDonacionSangre.getIdNombreBancoSangre().intValue());
             // nombre banco de sangre
             //falta consumo AD
-            dr.setNombreBancoSangre(Objects.isNull(bancoSangre) ? "No se encontro registro banco de sangre" : bancoSangre.findNameBancobyId(msmdstDonacionSangre.getIdNombreBancoSangre().intValue()).getDesTipo()
-                    + " " + bancoSangre.findNameBancobyId(msmdstDonacionSangre.getIdNombreBancoSangre().intValue()).getDesNumero()
-                    + " " + bancoSangre.findNameBancobyId(msmdstDonacionSangre.getIdNombreBancoSangre().intValue()).getDesLocalidad());
-            dr.setTimHoraInicialAtencion(msmdstDonacionSangre.getTimInicialAtencion());
-            dr.setTimHoraFinalAtencion(msmdstDonacionSangre.getTimFinalAtencion());
+            dr.setNombreBancoSangre(Objects.isNull(bcos) ? "No se encontro registro banco de sangre" : bcos.getDesTipo()
+                    + " " + bcos.getDesNumero()
+                    + " " + bcos.getDesLocalidad());
+            dr.setTimHoraInicialAtencion(LocalTime.parse(msmdstDonacionSangre.getTimInicialAtencion().toString()).format(DateTimeFormatter.ofPattern("HH:mm:ss")));
+            dr.setTimHoraFinalAtencion(LocalTime.parse(msmdstDonacionSangre.getTimFinalAtencion().toString()).format(DateTimeFormatter.ofPattern("HH:mm:ss")));
             dr.setDesCodigoPostal(msmdstDonacionSangre.getDesCodigoPostal());
             dr.setIdEstado(Integer.valueOf(msmdstDonacionSangre.getIdEstado()));
             //nombre estado
             EstadosModel edos = client.getEstado(Integer.valueOf(msmdstDonacionSangre.getIdEstado()));
-            String nombreEdo = Objects.isNull(edos) ? "No se encontro registro estados" : edos.getNomCompleto();
+            String nombreEdo = Objects.isNull(edos) ? "No se encontro registro estados" : edos.getDes_nombre_completo();
             dr.setNombreEstado(nombreEdo);
             // fin nombre estado
             dr.setIdDelegacionMunicipio(Integer.valueOf(msmdstDonacionSangre.getIdDelegacionMunicipio()));
             //nombre delegacion
             DelegacionMunicipioModel del = client.getDelegacion(Integer.valueOf(msmdstDonacionSangre.getIdEstado()), Integer.valueOf(msmdstDonacionSangre.getIdDelegacionMunicipio()));
-            String nombreDel = Objects.isNull(del) ? "No se encontro registros Delegacion/Municipio" : del.getNomMunicipio();
+            String nombreDel = Objects.isNull(del) ? "No se encontro registros Delegacion/Municipio" : del.getDes_municipio();
             dr.setNombreDelegacionMunicipio(nombreDel);
 
             // fin nombre delegacion
             dr.setIdCiudad(Integer.valueOf(msmdstDonacionSangre.getIdCiudad()));
             //nombre ciudad
             CiudadesModel ciudades = client.getCiudad(Integer.valueOf(msmdstDonacionSangre.getIdEstado()), Integer.valueOf(msmdstDonacionSangre.getIdDelegacionMunicipio()), Integer.valueOf(msmdstDonacionSangre.getIdCiudad()));
-            String nombreCiudades = Objects.isNull(ciudades) ? "No se encontro registro" : ciudades.getNomCiudad();
+            String nombreCiudades = Objects.isNull(ciudades) ? "No se encontro registro" : ciudades.getDes_ciudad();
             dr.setNombreCiudad(nombreCiudades);
             dr.setNomColonia(msmdstDonacionSangre.getNomColonia());
             dr.setNomCalle(msmdstDonacionSangre.getNomCalle());
@@ -184,10 +185,10 @@ public class TransformaObjetos {
             dr.setNumInterior(msmdstDonacionSangre.getNumInterior());
             dr.setNomPaciente(msmdstDonacionSangre.getNomPaciente());
             dr.setDesNssAgregado(msmdstDonacionSangre.getDesNssAgregado());
-            dr.setIdServicio(msmdstDonacionSangre.getIdServicio().intValue());
+            dr.setIdServicio(msmdstDonacionSangre.getIdServicio());
             // nombre servicio
-            List<ServiciosModel> servicios = client.getServicio(msmdstDonacionSangre.getIdServicio().toString());
-            String nombreServicio = servicios.isEmpty() ? "No se encontro registro" : servicios.get(0).getNomEspecialidad();
+            List<ServiciosModel> servicios = client.getServicio(msmdstDonacionSangre.getIdServicio());
+            String nombreServicio = servicios.isEmpty() ? "No se encontro registro" : servicios.get(0).getDes_especialidad();
             dr.setNombreServicio(nombreServicio);
             dr.setFecInternamiento(dateFormat.format(msmdstDonacionSangre.getFecInternamiento()));
             dr.setFecCirugia(dateFormat.format(msmdstDonacionSangre.getFecCirugia()));
