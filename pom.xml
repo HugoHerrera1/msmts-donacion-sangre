@@ -109,7 +109,7 @@
 		<dependency>
 			<groupId>net.sf.jasperreports</groupId>
 			<artifactId>jasperreports-fonts</artifactId>
-			<version>6.0.0</version>
+			<version>6.19.1</version>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/org.codehaus.groovy/groovy -->
@@ -148,16 +148,6 @@
 
 	<build>
 		<plugins>
-			<plugin>
-				<!-- 16 de jun del 2022 -->
-				<!-- Configuración de implementación en caliente-->
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-				<configuration>
-					<!-- fork: Si no existe tal configuración, las herramientas completas no funcionarán-->
-					<fork>true</fork>
-				</configuration>
-			</plugin>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
