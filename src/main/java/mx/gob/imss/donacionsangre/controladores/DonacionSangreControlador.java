@@ -53,9 +53,17 @@ public class DonacionSangreControlador {
             throws JRException, IOException {
         byte[] filePdf = reporteDonacionSangreServices.imprimeDonacionSangre(reporte);
         ByteArrayResource resource = new ByteArrayResource(filePdf);
-        return ResponseEntity.ok()
-                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment;filename=Reporte_DonacionSangre.pdf")
-                .contentType(MediaType.APPLICATION_OCTET_STREAM).contentLength(filePdf.length).body(resource);
+       try{
+           return ResponseEntity.ok()
+                   .header(HttpHeaders.CONTENT_DISPOSITION, "attachment;filename=Reporte_DonacionSangre.pdf")
+                   .contentType(MediaType.APPLICATION_OCTET_STREAM).contentLength(filePdf.length).body(resource);
+       }catch (Exception ex){
+           ex.printStackTrace();
+           log.error(ex.getMessage());
+           return ResponseEntity.badRequest().header(HttpHeaders.CONTENT_DISPOSITION, "attachment;filename=Reporte_DonacionSangre.pdf")
+                   .contentType(MediaType.APPLICATION_OCTET_STREAM).contentLength(0).body(resource);
+       }
+
 
     }
 
