@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReporteVolanteDonacionSangre" language="groovy" pageWidth="791" pageHeight="970" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="25b96f8f-9971-40ce-871d-06fa2647eae4">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReporteVolanteDonacionSangre" language="groovy" pageWidth="805" pageHeight="970" columnWidth="765" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="25b96f8f-9971-40ce-871d-06fa2647eae4">
 	<property name="ireport.zoom" value="1.9487171000000192"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="1039"/>
+	<property name="ireport.y" value="497"/>
 	<parameter name="desUnidadMedicaHospitalaria" class="java.lang.String"/>
 	<parameter name="fecEfec" class="java.lang.String"/>
 	<parameter name="idNombreBancoSangre" class="java.lang.String"/>
@@ -368,14 +368,14 @@
 				<reportElement x="587" y="196" width="91" height="1" uuid="7f2cdeb5-41b8-4163-ad02-3a97918db029"/>
 			</line>
 			<staticText>
-				<reportElement x="88" y="197" width="60" height="13" uuid="ee931933-3414-44cb-8427-707048efb696"/>
+				<reportElement x="88" y="197" width="98" height="13" uuid="ee931933-3414-44cb-8427-707048efb696"/>
 				<textElement>
 					<font size="9"/>
 				</textElement>
 				<text><![CDATA[DD/MM/AAAA]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="266" y="197" width="60" height="13" uuid="57c1ab8c-2cfe-437e-9ab8-404c236d29de"/>
+				<reportElement x="262" y="197" width="109" height="13" uuid="57c1ab8c-2cfe-437e-9ab8-404c236d29de"/>
 				<textElement>
 					<font size="9"/>
 				</textElement>
@@ -407,7 +407,7 @@
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="482" splitType="Stretch">
+		<band height="576" splitType="Stretch">
 			<rectangle>
 				<reportElement x="31" y="417" width="660" height="56" uuid="09857d07-64cc-4b2d-8a1a-edf7ddc3352c"/>
 				<graphicElement>
@@ -439,11 +439,13 @@
 				</graphicElement>
 			</line>
 			<staticText>
-				<reportElement x="40" y="7" width="644" height="46" uuid="45569b18-bf5d-455e-a3b4-8b29f98a2985"/>
+				<reportElement x="40" y="7" width="701" height="77" uuid="45569b18-bf5d-455e-a3b4-8b29f98a2985"/>
 				<textElement>
 					<font size="11" isBold="true"/>
 				</textElement>
-				<text><![CDATA[SE COMUNICA A LOS DERECHOHABIENTES QUE CON BASE AL ARTICULO N°322  Y 462 DE LA LEY GENERAL DE SALUD DE LA SECRETARÍA DE SALUD, PUBLICADO EN EL DIARIO OFICIAL DE LA FEDERACIÓN  CON FECHA 07 DE JUNIO DE 2012, SE PROHIBE LA COMERCIALIZACIÓN DE SANGRE, INFRINGIR ESTE ÁRTICULO IMPLICA SANCIONES]]></text>
+				<text><![CDATA[SE COMUNICA A LOS DERECHOHABIENTES QUE CON BASE AL ARTICULO N°322  Y 462 DE LA LEY GENERAL DE SALUD
+DE LA SECRETARÍA DE SALUD, PUBLICADO EN EL DIARIO OFICIAL DE LA FEDERACIÓN  CON FECHA 07 DE JUNIO DE
+2012, SE PROHIBE LA COMERCIALIZACIÓN DE SANGRE, INFRINGIR ESTE ÁRTICULO IMPLICA SANCIONES]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="68" y="98" width="620" height="233" uuid="a4ed779e-3d06-49b7-9485-254630bd7017"/>
@@ -489,15 +491,18 @@ Si usted tiene la presión arterial alta y esta controlado, podria ser candidato
 11.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="43" y="334" width="641" height="68" uuid="9e22fe37-d92e-4726-937a-b2f6a7015cad"/>
+				<reportElement x="41" y="334" width="675" height="83" uuid="9e22fe37-d92e-4726-937a-b2f6a7015cad"/>
 				<textElement textAlignment="Justified">
 					<font size="11"/>
 				</textElement>
-				<text><![CDATA[Para su comodidad, se recomienda presentarse aseado, con ropa cómoda y manga corta, es necesario disponer de 2 horas, tiempo aproximado de duración del proceso de donación. No se permite el paso a menores de edad ni acompañantes. Si usted ha donado sangre, el personal de Banco de Sangre notificará por correo electrónico a la jefatura de Trabajo Social del Hospital sobre su donación a favor de su paciente. Ante cualquier duda, favor de presentarse con el personal de salud del Banco de Sangre.]]></text>
+				<text><![CDATA[Para su comodidad, se recomienda presentarse aseado, con ropa cómoda y manga corta, es necesario disponer de 2 horas, tiempo
+aproximado de duración del proceso de donación. No se permite el paso a menores de edad ni acompañantes. Si usted ha donado
+sangre, el personal de Banco de Sangre notificará por correo electrónico a la jefatura de Trabajo Social del Hospital sobre su
+donación a favor de su paciente. Ante cualquier duda, favor de presentarse con el personal de salud del Banco de Sangre.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="228" y="66" width="349" height="20" uuid="6b154616-2720-4176-bdc6-f9dd08d6e296"/>
-				<textElement>
+				<reportElement x="37" y="66" width="641" height="20" uuid="6b154616-2720-4176-bdc6-f9dd08d6e296"/>
+				<textElement textAlignment="Center">
 					<font size="11" isBold="true"/>
 				</textElement>
 				<text><![CDATA[REQUISITOS MINÍMOS PARA DONAR SANGRE:]]></text>
@@ -588,10 +593,8 @@ Si usted tiene la presión arterial alta y esta controlado, podria ser candidato
 				<textFieldExpression><![CDATA[$P{numTelefonoTrabajadorSocial}]]></textFieldExpression>
 			</textField>
 			<elementGroup/>
-		</band>
-		<band height="73">
 			<staticText>
-				<reportElement x="31" y="2" width="661" height="61" uuid="fbfea6e5-69d4-45db-9231-9c80bf978082"/>
+				<reportElement x="31" y="485" width="660" height="58" uuid="2bc6661d-e5af-474e-a157-1b3a39b8d950"/>
 				<box>
 					<pen lineWidth="1.5"/>
 					<topPen lineWidth="1.5"/>
@@ -602,13 +605,10 @@ Si usted tiene la presión arterial alta y esta controlado, podria ser candidato
 				<textElement>
 					<font isBold="true"/>
 				</textElement>
-				<text><![CDATA[  OBSERVACIONES]]></text>
+				<text><![CDATA[    OBSERVACIONES]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="37" y="14" width="647" height="51" uuid="6f5fa192-c573-451a-a96d-753ea7cbd9df"/>
-				<textElement textAlignment="Justified">
-					<font size="9"/>
-				</textElement>
+				<reportElement x="40" y="498" width="644" height="45" uuid="938256c3-c5cd-4f9c-bdfd-e3eeb2255da1"/>
 				<textFieldExpression><![CDATA[$P{desObservaciones}]]></textFieldExpression>
 			</textField>
 		</band>

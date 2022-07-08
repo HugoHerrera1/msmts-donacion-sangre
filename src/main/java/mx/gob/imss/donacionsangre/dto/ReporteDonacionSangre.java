@@ -1,59 +1,256 @@
 package mx.gob.imss.donacionsangre.dto;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+
+
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
 public class ReporteDonacionSangre {
 	
-	
-	@JsonProperty
 	private String desUnidadMedicaHospitalaria;
-	@JsonProperty
+
     private String fecEfec;
-	@JsonProperty
+	
     private String idNombreBancoSangre;
-    @JsonProperty
+   
     private String nomCalle;
-    @JsonProperty
+ 
     private String numExterior;
-    @JsonProperty
+ 
     private String nomColonia;
-    @JsonProperty
+   
     private String desCodigoPostal;
-    @JsonProperty
+   
     private String idDelegacionMunicipio;
-    @JsonProperty
+   
     private String timHoraInicialAtencion;
-    @JsonProperty
+    
     private String timHoraFinalAtencion;
-    @JsonProperty
+ 
     private String nss;
-    @JsonProperty
+  
     private String desNssAgregado;
-    @JsonProperty
+   
     private String fecInternamiento;
-    @JsonProperty
+ 
     private String fecCirugia;
-    @JsonProperty
+  
     private String idServicio;
-    @JsonProperty
+ 
     private String numTelefonoPaciente;
-    @JsonProperty
+  
     private String nomTrabajadorSocial;
-    @JsonProperty
+ 
     private String desMatriculaTrabajadorSocial;
-    @JsonProperty
+  
     private String numTelefonoTrabajadorSocial;
-    @JsonProperty
+  
     private String desObservaciones;
-    @JsonProperty
+
     private String nomPaciente;
+    
+    public ReporteDonacionSangre() {
+    	
+    }
+
+	public ReporteDonacionSangre(String desUnidadMedicaHospitalaria, String fecEfec, String idNombreBancoSangre,
+			String nomCalle, String numExterior, String nomColonia, String desCodigoPostal,
+			String idDelegacionMunicipio, String timHoraInicialAtencion, String timHoraFinalAtencion, String nss,
+			String desNssAgregado, String fecInternamiento, String fecCirugia, String idServicio,
+			String numTelefonoPaciente, String nomTrabajadorSocial, String desMatriculaTrabajadorSocial,
+			String numTelefonoTrabajadorSocial, String desObservaciones, String nomPaciente) {
+		super();
+		this.desUnidadMedicaHospitalaria = desUnidadMedicaHospitalaria;
+		this.fecEfec = fecEfec;
+		this.idNombreBancoSangre = idNombreBancoSangre;
+		this.nomCalle = nomCalle;
+		this.numExterior = numExterior;
+		this.nomColonia = nomColonia;
+		this.desCodigoPostal = desCodigoPostal;
+		this.idDelegacionMunicipio = idDelegacionMunicipio;
+		this.timHoraInicialAtencion = timHoraInicialAtencion;
+		this.timHoraFinalAtencion = timHoraFinalAtencion;
+		this.nss = nss;
+		this.desNssAgregado = desNssAgregado;
+		this.fecInternamiento = fecInternamiento;
+		this.fecCirugia = fecCirugia;
+		this.idServicio = idServicio;
+		this.numTelefonoPaciente = numTelefonoPaciente;
+		this.nomTrabajadorSocial = nomTrabajadorSocial;
+		this.desMatriculaTrabajadorSocial = desMatriculaTrabajadorSocial;
+		this.numTelefonoTrabajadorSocial = numTelefonoTrabajadorSocial;
+		this.desObservaciones = desObservaciones;
+		this.nomPaciente = nomPaciente;
+	}
+
+	public String getDesUnidadMedicaHospitalaria() {
+		return desUnidadMedicaHospitalaria;
+	}
+
+	public void setDesUnidadMedicaHospitalaria(String desUnidadMedicaHospitalaria) {
+		this.desUnidadMedicaHospitalaria = desUnidadMedicaHospitalaria;
+	}
+
+	public String getFecEfec() {
+		return fecEfec;
+	}
+
+	public void setFecEfec(String fecEfec) {
+		this.fecEfec = fecEfec;
+	}
+
+	public String getIdNombreBancoSangre() {
+		return idNombreBancoSangre;
+	}
+
+	public void setIdNombreBancoSangre(String idNombreBancoSangre) {
+		this.idNombreBancoSangre = idNombreBancoSangre;
+	}
+
+	public String getNomCalle() {
+		return nomCalle;
+	}
+
+	public void setNomCalle(String nomCalle) {
+		this.nomCalle = nomCalle;
+	}
+
+	public String getNumExterior() {
+		return numExterior;
+	}
+
+	public void setNumExterior(String numExterior) {
+		this.numExterior = numExterior;
+	}
+
+	public String getNomColonia() {
+		return nomColonia;
+	}
+
+	public void setNomColonia(String nomColonia) {
+		this.nomColonia = nomColonia;
+	}
+
+	public String getDesCodigoPostal() {
+		return desCodigoPostal;
+	}
+
+	public void setDesCodigoPostal(String desCodigoPostal) {
+		this.desCodigoPostal = desCodigoPostal;
+	}
+
+	public String getIdDelegacionMunicipio() {
+		return idDelegacionMunicipio;
+	}
+
+	public void setIdDelegacionMunicipio(String idDelegacionMunicipio) {
+		this.idDelegacionMunicipio = idDelegacionMunicipio;
+	}
+
+	public String getTimHoraInicialAtencion() {
+		return timHoraInicialAtencion;
+	}
+
+	public void setTimHoraInicialAtencion(String timHoraInicialAtencion) {
+		this.timHoraInicialAtencion = timHoraInicialAtencion;
+	}
+
+	public String getTimHoraFinalAtencion() {
+		return timHoraFinalAtencion;
+	}
+
+	public void setTimHoraFinalAtencion(String timHoraFinalAtencion) {
+		this.timHoraFinalAtencion = timHoraFinalAtencion;
+	}
+
+	public String getNss() {
+		return nss;
+	}
+
+	public void setNss(String nss) {
+		this.nss = nss;
+	}
+
+	public String getDesNssAgregado() {
+		return desNssAgregado;
+	}
+
+	public void setDesNssAgregado(String desNssAgregado) {
+		this.desNssAgregado = desNssAgregado;
+	}
+
+	public String getFecInternamiento() {
+		return fecInternamiento;
+	}
+
+	public void setFecInternamiento(String fecInternamiento) {
+		this.fecInternamiento = fecInternamiento;
+	}
+
+	public String getFecCirugia() {
+		return fecCirugia;
+	}
+
+	public void setFecCirugia(String fecCirugia) {
+		this.fecCirugia = fecCirugia;
+	}
+
+	public String getIdServicio() {
+		return idServicio;
+	}
+
+	public void setIdServicio(String idServicio) {
+		this.idServicio = idServicio;
+	}
+
+	public String getNumTelefonoPaciente() {
+		return numTelefonoPaciente;
+	}
+
+	public void setNumTelefonoPaciente(String numTelefonoPaciente) {
+		this.numTelefonoPaciente = numTelefonoPaciente;
+	}
+
+	public String getNomTrabajadorSocial() {
+		return nomTrabajadorSocial;
+	}
+
+	public void setNomTrabajadorSocial(String nomTrabajadorSocial) {
+		this.nomTrabajadorSocial = nomTrabajadorSocial;
+	}
+
+	public String getDesMatriculaTrabajadorSocial() {
+		return desMatriculaTrabajadorSocial;
+	}
+
+	public void setDesMatriculaTrabajadorSocial(String desMatriculaTrabajadorSocial) {
+		this.desMatriculaTrabajadorSocial = desMatriculaTrabajadorSocial;
+	}
+
+	public String getNumTelefonoTrabajadorSocial() {
+		return numTelefonoTrabajadorSocial;
+	}
+
+	public void setNumTelefonoTrabajadorSocial(String numTelefonoTrabajadorSocial) {
+		this.numTelefonoTrabajadorSocial = numTelefonoTrabajadorSocial;
+	}
+
+	public String getDesObservaciones() {
+		return desObservaciones;
+	}
+
+	public void setDesObservaciones(String desObservaciones) {
+		this.desObservaciones = desObservaciones;
+	}
+
+	public String getNomPaciente() {
+		return nomPaciente;
+	}
+
+	public void setNomPaciente(String nomPaciente) {
+		this.nomPaciente = nomPaciente;
+	}
+    
+    
 }
