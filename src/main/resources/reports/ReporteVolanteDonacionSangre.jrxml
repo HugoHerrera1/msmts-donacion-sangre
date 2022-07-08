@@ -274,7 +274,7 @@
 				<textFieldExpression><![CDATA[$P{nss}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="588" y="156" width="174" height="20" uuid="c82d3503-a1af-45d5-bddf-dcace928f8b2"/>
+				<reportElement x="588" y="156" width="153" height="20" uuid="c82d3503-a1af-45d5-bddf-dcace928f8b2"/>
 				<textFieldExpression><![CDATA[$P{desNssAgregado}]]></textFieldExpression>
 			</textField>
 			<line>
