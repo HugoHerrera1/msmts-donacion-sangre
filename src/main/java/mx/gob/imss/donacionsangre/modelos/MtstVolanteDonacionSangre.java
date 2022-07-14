@@ -99,6 +99,9 @@ public class MtstVolanteDonacionSangre {
     @Column(name = "IND_ACTIVO")
     private Boolean indActivo;
 
+    @Column(name = "DES_TIPO_SANGRE")
+    private String tipoSangre;
+
     public Long getId() {
         return id;
     }
@@ -331,4 +334,11 @@ public class MtstVolanteDonacionSangre {
         this.indActivo = indActivo;
     }
 
+    public String getTipoSangre() {
+        return tipoSangre;
+    }
+
+    public void setTipoSangre(String tipoSangre) {
+        this.tipoSangre = tipoSangre;
+    }
 }

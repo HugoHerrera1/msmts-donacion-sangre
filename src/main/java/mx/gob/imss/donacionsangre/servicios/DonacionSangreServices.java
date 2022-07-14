@@ -11,4 +11,6 @@ public interface DonacionSangreServices {
 
     String findVolantesById(Integer idVolanteDonacion);
     String getBancosSangre();
+    String findVolantesByParrameters(String fechaInicial, String fechaFinal, String tipoSangre);
+
 }

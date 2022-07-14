@@ -41,6 +41,8 @@ public class DonacionSangre {
     @JsonProperty
     private String desNSS;
     @JsonProperty
+    private String tipoSangre;
+    @JsonProperty
     private String idServicio;
     @JsonProperty
     private String fechaInternamiento;

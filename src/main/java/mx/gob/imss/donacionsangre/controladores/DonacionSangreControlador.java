@@ -15,6 +15,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.ws.rs.Path;
 import java.io.IOException;
 
 @Slf4j
@@ -32,18 +33,18 @@ public class DonacionSangreControlador {
             produces = "application/json",
             consumes = "application/json")
     public ResponseEntity guardanuevoVolante(@RequestBody DonacionSangre donacionSangre) {
-       try{
-           return new ResponseEntity(donaSangre.guardaNuevoVolanteDonacionS(donacionSangre), HttpStatus.OK);
-       }catch (Exception ex){
-           return new ResponseEntity(ex.getMessage(), HttpStatus.BAD_REQUEST);
-       }
+        try {
+            return new ResponseEntity(donaSangre.guardaNuevoVolanteDonacionS(donacionSangre), HttpStatus.OK);
+        } catch (Exception ex) {
+            return new ResponseEntity(ex.getMessage(), HttpStatus.BAD_REQUEST);
+        }
     }
 
     @GetMapping(path = "/findVolantesByFechas/{fechaInicial}/{fechaFinal}", produces = "application/json")
     public ResponseEntity findVolantesByFechas(@PathVariable String fechaInicial, @PathVariable String fechaFinal) {
-        try{
+        try {
             return new ResponseEntity(donaSangre.findVolantesByFechas(fechaInicial, fechaFinal), HttpStatus.OK);
-        }catch (Exception ex){
+        } catch (Exception ex) {
             return new ResponseEntity(ex.getMessage(), HttpStatus.BAD_REQUEST);
         }
     }
@@ -53,16 +54,16 @@ public class DonacionSangreControlador {
             throws JRException, IOException {
         byte[] filePdf = reporteDonacionSangreServices.imprimeDonacionSangre(reporte);
         ByteArrayResource resource = new ByteArrayResource(filePdf);
-       try{
-           return ResponseEntity.ok()
-                   .header(HttpHeaders.CONTENT_DISPOSITION, "attachment;filename=Reporte_DonacionSangre.pdf")
-                   .contentType(MediaType.APPLICATION_OCTET_STREAM).contentLength(filePdf.length).body(resource);
-       }catch (Exception ex){
-           ex.printStackTrace();
-           log.error(ex.getMessage());
-           return ResponseEntity.badRequest().header(HttpHeaders.CONTENT_DISPOSITION, "attachment;filename=Reporte_DonacionSangre.pdf")
-                   .contentType(MediaType.APPLICATION_OCTET_STREAM).contentLength(0).body(resource);
-       }
+        try {
+            return ResponseEntity.ok()
+                    .header(HttpHeaders.CONTENT_DISPOSITION, "attachment;filename=Reporte_DonacionSangre.pdf")
+                    .contentType(MediaType.APPLICATION_OCTET_STREAM).contentLength(filePdf.length).body(resource);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            log.error(ex.getMessage());
+            return ResponseEntity.badRequest().header(HttpHeaders.CONTENT_DISPOSITION, "attachment;filename=Reporte_DonacionSangre.pdf")
+                    .contentType(MediaType.APPLICATION_OCTET_STREAM).contentLength(0).body(resource);
+        }
 
 
     }
@@ -77,12 +78,23 @@ public class DonacionSangreControlador {
         }
     }
 
-    @GetMapping(path = "/getBancosSangre",produces = "application/json")
-    public ResponseEntity getBancosSangre(){
-        try{
-return new ResponseEntity(donaSangre.getBancosSangre(),HttpStatus.OK);
-        }catch (Exception ex){
-            return new ResponseEntity(ex.getMessage(),HttpStatus.BAD_REQUEST);
+    @GetMapping(path = "/findVolantesAdministracion/{fechaInicial}/{fechaFinal}/{tipoSangre}",
+            produces = "application/json")
+    public ResponseEntity findVolantesByParameters(@PathVariable String fechaInicial, @PathVariable String fechaFinal, @PathVariable String tipoSangre) {
+try{
+return new ResponseEntity(donaSangre.findVolantesByParrameters(fechaInicial, fechaFinal, tipoSangre),HttpStatus.OK);
+}catch (Exception ex){
+    ex.printStackTrace();
+    return new ResponseEntity(ex.getMessage(),HttpStatus.BAD_REQUEST);
+}
+    }
+
+    @GetMapping(path = "/getBancosSangre", produces = "application/json")
+    public ResponseEntity getBancosSangre() {
+        try {
+            return new ResponseEntity(donaSangre.getBancosSangre(), HttpStatus.OK);
+        } catch (Exception ex) {
+            return new ResponseEntity(ex.getMessage(), HttpStatus.BAD_REQUEST);
         }
     }
 }

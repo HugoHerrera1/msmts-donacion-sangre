@@ -111,4 +111,27 @@ ex.printStackTrace();
             return jsonBancosSangre.toJson(br);
         }
     }
+
+    @Override
+    public String findVolantesByParrameters(String fechaInicial, String fechaFinal, String tipoSangre) {
+        GenericConsultaVolanteDS generic = new GenericConsultaVolanteDS();
+        Gson jsonArray = new Gson();
+        try {
+            List<ConsultaVolanteDSModelResponse> volantesDSList = new ArrayList<>();
+            List<MtstVolanteDonacionSangre> msmdstDonacionSangreList = donacionSangreRepositorio.findVolantesByParameters(fechaInicial, fechaFinal,tipoSangre);
+            for (MtstVolanteDonacionSangre msmdstDonacionSangre : msmdstDonacionSangreList) {
+                volantesDSList.add(transforma.buildResponseGeneric(msmdstDonacionSangre));
+            }
+            generic.setStatus("OK");
+            generic.setMensaje(DonacionSangreConstantes.MENSAJE_OK);
+            generic.setDatosVolantesDonacion(volantesDSList);
+            return jsonArray.toJson(generic);
+        }catch (Exception ex){
+            ex.printStackTrace();
+            generic.setStatus(DonacionSangreConstantes.MENSAJE_ERROR);
+            generic.setMensaje(DonacionSangreConstantes.MENSAJE_ERROR + "[" + ex.getMessage() + "]");
+            generic.setDatosVolantesDonacion(new ArrayList<>());
+            return jsonArray.toJson(generic);
+        }
+    }
 }

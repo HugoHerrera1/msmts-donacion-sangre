@@ -54,6 +54,7 @@ public class TransformaObjetos {
         msmdstDonacionSangre.setNumInterior(donacionSangre.getNumInterior());
         msmdstDonacionSangre.setNomPaciente(donacionSangre.getNombrePaciente());
         msmdstDonacionSangre.setDesNssAgregado(donacionSangre.getDesNSS());
+        msmdstDonacionSangre.setTipoSangre(donacionSangre.getTipoSangre());
         msmdstDonacionSangre.setIdServicio(donacionSangre.getIdServicio());
         Date dateFecInternamiento = format.parse(donacionSangre.getFechaInternamiento());
         msmdstDonacionSangre.setFecInternamiento(dateFecInternamiento);
@@ -185,6 +186,7 @@ public class TransformaObjetos {
             dr.setNumInterior(msmdstDonacionSangre.getNumInterior());
             dr.setNomPaciente(msmdstDonacionSangre.getNomPaciente());
             dr.setDesNssAgregado(msmdstDonacionSangre.getDesNssAgregado());
+            dr.setTipoSangre(msmdstDonacionSangre.getTipoSangre());
             dr.setIdServicio(msmdstDonacionSangre.getIdServicio());
             // nombre servicio
             List<ServiciosModel> servicios = client.getServicio(msmdstDonacionSangre.getIdServicio());
