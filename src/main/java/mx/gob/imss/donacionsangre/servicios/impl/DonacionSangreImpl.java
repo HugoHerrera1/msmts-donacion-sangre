@@ -114,13 +114,13 @@ ex.printStackTrace();
 
     @Override
     public String findVolantesByParrameters(String fechaInicial, String fechaFinal, String tipoSangre) {
-        GenericConsultaVolanteDS generic = new GenericConsultaVolanteDS();
+        GenericAdminVolantes generic = new GenericAdminVolantes();
         Gson jsonArray = new Gson();
         try {
-            List<ConsultaVolanteDSModelResponse> volantesDSList = new ArrayList<>();
+            List<ConsultaAdminVolanteResponse> volantesDSList = new ArrayList<>();
             List<MtstVolanteDonacionSangre> msmdstDonacionSangreList = donacionSangreRepositorio.findVolantesByParameters(fechaInicial, fechaFinal,tipoSangre);
             for (MtstVolanteDonacionSangre msmdstDonacionSangre : msmdstDonacionSangreList) {
-                volantesDSList.add(transforma.buildResponseGeneric(msmdstDonacionSangre));
+                volantesDSList.add(transforma.buildResponseAdminGeneric(msmdstDonacionSangre));
             }
             generic.setStatus("OK");
             generic.setMensaje(DonacionSangreConstantes.MENSAJE_OK);

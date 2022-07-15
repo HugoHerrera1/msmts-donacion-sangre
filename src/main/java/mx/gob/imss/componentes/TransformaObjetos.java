@@ -145,6 +145,32 @@ public class TransformaObjetos {
         }
     }
 
+    public ConsultaAdminVolanteResponse buildResponseAdminGeneric(MtstVolanteDonacionSangre msmdstDonacionSangre) {
+        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        ConsultaAdminVolanteResponse consultaResponse = new ConsultaAdminVolanteResponse();
+        try {
+            consultaResponse.setIdVolanteDonacionSangre(msmdstDonacionSangre.getId().intValue());
+            consultaResponse.setNss(msmdstDonacionSangre.getDesNssAgregado());
+            consultaResponse.setNombrePaciente(msmdstDonacionSangre.getNomPaciente());
+            consultaResponse.setTipoSangre(msmdstDonacionSangre.getTipoSangre());
+            consultaResponse.setFechaCirugia(dateFormat.format(msmdstDonacionSangre.getFecCirugia()));
+            consultaResponse.setFechaInternamiento(dateFormat.format(msmdstDonacionSangre.getFecInternamiento()));
+            consultaResponse.setFecEfec(dateFormat.format(msmdstDonacionSangre.getFecEfec()));
+            consultaResponse.setNombreTrabajadorSocial(msmdstDonacionSangre.getNomTrabajadorSocial());
+            consultaResponse.setMatriculaTrabajadorSocial(msmdstDonacionSangre.getDesMatriculaTrabajadorSocial());
+            consultaResponse.setNumTelefonoTrabajadorSocial(msmdstDonacionSangre.getNumTelefonoTrabajadorSocial());
+            return consultaResponse;
+        } catch (Exception ex) {
+            consultaResponse.setIdVolanteDonacionSangre(null);
+            consultaResponse.setFechaCirugia("");
+            consultaResponse.setFechaInternamiento("");
+            consultaResponse.setFecEfec("");
+            consultaResponse.setNombreTrabajadorSocial("");
+            consultaResponse.setMatriculaTrabajadorSocial("");
+            consultaResponse.setNumTelefonoTrabajadorSocial("");
+            return consultaResponse;
+        }
+    }
     public DonacionSangreResponse detalle(MtstVolanteDonacionSangre msmdstDonacionSangre) {
         DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
         DonacionSangreResponse dr = new DonacionSangreResponse();
