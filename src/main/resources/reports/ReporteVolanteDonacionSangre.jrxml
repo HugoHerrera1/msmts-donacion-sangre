@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReporteVolanteDonacionSangre" language="groovy" pageWidth="805" pageHeight="970" columnWidth="765" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" isIgnorePagination="true" uuid="25b96f8f-9971-40ce-871d-06fa2647eae4">
 	<property name="ireport.zoom" value="2.593742460100026"/>
-	<property name="ireport.x" value="323"/>
-	<property name="ireport.y" value="1734"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="541"/>
 	<parameter name="desUnidadMedicaHospitalaria" class="java.lang.String"/>
 	<parameter name="fecEfec" class="java.lang.String"/>
 	<parameter name="idNombreBancoSangre" class="java.lang.String"/>
@@ -231,7 +231,7 @@
 				<reportElement positionType="Float" x="544" y="94" width="49" height="1" uuid="69bf8a77-8ea0-4a35-9379-b6b04d384774"/>
 			</line>
 			<textField>
-				<reportElement positionType="Float" x="544" y="82" width="74" height="19" uuid="55a18965-5c9c-4c4b-a604-504cd496a856"/>
+				<reportElement positionType="Float" x="544" y="82" width="117" height="19" uuid="55a18965-5c9c-4c4b-a604-504cd496a856"/>
 				<textFieldExpression><![CDATA[$P{timHoraFinalAtencion}]]></textFieldExpression>
 			</textField>
 			<line>
@@ -491,7 +491,7 @@ Si usted tiene la presión arterial alta y esta controlado, podria ser candidato
 11.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="41" y="334" width="675" height="83" uuid="9e22fe37-d92e-4726-937a-b2f6a7015cad"/>
+				<reportElement x="41" y="323" width="675" height="106" uuid="9e22fe37-d92e-4726-937a-b2f6a7015cad"/>
 				<textElement textAlignment="Justified">
 					<font size="11"/>
 				</textElement>
