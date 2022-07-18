@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReporteVolanteDonacionSangre" language="groovy" pageWidth="805" pageHeight="970" columnWidth="765" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" isIgnorePagination="true" uuid="25b96f8f-9971-40ce-871d-06fa2647eae4">
-	<property name="ireport.zoom" value="2.593742460100026"/>
-	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="541"/>
+	<property name="ireport.zoom" value="3.7974983358324503"/>
+	<property name="ireport.x" value="1078"/>
+	<property name="ireport.y" value="633"/>
 	<parameter name="desUnidadMedicaHospitalaria" class="java.lang.String"/>
 	<parameter name="fecEfec" class="java.lang.String"/>
 	<parameter name="idNombreBancoSangre" class="java.lang.String"/>
@@ -217,21 +217,27 @@
 				<text><![CDATA[De]]></text>
 			</staticText>
 			<line>
-				<reportElement x="469" y="94" width="48" height="1" uuid="14971622-ed71-4b4a-8d1a-a523004efc4c"/>
+				<reportElement x="469" y="94" width="72" height="1" uuid="14971622-ed71-4b4a-8d1a-a523004efc4c"/>
 			</line>
 			<textField>
-				<reportElement x="471" y="82" width="46" height="19" uuid="ea8d0b85-a406-486a-97c3-18f35e1cf9cc"/>
+				<reportElement x="471" y="83" width="71" height="19" uuid="ea8d0b85-a406-486a-97c3-18f35e1cf9cc"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$P{timHoraInicialAtencion}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement positionType="Float" x="520" y="83" width="30" height="20" uuid="555b0cde-5a4d-418c-9c75-3371083bdb8c"/>
+				<reportElement positionType="Float" x="550" y="83" width="30" height="20" uuid="555b0cde-5a4d-418c-9c75-3371083bdb8c"/>
 				<text><![CDATA[a las]]></text>
 			</staticText>
 			<line>
-				<reportElement positionType="Float" x="544" y="94" width="49" height="1" uuid="69bf8a77-8ea0-4a35-9379-b6b04d384774"/>
+				<reportElement positionType="Float" x="583" y="94" width="78" height="1" uuid="69bf8a77-8ea0-4a35-9379-b6b04d384774"/>
 			</line>
 			<textField>
-				<reportElement positionType="Float" x="544" y="82" width="117" height="19" uuid="55a18965-5c9c-4c4b-a604-504cd496a856"/>
+				<reportElement positionType="Float" x="581" y="83" width="96" height="19" uuid="55a18965-5c9c-4c4b-a604-504cd496a856"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$P{timHoraFinalAtencion}]]></textFieldExpression>
 			</textField>
 			<line>
@@ -596,7 +602,9 @@ donación a favor de su paciente. Ante cualquier duda, favor de presentarse con 
 			<elementGroup>
 				<textField isStretchWithOverflow="true">
 					<reportElement x="40" y="491" width="644" height="33" uuid="938256c3-c5cd-4f9c-bdfd-e3eeb2255da1"/>
-					<textElement textAlignment="Justified"/>
+					<textElement textAlignment="Justified">
+						<font size="9"/>
+					</textElement>
 					<textFieldExpression><![CDATA[$P{desObservaciones}]]></textFieldExpression>
 				</textField>
 				<staticText>
