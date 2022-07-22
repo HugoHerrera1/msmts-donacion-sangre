@@ -7,6 +7,7 @@ import mx.gob.imss.donacionsangre.servicios.DonacionSangreServices;
 import mx.gob.imss.donacionsangre.servicios.ReporteDonacionSangreServices;
 import net.sf.jasperreports.engine.JRException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
@@ -32,6 +33,9 @@ public class DonacionSangreControlador {
     @PostMapping(value = "/guardaNuevoVolanteDonacionSangre",
             produces = "application/json",
             consumes = "application/json")
+    @CacheEvict(value = {"bancoSangreFindNameBancobyId", "bancoSangreFindBancosSangre",
+    "servicios","edos","delegacion","ciudad","volanteDonacionByFechas",
+    "volanteDonacionById","volanteDonacionParameters"} , allEntries = true)
     public ResponseEntity guardanuevoVolante(@RequestBody DonacionSangre donacionSangre) {
         try {
             return new ResponseEntity(donaSangre.guardaNuevoVolanteDonacionS(donacionSangre), HttpStatus.OK);

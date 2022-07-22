@@ -10,11 +10,11 @@ import java.util.List;
 
 public interface BancosSangreRepositorio extends JpaRepository<MtscBancoSangre, Long> {
 
-	@Cacheable("certificadoDefuncionFindNameBancobyId")
+	@Cacheable("bancoSangreFindNameBancobyId")
     @Query(value = "select * from MTSC_BANCO_SANGRE mbs where mbs.ID_BANCO_SANGRE = ?1 and mbs.IND_ACTIVO =1", nativeQuery = true)
     MtscBancoSangre findNameBancobyId(Integer idBanco);
 
-	@Cacheable("certificadoDefuncionFindBancosSangre")
+	@Cacheable("bancoSangreFindBancosSangre")
     @Query(value = "select * from MTSC_BANCO_SANGRE mbs where mbs.IND_ACTIVO =1", nativeQuery = true)
     List<MtscBancoSangre> findBancosSangre();
 }
