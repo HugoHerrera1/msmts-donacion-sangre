@@ -88,7 +88,6 @@ public class AgendaDigitalCliente {
     }
 
     @Cacheable(cacheNames = "ciudad")
-
     public CiudadesModel getCiudad(Integer idEstado, Integer idDelegacion, Integer idCiudad) {
         log.error("Se hace la consulta ciudades por medio del cliente - no caching- ");
         try {
