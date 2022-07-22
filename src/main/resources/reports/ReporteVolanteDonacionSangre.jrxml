@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReporteVolanteDonacionSangre" language="groovy" pageWidth="805" pageHeight="970" columnWidth="765" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" isIgnorePagination="true" uuid="25b96f8f-9971-40ce-871d-06fa2647eae4">
-	<property name="ireport.zoom" value="3.7974983358324503"/>
-	<property name="ireport.x" value="1078"/>
-	<property name="ireport.y" value="633"/>
+	<property name="ireport.zoom" value="2.3579476910000245"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="1545"/>
 	<parameter name="desUnidadMedicaHospitalaria" class="java.lang.String"/>
 	<parameter name="fecEfec" class="java.lang.String"/>
 	<parameter name="idNombreBancoSangre" class="java.lang.String"/>
@@ -221,7 +221,7 @@
 			</line>
 			<textField>
 				<reportElement x="471" y="83" width="71" height="19" uuid="ea8d0b85-a406-486a-97c3-18f35e1cf9cc"/>
-				<textElement>
+				<textElement textAlignment="Center">
 					<font size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{timHoraInicialAtencion}]]></textFieldExpression>
@@ -234,8 +234,8 @@
 				<reportElement positionType="Float" x="583" y="94" width="78" height="1" uuid="69bf8a77-8ea0-4a35-9379-b6b04d384774"/>
 			</line>
 			<textField>
-				<reportElement positionType="Float" x="581" y="83" width="96" height="19" uuid="55a18965-5c9c-4c4b-a604-504cd496a856"/>
-				<textElement>
+				<reportElement positionType="Float" x="581" y="83" width="80" height="19" uuid="55a18965-5c9c-4c4b-a604-504cd496a856"/>
+				<textElement textAlignment="Center">
 					<font size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{timHoraFinalAtencion}]]></textFieldExpression>
@@ -555,7 +555,8 @@ donación a favor de su paciente. Ante cualquier duda, favor de presentarse con 
 				<reportElement x="43" y="453" width="175" height="1" uuid="2064544d-8ebd-40ed-8578-1f4342f3032e"/>
 			</line>
 			<textField>
-				<reportElement x="44" y="439" width="181" height="15" uuid="b81b0473-d15d-47ca-9833-d16b8e0df2bc"/>
+				<reportElement x="31" y="439" width="196" height="15" uuid="b81b0473-d15d-47ca-9833-d16b8e0df2bc"/>
+				<textElement textAlignment="Center"/>
 				<textFieldExpression><![CDATA[$P{nomTrabajadorSocial}]]></textFieldExpression>
 			</textField>
 			<staticText>
@@ -594,7 +595,7 @@ donación a favor de su paciente. Ante cualquier duda, favor de presentarse con 
 				<reportElement x="559" y="453" width="120" height="1" uuid="154ffd5a-0a47-45df-ae64-6bfdee929076"/>
 			</line>
 			<textField>
-				<reportElement x="561" y="439" width="129" height="20" uuid="10f20269-989a-4136-b0af-4cbe93ea9641"/>
+				<reportElement x="544" y="439" width="146" height="20" uuid="10f20269-989a-4136-b0af-4cbe93ea9641"/>
 				<textElement textAlignment="Center"/>
 				<textFieldExpression><![CDATA[$P{numTelefonoTrabajadorSocial}]]></textFieldExpression>
 			</textField>
