@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReporteVolanteDonacionSangre" language="groovy" pageWidth="765" pageHeight="970" columnWidth="725" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" isIgnorePagination="true" uuid="25b96f8f-9971-40ce-871d-06fa2647eae4">
 	<property name="ireport.zoom" value="1.4641000000000155"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="585"/>
+	<property name="ireport.y" value="477"/>
 	<parameter name="desUnidadMedicaHospitalaria" class="java.lang.String"/>
 	<parameter name="fecEfec" class="java.lang.String"/>
 	<parameter name="idNombreBancoSangre" class="java.lang.String"/>
@@ -474,33 +474,6 @@ DE LA SECRETARÍA DE SALUD, PUBLICADO EN EL DIARIO OFICIAL DE LA FEDERACIÓN  CO
 2012, SE PROHIBE LA COMERCIALIZACIÓN DE SANGRE, INFRINGIR ESTE ÁRTICULO IMPLICA SANCIONES]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="40" y="90" width="678" height="323" uuid="a4ed779e-3d06-49b7-9485-254630bd7017"/>
-				<textElement>
-					<font size="11"/>
-				</textElement>
-				<text><![CDATA[1.   Acudir con una identificación oficial con fotografia original y vigente (INE, pasaporte, cédula profesional, credencial ADIMSS,
-      cartilla nacional de salud vigente, licencia de manejo, para extranjeros: Pasaporte, carnet de identificación del ciudadano
-      extranjero o forma migratoria FM2 o FM3 vigente
-2.   Edad de 18 a 65 años.
-3.   Peso mayor de 50 kilos.
-4.   Ayuno mínimo de 4 horas/evite consumir alimentos con grasa 24 horas antes de la donación). Durante las 4 horas de ayuno solo
-      puede ingerir: jugos, frutas (excepto plátano, mamey y aguacate), té, café solo y mantenerse hidratado.
-5.   No exceder de 8 horas de ayuno.
-6.   No haber estado enfermo de gripe, tos, diarrea o infección dental en los últimos 14 días.
-7.   No haber tomado medicamentos en los últimos 5 dias (por ej. aspirina, paracetamol, ibuprofeno, antibióticos, etc. cualquier duda
-      favor de preguntar)
-8.   No haber estado en tratamiento de endodoncia, acupuntura o haberse practicado tatuajes o perforaciones en los últimos doce
-      meses.
-9.   No haberse vacunado en los últimos 30 días.
-10. No haber ingerido bebidas alcohólicas en 72 horas previas a la donación.
-11. Si usted tiene la presión arterial alta y está controlado, podría ser candidato a donar.
-
-Para su comodidad, se recomienda presentarse aseado, con ropa cómoda y manga corta, es necesario disponer de 2 horas, tiempo
-aproximado de duración del proceso de donación. No se permite el paso a menores de edad ni acompañantes. Si usted ha donado
-sangre, el personal de Banco de Sangre notificará por correo electrónico a la jefatura de Trabajo Social del Hospital sobre su
-donación a favor de su paciente. Ante cualquier duda, favor de presentarse con el personal de salud del Banco de Sangre.]]></text>
-			</staticText>
-			<staticText>
 				<reportElement x="37" y="66" width="641" height="20" uuid="6b154616-2720-4176-bdc6-f9dd08d6e296"/>
 				<textElement textAlignment="Center">
 					<font size="11" isBold="true"/>
@@ -603,6 +576,33 @@ donación a favor de su paciente. Ante cualquier duda, favor de presentarse con 
 					<textFieldExpression><![CDATA[$P{desObservaciones}]]></textFieldExpression>
 				</textField>
 			</elementGroup>
+			<staticText>
+				<reportElement x="40" y="85" width="685" height="460" uuid="a4ed779e-3d06-49b7-9485-254630bd7017"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[1.   Acudir con una identificación oficial con fotografia original y vigente (INE, pasaporte, cédula profesional, credencial ADIMSS,
+      cartilla nacional de salud vigente, licencia de manejo, para extranjeros: Pasaporte, carnet de identificación del ciudadano
+      extranjero o forma migratoria FM2 o FM3 vigente
+2.   Edad de 18 a 65 años.
+3.   Peso mayor de 50 kilos.
+4.   Ayuno mínimo de 4 horas/evite consumir alimentos con grasa 24 horas antes de la donación). Durante las 4 horas de ayuno solo
+      puede ingerir: jugos, frutas (excepto plátano, mamey y aguacate), té, café solo y mantenerse hidratado.
+5.   No exceder de 8 horas de ayuno.
+6.   No haber estado enfermo de gripe, tos, diarrea o infección dental en los últimos 14 días.
+7.   No haber tomado medicamentos en los últimos 5 dias (por ej. aspirina, paracetamol, ibuprofeno, antibióticos, etc. cualquier duda
+      favor de preguntar)
+8.   No haber estado en tratamiento de endodoncia, acupuntura o haberse practicado tatuajes o perforaciones en los últimos doce
+      meses.
+9.   No haberse vacunado en los últimos 30 días.
+10. No haber ingerido bebidas alcohólicas en 72 horas previas a la donación.
+11. Si usted tiene la presión arterial alta y está controlado, podría ser candidato a donar.
+
+Para su comodidad, se recomienda presentarse aseado, con ropa cómoda y manga corta, es necesario disponer de 2 horas, tiempo
+aproximado de duración del proceso de donación. No se permite el paso a menores de edad ni acompañantes. Si usted ha donado
+sangre, el personal de Banco de Sangre notificará por correo electrónico a la jefatura de Trabajo Social del Hospital sobre su
+donación a favor de su paciente. Ante cualquier duda, favor de presentarse con el personal de salud del Banco de Sangre.]]></text>
+			</staticText>
 		</band>
 	</detail>
 </jasperReport>
