@@ -22,7 +22,7 @@ public class ReporteDonacionSangre {
    
     private String desCodigoPostal;
    
-    private String delegacionMunicipio;
+    private String nombreDelegacionMunicipio;
    
     private String timHoraInicialAtencion;
     
@@ -56,7 +56,7 @@ public class ReporteDonacionSangre {
 
 	public ReporteDonacionSangre(String desUnidadMedicaHospitalaria, String fecEfec, String nombreBancoSangre,
 			String nomCalle, String numExterior, String nomColonia, String desCodigoPostal,
-			String delegacionMunicipio, String timHoraInicialAtencion, String timHoraFinalAtencion, String nss,
+			String nombreDelegacionMunicipio, String timHoraInicialAtencion, String timHoraFinalAtencion, String nss,
 			String desNssAgregado, String fecInternamiento, String fecCirugia, String nombreServicio,
 			String numTelefonoPaciente, String nomTrabajadorSocial, String desMatriculaTrabajadorSocial,
 			String numTelefonoTrabajadorSocial, String desObservaciones, String nomPaciente) {
@@ -68,7 +68,7 @@ public class ReporteDonacionSangre {
 		this.numExterior = numExterior;
 		this.nomColonia = nomColonia;
 		this.desCodigoPostal = desCodigoPostal;
-		this.delegacionMunicipio = delegacionMunicipio;
+		this.nombreDelegacionMunicipio = nombreDelegacionMunicipio;
 		this.timHoraInicialAtencion = timHoraInicialAtencion;
 		this.timHoraFinalAtencion = timHoraFinalAtencion;
 		this.nss = nss;
@@ -140,12 +140,12 @@ public class ReporteDonacionSangre {
 		this.desCodigoPostal = desCodigoPostal;
 	}
 
-	public String getDelegacionMunicipio() {
-		return delegacionMunicipio;
+	public String getNombreDelegacionMunicipio() {
+		return nombreDelegacionMunicipio;
 	}
 
-	public void setDelegacionMunicipio(String delegacionMunicipio) {
-		this.delegacionMunicipio = delegacionMunicipio;
+	public void setNombreDelegacionMunicipio(String nombreDelegacionMunicipio) {
+		this.nombreDelegacionMunicipio = nombreDelegacionMunicipio;
 	}
 
 	public String getTimHoraInicialAtencion() {
