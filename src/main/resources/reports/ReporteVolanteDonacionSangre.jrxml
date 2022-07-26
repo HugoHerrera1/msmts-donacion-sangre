@@ -2,22 +2,22 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReporteVolanteDonacionSangre" language="groovy" pageWidth="765" pageHeight="970" columnWidth="725" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" isIgnorePagination="true" uuid="25b96f8f-9971-40ce-871d-06fa2647eae4">
 	<property name="ireport.zoom" value="1.4641000000000155"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="632"/>
+	<property name="ireport.y" value="192"/>
 	<parameter name="desUnidadMedicaHospitalaria" class="java.lang.String"/>
 	<parameter name="fecEfec" class="java.lang.String"/>
-	<parameter name="idNombreBancoSangre" class="java.lang.String"/>
+	<parameter name="nombreBancoSangre" class="java.lang.String"/>
 	<parameter name="nomCalle" class="java.lang.String"/>
 	<parameter name="numExterior" class="java.lang.String"/>
 	<parameter name="nomColonia" class="java.lang.String"/>
 	<parameter name="desCodigoPostal" class="java.lang.String"/>
-	<parameter name="idDelegacionMunicipio" class="java.lang.String"/>
+	<parameter name="delegacionMunicipio" class="java.lang.String"/>
 	<parameter name="timHoraInicialAtencion" class="java.lang.String"/>
 	<parameter name="timHoraFinalAtencion" class="java.lang.String"/>
 	<parameter name="nss" class="java.lang.String"/>
 	<parameter name="desNssAgregado" class="java.lang.String"/>
 	<parameter name="fecInternamiento" class="java.lang.String"/>
 	<parameter name="fecCirugia" class="java.lang.String"/>
-	<parameter name="idServicio" class="java.lang.String"/>
+	<parameter name="servicio" class="java.lang.String"/>
 	<parameter name="numTelefonoPaciente" class="java.lang.String"/>
 	<parameter name="nomTrabajadorSocial" class="java.lang.String"/>
 	<parameter name="desMatriculaTrabajadorSocial" class="java.lang.String"/>
@@ -180,7 +180,7 @@
 			</staticText>
 			<textField>
 				<reportElement x="94" y="65" width="347" height="20" uuid="7bc9c973-40cc-42d4-a337-0406f8d690ab"/>
-				<textFieldExpression><![CDATA[$P{idNombreBancoSangre}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{nombreBancoSangre}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="37" y="81" width="121" height="20" uuid="e1d09a63-e83a-4c9a-bfcb-8738026f7e5a"/>
@@ -200,7 +200,7 @@
 			</textField>
 			<textField>
 				<reportElement x="346" y="82" width="98" height="20" uuid="0774ce3b-84ae-4f5d-9c08-07a5ebb57a5b"/>
-				<textFieldExpression><![CDATA[$P{idDelegacionMunicipio}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{delegacionMunicipio}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="454" y="68" width="223" height="15" uuid="d02df0df-4cf3-4a7b-92d8-89b5bf979641"/>
@@ -402,7 +402,7 @@
 			<textField>
 				<reportElement x="379" y="185" width="198" height="20" uuid="bffba3d2-afba-4c73-b82b-5c9244bc10fa"/>
 				<textElement textAlignment="Center"/>
-				<textFieldExpression><![CDATA[$P{idServicio}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{servicio}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="576" y="184" width="126" height="15" uuid="ccdf0251-d338-4b01-b445-5850af1c8e8c"/>

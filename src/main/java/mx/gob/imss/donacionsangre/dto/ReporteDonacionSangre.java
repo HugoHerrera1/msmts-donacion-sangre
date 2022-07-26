@@ -12,7 +12,7 @@ public class ReporteDonacionSangre {
 
     private String fecEfec;
 	
-    private String idNombreBancoSangre;
+    private String nombreBancoSangre;
    
     private String nomCalle;
  
@@ -22,7 +22,7 @@ public class ReporteDonacionSangre {
    
     private String desCodigoPostal;
    
-    private String idDelegacionMunicipio;
+    private String delegacionMunicipio;
    
     private String timHoraInicialAtencion;
     
@@ -36,7 +36,7 @@ public class ReporteDonacionSangre {
  
     private String fecCirugia;
   
-    private String idServicio;
+    private String servicio;
  
     private String numTelefonoPaciente;
   
@@ -54,28 +54,28 @@ public class ReporteDonacionSangre {
     	
     }
 
-	public ReporteDonacionSangre(String desUnidadMedicaHospitalaria, String fecEfec, String idNombreBancoSangre,
+	public ReporteDonacionSangre(String desUnidadMedicaHospitalaria, String fecEfec, String nombreBancoSangre,
 			String nomCalle, String numExterior, String nomColonia, String desCodigoPostal,
-			String idDelegacionMunicipio, String timHoraInicialAtencion, String timHoraFinalAtencion, String nss,
-			String desNssAgregado, String fecInternamiento, String fecCirugia, String idServicio,
+			String delegacionMunicipio, String timHoraInicialAtencion, String timHoraFinalAtencion, String nss,
+			String desNssAgregado, String fecInternamiento, String fecCirugia, String servicio,
 			String numTelefonoPaciente, String nomTrabajadorSocial, String desMatriculaTrabajadorSocial,
 			String numTelefonoTrabajadorSocial, String desObservaciones, String nomPaciente) {
 		super();
 		this.desUnidadMedicaHospitalaria = desUnidadMedicaHospitalaria;
 		this.fecEfec = fecEfec;
-		this.idNombreBancoSangre = idNombreBancoSangre;
+		this.nombreBancoSangre = nombreBancoSangre;
 		this.nomCalle = nomCalle;
 		this.numExterior = numExterior;
 		this.nomColonia = nomColonia;
 		this.desCodigoPostal = desCodigoPostal;
-		this.idDelegacionMunicipio = idDelegacionMunicipio;
+		this.delegacionMunicipio = delegacionMunicipio;
 		this.timHoraInicialAtencion = timHoraInicialAtencion;
 		this.timHoraFinalAtencion = timHoraFinalAtencion;
 		this.nss = nss;
 		this.desNssAgregado = desNssAgregado;
 		this.fecInternamiento = fecInternamiento;
 		this.fecCirugia = fecCirugia;
-		this.idServicio = idServicio;
+		this.servicio = servicio;
 		this.numTelefonoPaciente = numTelefonoPaciente;
 		this.nomTrabajadorSocial = nomTrabajadorSocial;
 		this.desMatriculaTrabajadorSocial = desMatriculaTrabajadorSocial;
@@ -100,12 +100,12 @@ public class ReporteDonacionSangre {
 		this.fecEfec = fecEfec;
 	}
 
-	public String getIdNombreBancoSangre() {
-		return idNombreBancoSangre;
+	public String getNombreBancoSangre() {
+		return nombreBancoSangre;
 	}
 
-	public void setIdNombreBancoSangre(String idNombreBancoSangre) {
-		this.idNombreBancoSangre = idNombreBancoSangre;
+	public void setNombreBancoSangre(String nombreBancoSangre) {
+		this.nombreBancoSangre = nombreBancoSangre;
 	}
 
 	public String getNomCalle() {
@@ -140,12 +140,12 @@ public class ReporteDonacionSangre {
 		this.desCodigoPostal = desCodigoPostal;
 	}
 
-	public String getIdDelegacionMunicipio() {
-		return idDelegacionMunicipio;
+	public String getDelegacionMunicipio() {
+		return delegacionMunicipio;
 	}
 
-	public void setIdDelegacionMunicipio(String idDelegacionMunicipio) {
-		this.idDelegacionMunicipio = idDelegacionMunicipio;
+	public void setDelegacionMunicipio(String delegacionMunicipio) {
+		this.delegacionMunicipio = delegacionMunicipio;
 	}
 
 	public String getTimHoraInicialAtencion() {
@@ -196,12 +196,12 @@ public class ReporteDonacionSangre {
 		this.fecCirugia = fecCirugia;
 	}
 
-	public String getIdServicio() {
-		return idServicio;
+	public String getServicio() {
+		return servicio;
 	}
 
-	public void setIdServicio(String idServicio) {
-		this.idServicio = idServicio;
+	public void setServicio(String servicio) {
+		this.servicio = servicio;
 	}
 
 	public String getNumTelefonoPaciente() {

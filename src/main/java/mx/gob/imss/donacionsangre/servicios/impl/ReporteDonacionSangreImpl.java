@@ -29,19 +29,19 @@ public class ReporteDonacionSangreImpl implements ReporteDonacionSangreServices 
 		
 		   parameters.put("desUnidadMedicaHospitalaria", reporte.getDesUnidadMedicaHospitalaria());
 	        parameters.put("fecEfec", reporte.getFecEfec());
-	        parameters.put("idNombreBancoSangre", reporte.getIdNombreBancoSangre());
+	        parameters.put("nombreBancoSangre", reporte.getNombreBancoSangre());
 	        parameters.put("nomCalle", reporte.getNomCalle());
 	        parameters.put("numExterior", reporte.getNumExterior());
 	        parameters.put("nomColonia", reporte.getNomColonia());
 	        parameters.put("desCodigoPostal", reporte.getDesCodigoPostal());
-	        parameters.put("idDelegacionMunicipio", reporte.getIdDelegacionMunicipio());
+	        parameters.put("delegacionMunicipio", reporte.getDelegacionMunicipio());
 	        parameters.put("timHoraInicialAtencion", reporte.getTimHoraInicialAtencion());
 	        parameters.put("timHoraFinalAtencion", reporte.getTimHoraFinalAtencion());
 	        parameters.put("nss", reporte.getNss());
 	        parameters.put("desNssAgregado", reporte.getDesNssAgregado());
 	        parameters.put("fecInternamiento", reporte.getFecInternamiento());
 	        parameters.put("fecCirugia", reporte.getFecCirugia()); 
-	        parameters.put("idServicio", reporte.getIdServicio());
+	        parameters.put("servicio", reporte.getServicio());
 	        parameters.put("numTelefonoPaciente", reporte.getNumTelefonoPaciente());
 	        parameters.put("nomTrabajadorSocial", reporte.getNomTrabajadorSocial());
 	        parameters.put("desMatriculaTrabajadorSocial", reporte.getDesMatriculaTrabajadorSocial());
