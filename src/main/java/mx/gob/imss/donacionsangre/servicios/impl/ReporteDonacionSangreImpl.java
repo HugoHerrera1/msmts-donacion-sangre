@@ -41,7 +41,7 @@ public class ReporteDonacionSangreImpl implements ReporteDonacionSangreServices 
 	        parameters.put("desNssAgregado", reporte.getDesNssAgregado());
 	        parameters.put("fecInternamiento", reporte.getFecInternamiento());
 	        parameters.put("fecCirugia", reporte.getFecCirugia()); 
-	        parameters.put("servicio", reporte.getServicio());
+	        parameters.put("servicio", reporte.getNombreServicio());
 	        parameters.put("numTelefonoPaciente", reporte.getNumTelefonoPaciente());
 	        parameters.put("nomTrabajadorSocial", reporte.getNomTrabajadorSocial());
 	        parameters.put("desMatriculaTrabajadorSocial", reporte.getDesMatriculaTrabajadorSocial());

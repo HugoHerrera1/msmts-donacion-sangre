@@ -36,7 +36,7 @@ public class ReporteDonacionSangre {
  
     private String fecCirugia;
   
-    private String servicio;
+    private String nombreServicio;
  
     private String numTelefonoPaciente;
   
@@ -57,7 +57,7 @@ public class ReporteDonacionSangre {
 	public ReporteDonacionSangre(String desUnidadMedicaHospitalaria, String fecEfec, String nombreBancoSangre,
 			String nomCalle, String numExterior, String nomColonia, String desCodigoPostal,
 			String delegacionMunicipio, String timHoraInicialAtencion, String timHoraFinalAtencion, String nss,
-			String desNssAgregado, String fecInternamiento, String fecCirugia, String servicio,
+			String desNssAgregado, String fecInternamiento, String fecCirugia, String nombreServicio,
 			String numTelefonoPaciente, String nomTrabajadorSocial, String desMatriculaTrabajadorSocial,
 			String numTelefonoTrabajadorSocial, String desObservaciones, String nomPaciente) {
 		super();
@@ -75,7 +75,7 @@ public class ReporteDonacionSangre {
 		this.desNssAgregado = desNssAgregado;
 		this.fecInternamiento = fecInternamiento;
 		this.fecCirugia = fecCirugia;
-		this.servicio = servicio;
+		this.nombreServicio = nombreServicio;
 		this.numTelefonoPaciente = numTelefonoPaciente;
 		this.nomTrabajadorSocial = nomTrabajadorSocial;
 		this.desMatriculaTrabajadorSocial = desMatriculaTrabajadorSocial;
@@ -196,12 +196,12 @@ public class ReporteDonacionSangre {
 		this.fecCirugia = fecCirugia;
 	}
 
-	public String getServicio() {
-		return servicio;
+	public String getNombreServicio() {
+		return nombreServicio;
 	}
 
-	public void setServicio(String servicio) {
-		this.servicio = servicio;
+	public void setNombreServicio(String nombreServicio) {
+		this.nombreServicio = nombreServicio;
 	}
 
 	public String getNumTelefonoPaciente() {
