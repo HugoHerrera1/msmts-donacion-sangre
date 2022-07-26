@@ -30,7 +30,7 @@ public class ReporteDonacionSangre {
  
     private String nss;
   
-    private String desNssAgregado;
+    private String nssCompleto;
    
     private String fecInternamiento;
  
@@ -57,7 +57,7 @@ public class ReporteDonacionSangre {
 	public ReporteDonacionSangre(String desUnidadMedicaHospitalaria, String fecEfec, String nombreBancoSangre,
 			String nomCalle, String numExterior, String nomColonia, String desCodigoPostal,
 			String nombreDelegacionMunicipio, String timHoraInicialAtencion, String timHoraFinalAtencion, String nss,
-			String desNssAgregado, String fecInternamiento, String fecCirugia, String nombreServicio,
+			String nssCompleto, String fecInternamiento, String fecCirugia, String nombreServicio,
 			String numTelefonoPaciente, String nomTrabajadorSocial, String desMatriculaTrabajadorSocial,
 			String numTelefonoTrabajadorSocial, String desObservaciones, String nomPaciente) {
 		super();
@@ -72,7 +72,7 @@ public class ReporteDonacionSangre {
 		this.timHoraInicialAtencion = timHoraInicialAtencion;
 		this.timHoraFinalAtencion = timHoraFinalAtencion;
 		this.nss = nss;
-		this.desNssAgregado = desNssAgregado;
+		this.nssCompleto = nssCompleto;
 		this.fecInternamiento = fecInternamiento;
 		this.fecCirugia = fecCirugia;
 		this.nombreServicio = nombreServicio;
@@ -172,12 +172,12 @@ public class ReporteDonacionSangre {
 		this.nss = nss;
 	}
 
-	public String getDesNssAgregado() {
-		return desNssAgregado;
+	public String getNssCompleto() {
+		return nssCompleto;
 	}
 
-	public void setDesNssAgregado(String desNssAgregado) {
-		this.desNssAgregado = desNssAgregado;
+	public void setNssCompleto(String nssCompleto) {
+		this.nssCompleto = nssCompleto;
 	}
 
 	public String getFecInternamiento() {

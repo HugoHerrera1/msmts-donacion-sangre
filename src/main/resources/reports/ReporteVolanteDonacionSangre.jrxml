@@ -14,7 +14,7 @@
 	<parameter name="timHoraInicialAtencion" class="java.lang.String"/>
 	<parameter name="timHoraFinalAtencion" class="java.lang.String"/>
 	<parameter name="nss" class="java.lang.String"/>
-	<parameter name="desNssAgregado" class="java.lang.String"/>
+	<parameter name="nssCompleto" class="java.lang.String"/>
 	<parameter name="fecInternamiento" class="java.lang.String"/>
 	<parameter name="fecCirugia" class="java.lang.String"/>
 	<parameter name="nombreServicio" class="java.lang.String"/>
@@ -283,7 +283,7 @@
 			<textField>
 				<reportElement x="588" y="156" width="114" height="20" uuid="c82d3503-a1af-45d5-bddf-dcace928f8b2"/>
 				<textElement textAlignment="Center"/>
-				<textFieldExpression><![CDATA[$P{desNssAgregado}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{nssCompleto}]]></textFieldExpression>
 			</textField>
 			<line>
 				<reportElement x="39" y="156" width="392" height="1" uuid="94e00e27-4a44-47cc-80d4-9cc23bd18dd2"/>
