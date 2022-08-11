@@ -16,7 +16,6 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.ws.rs.Path;
 import java.io.IOException;
 
 @Slf4j
@@ -33,9 +32,7 @@ public class DonacionSangreControlador {
     @PostMapping(value = "/guardaNuevoVolanteDonacionSangre",
             produces = "application/json",
             consumes = "application/json")
-    @CacheEvict(value = {"bancoSangreFindNameBancobyId", "bancoSangreFindBancosSangre",
-    "servicios","edos","delegacion","ciudad","volanteDonacionByFechas",
-    "volanteDonacionById","volanteDonacionParameters"} , allEntries = true)
+    @CacheEvict(value = {"volanteDonacionByFechas", "volanteDonacionById", "volanteDonacionParameters"}, allEntries = true)
     public ResponseEntity guardanuevoVolante(@RequestBody DonacionSangre donacionSangre) {
         try {
             return new ResponseEntity(donaSangre.guardaNuevoVolanteDonacionS(donacionSangre), HttpStatus.OK);
@@ -78,19 +75,19 @@ public class DonacionSangreControlador {
             return new ResponseEntity(donaSangre.findVolantesById(idVolanteDonacion), HttpStatus.OK);
         } catch (Exception ex) {
             ex.printStackTrace();
-            return new ResponseEntity(ex.getMessage(), HttpStatus.BAD_REQUEST);
+            return new ResponseEntity(ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
     @GetMapping(path = "/findVolantesAdministracion/{fechaInicial}/{fechaFinal}/{tipoSangre}",
             produces = "application/json")
     public ResponseEntity findVolantesByParameters(@PathVariable String fechaInicial, @PathVariable String fechaFinal, @PathVariable String tipoSangre) {
-try{
-return new ResponseEntity(donaSangre.findVolantesByParrameters(fechaInicial, fechaFinal, tipoSangre),HttpStatus.OK);
-}catch (Exception ex){
-    ex.printStackTrace();
-    return new ResponseEntity(ex.getMessage(),HttpStatus.BAD_REQUEST);
-}
+        try {
+            return new ResponseEntity(donaSangre.findVolantesByParrameters(fechaInicial, fechaFinal, tipoSangre), HttpStatus.OK);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            return new ResponseEntity(ex.getMessage(), HttpStatus.BAD_REQUEST);
+        }
     }
 
     @GetMapping(path = "/getBancosSangre", produces = "application/json")
@@ -101,5 +98,13 @@ return new ResponseEntity(donaSangre.findVolantesByParrameters(fechaInicial, fec
             return new ResponseEntity(ex.getMessage(), HttpStatus.BAD_REQUEST);
         }
     }
+
+    @GetMapping(value = "/evictallcaches", produces = "application/json")
+    public ResponseEntity<String> evictAllcaches() {
+
+        return new ResponseEntity<>(donaSangre.evictAllcaches(), HttpStatus.OK);
+
+    }
+
 }
 

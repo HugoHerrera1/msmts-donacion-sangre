@@ -10,10 +10,12 @@ import mx.gob.imss.donacionsangre.repositorios.BancosSangreRepositorio;
 import mx.gob.imss.donacionsangre.repositorios.DonacionSangreRepositorio;
 import mx.gob.imss.donacionsangre.servicios.DonacionSangreServices;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.CacheManager;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Slf4j
 @Service
@@ -24,6 +26,8 @@ public class DonacionSangreImpl implements DonacionSangreServices {
     DonacionSangreRepositorio donacionSangreRepositorio;
     @Autowired
     BancosSangreRepositorio bancoSangre;
+    @Autowired
+    CacheManager cacheManager;
 
     @Override
     public String guardaNuevoVolanteDonacionS(DonacionSangre donacionSangre) {
@@ -132,6 +136,20 @@ ex.printStackTrace();
             generic.setMensaje(DonacionSangreConstantes.MENSAJE_ERROR + "[" + ex.getMessage() + "]");
             generic.setDatosVolantesDonacion(new ArrayList<>());
             return jsonArray.toJson(generic);
+        }
+    }
+
+    public String evictAllcaches() {
+        try {
+            cacheManager.getCacheNames()
+                    .forEach(cacheName -> Objects.requireNonNull(cacheManager.getCache(cacheName)).clear());
+            return "Memoria cache borrada correctamente";
+
+        } catch (Exception e) {
+
+            e.printStackTrace();
+            return "Error al borrar memoria cache";
+
         }
     }
 }

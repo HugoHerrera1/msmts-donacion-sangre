@@ -1,6 +1,5 @@
 package mx.gob.imss.componentes;
 
-import com.google.gson.Gson;
 import lombok.extern.slf4j.Slf4j;
 import mx.gob.imss.constantes.DonacionSangreConstantes;
 import mx.gob.imss.donacionsangre.modelos.CiudadesModel;
@@ -8,12 +7,8 @@ import mx.gob.imss.donacionsangre.modelos.DelegacionMunicipioModel;
 import mx.gob.imss.donacionsangre.modelos.EstadosModel;
 import mx.gob.imss.donacionsangre.modelos.ServiciosModel;
 import org.glassfish.jersey.jackson.JacksonFeature;
-import org.hibernate.annotations.Cache;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.cache.annotation.CacheConfig;
-import org.springframework.cache.annotation.CacheEvict;
-import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Component;
@@ -22,14 +17,9 @@ import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.core.GenericType;
 import javax.ws.rs.core.MediaType;
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
-import java.util.Objects;
 
 @Slf4j
 @Component
