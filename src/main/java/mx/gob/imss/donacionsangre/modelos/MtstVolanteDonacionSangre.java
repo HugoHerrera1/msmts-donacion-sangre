@@ -3,8 +3,6 @@ package mx.gob.imss.donacionsangre.modelos;
 import javax.persistence.*;
 import java.sql.Time;
 import java.time.Instant;
-import java.time.LocalDate;
-import java.time.LocalTime;
 import java.util.Date;
 
 @Entity

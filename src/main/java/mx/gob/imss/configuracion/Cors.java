@@ -38,6 +38,7 @@ public class Cors implements Filter {
 
     @Override
     public void init(FilterConfig filterConfig) {
+        //is empty
     }
 
     @Override

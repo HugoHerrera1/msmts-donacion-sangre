@@ -50,39 +50,7 @@ public class ReporteDonacionSangre {
 
     private String nomPaciente;
     
-    public ReporteDonacionSangre() {
-    	
-    }
 
-	public ReporteDonacionSangre(String desUnidadMedicaHospitalaria, String fecEfec, String nombreBancoSangre,
-			String nomCalle, String numExterior, String nomColonia, String desCodigoPostal,
-			String nombreDelegacionMunicipio, String timHoraInicialAtencion, String timHoraFinalAtencion, String nss,
-			String nssCompleto, String fecInternamiento, String fecCirugia, String nombreServicio,
-			String numTelefonoPaciente, String nomTrabajadorSocial, String desMatriculaTrabajadorSocial,
-			String numTelefonoTrabajadorSocial, String desObservaciones, String nomPaciente) {
-		super();
-		this.desUnidadMedicaHospitalaria = desUnidadMedicaHospitalaria;
-		this.fecEfec = fecEfec;
-		this.nombreBancoSangre = nombreBancoSangre;
-		this.nomCalle = nomCalle;
-		this.numExterior = numExterior;
-		this.nomColonia = nomColonia;
-		this.desCodigoPostal = desCodigoPostal;
-		this.nombreDelegacionMunicipio = nombreDelegacionMunicipio;
-		this.timHoraInicialAtencion = timHoraInicialAtencion;
-		this.timHoraFinalAtencion = timHoraFinalAtencion;
-		this.nss = nss;
-		this.nssCompleto = nssCompleto;
-		this.fecInternamiento = fecInternamiento;
-		this.fecCirugia = fecCirugia;
-		this.nombreServicio = nombreServicio;
-		this.numTelefonoPaciente = numTelefonoPaciente;
-		this.nomTrabajadorSocial = nomTrabajadorSocial;
-		this.desMatriculaTrabajadorSocial = desMatriculaTrabajadorSocial;
-		this.numTelefonoTrabajadorSocial = numTelefonoTrabajadorSocial;
-		this.desObservaciones = desObservaciones;
-		this.nomPaciente = nomPaciente;
-	}
 
 	public String getDesUnidadMedicaHospitalaria() {
 		return desUnidadMedicaHospitalaria;
