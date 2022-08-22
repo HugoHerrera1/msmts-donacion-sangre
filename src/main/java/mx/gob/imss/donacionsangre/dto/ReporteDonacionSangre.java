@@ -24,9 +24,7 @@ public class ReporteDonacionSangre {
    
     private String nombreDelegacionMunicipio;
    
-    private String timHoraInicialAtencion;
-    
-    private String timHoraFinalAtencion;
+    private String refHorarioAtencion;
  
     private String nss;
   
@@ -116,20 +114,13 @@ public class ReporteDonacionSangre {
 		this.nombreDelegacionMunicipio = nombreDelegacionMunicipio;
 	}
 
-	public String getTimHoraInicialAtencion() {
-		return timHoraInicialAtencion;
+	
+	public String getRefHorarioAtencion() {
+		return refHorarioAtencion;
 	}
 
-	public void setTimHoraInicialAtencion(String timHoraInicialAtencion) {
-		this.timHoraInicialAtencion = timHoraInicialAtencion;
-	}
-
-	public String getTimHoraFinalAtencion() {
-		return timHoraFinalAtencion;
-	}
-
-	public void setTimHoraFinalAtencion(String timHoraFinalAtencion) {
-		this.timHoraFinalAtencion = timHoraFinalAtencion;
+	public void setRefHorarioAtencion(String refHorarioAtencion) {
+		this.refHorarioAtencion = refHorarioAtencion;
 	}
 
 	public String getNss() {

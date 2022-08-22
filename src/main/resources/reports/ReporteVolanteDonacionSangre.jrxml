@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReporteVolanteDonacionSangre" language="groovy" pageWidth="765" pageHeight="970" columnWidth="725" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" isIgnorePagination="true" uuid="25b96f8f-9971-40ce-871d-06fa2647eae4">
-	<property name="ireport.zoom" value="3.138428376721037"/>
-	<property name="ireport.x" value="606"/>
-	<property name="ireport.y" value="444"/>
+	<property name="ireport.zoom" value="2.5937424601000307"/>
+	<property name="ireport.x" value="202"/>
+	<property name="ireport.y" value="290"/>
 	<parameter name="desUnidadMedicaHospitalaria" class="java.lang.String"/>
 	<parameter name="fecEfec" class="java.lang.String"/>
 	<parameter name="nombreBancoSangre" class="java.lang.String"/>
@@ -11,8 +11,7 @@
 	<parameter name="nomColonia" class="java.lang.String"/>
 	<parameter name="desCodigoPostal" class="java.lang.String"/>
 	<parameter name="nombreDelegacionMunicipio" class="java.lang.String"/>
-	<parameter name="timHoraInicialAtencion" class="java.lang.String"/>
-	<parameter name="timHoraFinalAtencion" class="java.lang.String"/>
+	<parameter name="refHorarioAtencion" class="java.lang.String"/>
 	<parameter name="nss" class="java.lang.String"/>
 	<parameter name="nssCompleto" class="java.lang.String"/>
 	<parameter name="fecInternamiento" class="java.lang.String"/>
@@ -59,13 +58,13 @@
 	<columnHeader>
 		<band height="210" splitType="Stretch">
 			<rectangle>
-				<reportElement mode="Transparent" x="31" y="122" width="660" height="86" uuid="dcdc174f-3acd-4474-a15e-7e091a36e1ee"/>
+				<reportElement positionType="Float" mode="Transparent" x="31" y="48" width="660" height="62" uuid="80a48bba-bc55-4cfc-8028-55addf9781f1"/>
 				<graphicElement>
 					<pen lineWidth="1.5"/>
 				</graphicElement>
 			</rectangle>
 			<rectangle>
-				<reportElement positionType="Float" mode="Transparent" x="31" y="48" width="660" height="62" uuid="80a48bba-bc55-4cfc-8028-55addf9781f1"/>
+				<reportElement mode="Transparent" x="31" y="122" width="660" height="86" uuid="dcdc174f-3acd-4474-a15e-7e091a36e1ee"/>
 				<graphicElement>
 					<pen lineWidth="1.5"/>
 				</graphicElement>
@@ -211,42 +210,21 @@
 				<textFieldExpression><![CDATA[$P{desCodigoPostal}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="466" y="68" width="223" height="15" uuid="d02df0df-4cf3-4a7b-92d8-89b5bf979641"/>
-				<textElement>
+				<reportElement x="460" y="66" width="229" height="15" uuid="d02df0df-4cf3-4a7b-92d8-89b5bf979641"/>
+				<textElement textAlignment="Center">
 					<font isBold="true"/>
 				</textElement>
 				<text><![CDATA[HORARIO DE ATENCIÓN]]></text>
 			</staticText>
-			<staticText>
-				<reportElement x="466" y="83" width="15" height="17" uuid="552ce4d6-1245-4a9e-9a81-b221d76c3a8a"/>
-				<textElement>
-					<font size="10"/>
-				</textElement>
-				<text><![CDATA[De]]></text>
-			</staticText>
 			<line>
-				<reportElement x="484" y="94" width="72" height="1" uuid="14971622-ed71-4b4a-8d1a-a523004efc4c"/>
+				<reportElement x="484" y="96" width="184" height="1" uuid="14971622-ed71-4b4a-8d1a-a523004efc4c"/>
 			</line>
 			<textField>
-				<reportElement x="483" y="83" width="71" height="19" uuid="ea8d0b85-a406-486a-97c3-18f35e1cf9cc"/>
+				<reportElement x="460" y="84" width="230" height="21" uuid="ea8d0b85-a406-486a-97c3-18f35e1cf9cc"/>
 				<textElement textAlignment="Center">
 					<font size="9"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{timHoraInicialAtencion}]]></textFieldExpression>
-			</textField>
-			<staticText>
-				<reportElement positionType="Float" x="562" y="83" width="30" height="20" uuid="555b0cde-5a4d-418c-9c75-3371083bdb8c"/>
-				<text><![CDATA[a las]]></text>
-			</staticText>
-			<line>
-				<reportElement positionType="Float" x="595" y="94" width="78" height="1" uuid="69bf8a77-8ea0-4a35-9379-b6b04d384774"/>
-			</line>
-			<textField>
-				<reportElement positionType="Float" x="593" y="83" width="80" height="19" uuid="55a18965-5c9c-4c4b-a604-504cd496a856"/>
-				<textElement textAlignment="Center">
-					<font size="9"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$P{timHoraFinalAtencion}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{refHorarioAtencion}]]></textFieldExpression>
 			</textField>
 			<line>
 				<reportElement x="31" y="137" width="660" height="1" uuid="785db57c-23c6-4e90-8359-fada4959165b"/>
