@@ -6,6 +6,7 @@ import mx.gob.imss.donacionsangre.modelos.CiudadesModel;
 import mx.gob.imss.donacionsangre.modelos.DelegacionMunicipioModel;
 import mx.gob.imss.donacionsangre.modelos.EstadosModel;
 import mx.gob.imss.donacionsangre.modelos.ServiciosModel;
+import org.apache.http.HttpHeaders;
 import org.glassfish.jersey.jackson.JacksonFeature;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -15,6 +16,7 @@ import org.springframework.stereotype.Component;
 
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.GenericType;
 import javax.ws.rs.core.MediaType;
 import java.util.ArrayList;
@@ -36,9 +38,9 @@ public class AgendaDigitalCliente {
         log.error("Se hace la consulta servicios por medio del cliente - no caching- ");
         try {
             Client client = ClientBuilder.newClient().register(new JacksonFeature());
-            return client.target(agendaDigitalUrl + DonacionSangreConstantes.GET_SERVICIOS_PATH + "/" + idServicio)
-                    .request(MediaType.APPLICATION_JSON).get(new GenericType<List<ServiciosModel>>() {
-                    });
+            WebTarget webTarget = client.target(agendaDigitalUrl + DonacionSangreConstantes.GET_SERVICIOS_PATH + "/" + idServicio);
+            return webTarget.request(MediaType.APPLICATION_JSON).header(HttpHeaders.AUTHORIZATION, "Bearer " + "... encoded token ...").get(new GenericType<List<ServiciosModel>>() {
+            });
         } catch (Exception e) {
             log.error(messageSource.getMessage("SERVICIO_NO_ENCONTRADO", new Object[]{"SERVICIOS [" + idServicio + "]", e.getMessage()}, Locale.getDefault()));
             e.printStackTrace();

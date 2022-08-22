@@ -2,12 +2,12 @@ package mx.gob.imss.donacionsangre.controladores;
 
 import lombok.extern.slf4j.Slf4j;
 import mx.gob.imss.donacionsangre.dto.DonacionSangre;
+import mx.gob.imss.donacionsangre.dto.Filtros;
 import mx.gob.imss.donacionsangre.dto.ReporteDonacionSangre;
 import mx.gob.imss.donacionsangre.servicios.DonacionSangreServices;
 import mx.gob.imss.donacionsangre.servicios.ReporteDonacionSangreServices;
 import net.sf.jasperreports.engine.JRException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
@@ -32,7 +32,7 @@ public class DonacionSangreControlador {
     @PostMapping(value = "/guardaNuevoVolanteDonacionSangre",
             produces = "application/json",
             consumes = "application/json")
-    @CacheEvict(value = {"volanteDonacionByFechas", "volanteDonacionById", "volanteDonacionParameters"}, allEntries = true)
+    //  @CacheEvict(value = {"volanteDonacionByFechas", "volanteDonacionById", "volanteDonacionParameters"}, allEntries = true)
     public ResponseEntity guardanuevoVolante(@RequestBody DonacionSangre donacionSangre) {
         try {
             return new ResponseEntity(donaSangre.guardaNuevoVolanteDonacionS(donacionSangre), HttpStatus.OK);
@@ -41,10 +41,10 @@ public class DonacionSangreControlador {
         }
     }
 
-    @GetMapping(path = "/findVolantesByFechas/{fechaInicial}/{fechaFinal}", produces = "application/json")
-    public ResponseEntity findVolantesByFechas(@PathVariable String fechaInicial, @PathVariable String fechaFinal) {
+    @PostMapping(path = "/findVolantesByFechas", produces = "application/json")
+    public ResponseEntity findVolantesByFechas(@RequestBody Filtros filtros) {
         try {
-            return new ResponseEntity(donaSangre.findVolantesByFechas(fechaInicial, fechaFinal), HttpStatus.OK);
+            return new ResponseEntity(donaSangre.findVolantesByFechas(filtros), HttpStatus.OK);
         } catch (Exception ex) {
             return new ResponseEntity(ex.getMessage(), HttpStatus.BAD_REQUEST);
         }

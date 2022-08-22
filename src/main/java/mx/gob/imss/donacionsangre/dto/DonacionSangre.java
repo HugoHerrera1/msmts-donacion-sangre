@@ -56,5 +56,10 @@ public class DonacionSangre {
     private String numTelefonoTrabajadorSocial;
     @JsonProperty
     private String observaciones;
+    @JsonProperty
+    private String desAgregadoMedico;
+    @JsonProperty
+    private String desNssPaciente;
+
 
 }

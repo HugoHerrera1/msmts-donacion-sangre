@@ -66,6 +66,10 @@ public class TransformaObjetos {
         msmdstDonacionSangre.setNumTelefonoTrabajadorSocial(donacionSangre.getNumTelefonoTrabajadorSocial());
         msmdstDonacionSangre.setDesObservaciones(donacionSangre.getObservaciones());
         msmdstDonacionSangre.setIndActivo(true);
+        msmdstDonacionSangre.setNssPaciente(donacionSangre.getDesNssPaciente());
+        msmdstDonacionSangre.setDesAgregadoMedico(donacionSangre.getDesAgregadoMedico());
+
+
         return msmdstDonacionSangre;
     }
 
@@ -134,6 +138,7 @@ public class TransformaObjetos {
             consultaResponse.setNumTelefonoTrabajadorSocial(msmdstDonacionSangre.getNumTelefonoTrabajadorSocial());
             return consultaResponse;
         } catch (Exception ex) {
+            ex.printStackTrace();
             consultaResponse.setIdVolanteDonacionSangre(null);
             consultaResponse.setFechaCirugia("");
             consultaResponse.setFechaInternamiento("");
@@ -171,6 +176,7 @@ public class TransformaObjetos {
             return consultaResponse;
         }
     }
+
     public DonacionSangreResponse detalle(MtstVolanteDonacionSangre msmdstDonacionSangre) {
         DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
         DonacionSangreResponse dr = new DonacionSangreResponse();
@@ -237,6 +243,7 @@ public class TransformaObjetos {
         bs.setDetalleBancoSangre(mtBancoSangre.getDesTipo() + " " + mtBancoSangre.getDesNumero() + " " + mtBancoSangre.getDesLocalidad());
         bs.setTipoBancoSangre(mtBancoSangre.getDesTipoBancoSangre());
         bs.setOoad(mtBancoSangre.getDesOoad());
+        bs.setDesHorarioAtencion(mtBancoSangre.getDesHorarioAtencion());
         return bs;
     }
 }

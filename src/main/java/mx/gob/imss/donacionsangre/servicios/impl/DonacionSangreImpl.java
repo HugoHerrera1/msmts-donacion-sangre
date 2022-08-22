@@ -5,6 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import mx.gob.imss.componentes.TransformaObjetos;
 import mx.gob.imss.constantes.DonacionSangreConstantes;
 import mx.gob.imss.donacionsangre.dto.DonacionSangre;
+import mx.gob.imss.donacionsangre.dto.Filtros;
 import mx.gob.imss.donacionsangre.modelos.*;
 import mx.gob.imss.donacionsangre.repositorios.BancosSangreRepositorio;
 import mx.gob.imss.donacionsangre.repositorios.DonacionSangreRepositorio;
@@ -32,7 +33,7 @@ public class DonacionSangreImpl implements DonacionSangreServices {
     @Override
     public String guardaNuevoVolanteDonacionS(DonacionSangre donacionSangre) {
         InsertResponse response = new InsertResponse();
-        Gson gson  = new Gson();
+        Gson gson = new Gson();
         try {
             MtstVolanteDonacionSangre msmdstDonacionSangre = transforma.dtoToDonacionSangreModel(donacionSangre);
             response.setStatus("OK");
@@ -50,12 +51,14 @@ public class DonacionSangreImpl implements DonacionSangreServices {
     }
 
     @Override
-    public String findVolantesByFechas(String fechaInicial, String fechaFinal) {
+    public String findVolantesByFechas(Filtros filtros) {
         GenericConsultaVolanteDS genericConsultaResponse = new GenericConsultaVolanteDS();
         Gson jsonArray = new Gson();
         try {
             List<ConsultaVolanteDSModelResponse> volantesDSList = new ArrayList<>();
-            List<MtstVolanteDonacionSangre> msmdstDonacionSangreList = donacionSangreRepositorio.findVolantesDSBetwenFechas(fechaInicial, fechaFinal);
+            List<MtstVolanteDonacionSangre> msmdstDonacionSangreList = donacionSangreRepositorio.findVolantesDSBetwenFechas(filtros.getFechaIni(),
+                    filtros.getFechaFin(), filtros.getNssPaciente(), filtros.getAgregadoMedico());
+            log.error("TAMAÑO DE LISTA [" + msmdstDonacionSangreList.size() + "]");
             for (MtstVolanteDonacionSangre msmdstDonacionSangre : msmdstDonacionSangreList) {
                 volantesDSList.add(transforma.buildResponseGeneric(msmdstDonacionSangre));
             }
@@ -63,7 +66,7 @@ public class DonacionSangreImpl implements DonacionSangreServices {
             genericConsultaResponse.setMensaje(DonacionSangreConstantes.MENSAJE_OK);
             genericConsultaResponse.setDatosVolantesDonacion(volantesDSList);
             return jsonArray.toJson(genericConsultaResponse);
-        }catch (Exception ex){
+        } catch (Exception ex) {
             ex.printStackTrace();
             genericConsultaResponse.setStatus(DonacionSangreConstantes.MENSAJE_ERROR);
             genericConsultaResponse.setMensaje(DonacionSangreConstantes.MENSAJE_ERROR + "[" + ex.getMessage() + "]");
@@ -76,14 +79,14 @@ public class DonacionSangreImpl implements DonacionSangreServices {
     public String findVolantesById(Integer idVolanteDonacion) {
         ConsultaVolantesDS genericResponse = new ConsultaVolantesDS();
         Gson jsonArray = new Gson();
-        try{
+        try {
             MtstVolanteDonacionSangre volante = donacionSangreRepositorio.findVolantesDSById(idVolanteDonacion);
             DonacionSangreResponse volantesDSList = transforma.detalle(volante);
             genericResponse.setStatus("OK");
             genericResponse.setMensaje(DonacionSangreConstantes.MENSAJE_OK);
             genericResponse.setDatosVolantesDonacion(volantesDSList);
             return jsonArray.toJson(genericResponse);
-        }catch (Exception ex){
+        } catch (Exception ex) {
             ex.printStackTrace();
             genericResponse.setStatus(DonacionSangreConstantes.MENSAJE_ERROR);
             genericResponse.setMensaje(DonacionSangreConstantes.MENSAJE_ERROR + "[" + ex.getMessage() + "]");
@@ -97,7 +100,7 @@ public class DonacionSangreImpl implements DonacionSangreServices {
     public String getBancosSangre() {
         Gson jsonBancosSangre = new Gson();
         BancosSangreResponse br = new BancosSangreResponse();
-        try{
+        try {
             List<MtscBancoSangre> mtBancoSangre = bancoSangre.findBancosSangre();
             List<BancosSangre> listBancos = new ArrayList<>();
             for (MtscBancoSangre msmdstBancosSangre : mtBancoSangre) {
@@ -107,8 +110,8 @@ public class DonacionSangreImpl implements DonacionSangreServices {
             br.setMensaje(DonacionSangreConstantes.MENSAJE_OK);
             br.setDatosBancosSangre(listBancos);
             return jsonBancosSangre.toJson(br);
-        }catch (Exception ex){
-ex.printStackTrace();
+        } catch (Exception ex) {
+            ex.printStackTrace();
             br.setStatus(DonacionSangreConstantes.MENSAJE_ERROR);
             br.setMensaje(DonacionSangreConstantes.MENSAJE_ERROR);
             br.setDatosBancosSangre(new ArrayList<>());
@@ -122,7 +125,7 @@ ex.printStackTrace();
         Gson jsonArray = new Gson();
         try {
             List<ConsultaAdminVolanteResponse> volantesDSList = new ArrayList<>();
-            List<MtstVolanteDonacionSangre> msmdstDonacionSangreList = donacionSangreRepositorio.findVolantesByParameters(fechaInicial, fechaFinal,tipoSangre);
+            List<MtstVolanteDonacionSangre> msmdstDonacionSangreList = donacionSangreRepositorio.findVolantesByParameters(fechaInicial, fechaFinal, tipoSangre);
             for (MtstVolanteDonacionSangre msmdstDonacionSangre : msmdstDonacionSangreList) {
                 volantesDSList.add(transforma.buildResponseAdminGeneric(msmdstDonacionSangre));
             }
@@ -130,7 +133,7 @@ ex.printStackTrace();
             generic.setMensaje(DonacionSangreConstantes.MENSAJE_OK);
             generic.setDatosVolantesDonacion(volantesDSList);
             return jsonArray.toJson(generic);
-        }catch (Exception ex){
+        } catch (Exception ex) {
             ex.printStackTrace();
             generic.setStatus(DonacionSangreConstantes.MENSAJE_ERROR);
             generic.setMensaje(DonacionSangreConstantes.MENSAJE_ERROR + "[" + ex.getMessage() + "]");

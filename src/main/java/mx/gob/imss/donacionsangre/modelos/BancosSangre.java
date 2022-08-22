@@ -8,4 +8,5 @@ public class BancosSangre {
     private String detalleBancoSangre;
     private String tipoBancoSangre;
     private String ooad;
+    private String desHorarioAtencion;
 }

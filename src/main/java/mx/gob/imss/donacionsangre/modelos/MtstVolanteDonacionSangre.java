@@ -1,5 +1,7 @@
 package mx.gob.imss.donacionsangre.modelos;
 
+import lombok.Data;
+
 import javax.persistence.*;
 import java.sql.Time;
 import java.time.Instant;
@@ -7,6 +9,7 @@ import java.util.Date;
 
 @Entity
 @Table(name = "MTST_VOLANTE_DONACION_SANGRE")
+@Data
 public class MtstVolanteDonacionSangre {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -100,243 +103,12 @@ public class MtstVolanteDonacionSangre {
     @Column(name = "DES_TIPO_SANGRE")
     private String tipoSangre;
 
-    public Long getId() {
-        return id;
-    }
+    @Column(name = "DES_AGREGADO_MEDICO")
+    private String desAgregadoMedico;
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+    @Column(name = "DES_NSS_PACIENTE")
+    private String nssPaciente;
 
-    public Long getIdNombreBancoSangre() {
-        return idNombreBancoSangre;
-    }
 
-    public void setIdNombreBancoSangre(Long idNombreBancoSangre) {
-        this.idNombreBancoSangre = idNombreBancoSangre;
-    }
 
-    public String getIdEstado() {
-        return idEstado;
-    }
-
-    public void setIdEstado(String idEstado) {
-        this.idEstado = idEstado;
-    }
-
-    public String getIdDelegacionMunicipio() {
-        return idDelegacionMunicipio;
-    }
-
-    public void setIdDelegacionMunicipio(String idDelegacionMunicipio) {
-        this.idDelegacionMunicipio = idDelegacionMunicipio;
-    }
-
-    public String getIdCiudad() {
-        return idCiudad;
-    }
-
-    public void setIdCiudad(String idCiudad) {
-        this.idCiudad = idCiudad;
-    }
-
-    public String getIdServicio() {
-        return idServicio;
-    }
-
-    public void setIdServicio(String idServicio) {
-        this.idServicio = idServicio;
-    }
-
-    public String getDesUnidadMedicaHospitalaria() {
-        return desUnidadMedicaHospitalaria;
-    }
-
-    public void setDesUnidadMedicaHospitalaria(String desUnidadMedicaHospitalaria) {
-        this.desUnidadMedicaHospitalaria = desUnidadMedicaHospitalaria;
-    }
-
-    public Date getFecEfec() {
-        return fecEfec;
-    }
-
-    public void setFecEfec(Date fecEfec) {
-        this.fecEfec = fecEfec;
-    }
-
-    public Time getTimInicialAtencion() {
-        return timInicialAtencion;
-    }
-
-    public void setTimInicialAtencion(Time timInicialAtencion) {
-        this.timInicialAtencion = timInicialAtencion;
-    }
-
-    public Time getTimFinalAtencion() {
-        return timFinalAtencion;
-    }
-
-    public void setTimFinalAtencion(Time timFinalAtencion) {
-        this.timFinalAtencion = timFinalAtencion;
-    }
-
-    public String getDesCodigoPostal() {
-        return desCodigoPostal;
-    }
-
-    public void setDesCodigoPostal(String desCodigoPostal) {
-        this.desCodigoPostal = desCodigoPostal;
-    }
-
-    public String getNomColonia() {
-        return nomColonia;
-    }
-
-    public void setNomColonia(String nomColonia) {
-        this.nomColonia = nomColonia;
-    }
-
-    public String getNomCalle() {
-        return nomCalle;
-    }
-
-    public void setNomCalle(String nomCalle) {
-        this.nomCalle = nomCalle;
-    }
-
-    public String getNumExterior() {
-        return numExterior;
-    }
-
-    public void setNumExterior(String numExterior) {
-        this.numExterior = numExterior;
-    }
-
-    public String getNumInterior() {
-        return numInterior;
-    }
-
-    public void setNumInterior(String numInterior) {
-        this.numInterior = numInterior;
-    }
-
-    public String getNomPaciente() {
-        return nomPaciente;
-    }
-
-    public void setNomPaciente(String nomPaciente) {
-        this.nomPaciente = nomPaciente;
-    }
-
-    public String getDesNssAgregado() {
-        return desNssAgregado;
-    }
-
-    public void setDesNssAgregado(String desNssAgregado) {
-        this.desNssAgregado = desNssAgregado;
-    }
-
-    public Date getFecInternamiento() {
-        return fecInternamiento;
-    }
-
-    public void setFecInternamiento(Date fecInternamiento) {
-        this.fecInternamiento = fecInternamiento;
-    }
-
-    public Date getFecCirugia() {
-        return fecCirugia;
-    }
-
-    public void setFecCirugia(Date fecCirugia) {
-        this.fecCirugia = fecCirugia;
-    }
-
-    public String getNumTelefonoPaciente() {
-        return numTelefonoPaciente;
-    }
-
-    public void setNumTelefonoPaciente(String numTelefonoPaciente) {
-        this.numTelefonoPaciente = numTelefonoPaciente;
-    }
-
-    public String getNomTrabajadorSocial() {
-        return nomTrabajadorSocial;
-    }
-
-    public void setNomTrabajadorSocial(String nomTrabajadorSocial) {
-        this.nomTrabajadorSocial = nomTrabajadorSocial;
-    }
-
-    public String getDesMatriculaTrabajadorSocial() {
-        return desMatriculaTrabajadorSocial;
-    }
-
-    public void setDesMatriculaTrabajadorSocial(String desMatriculaTrabajadorSocial) {
-        this.desMatriculaTrabajadorSocial = desMatriculaTrabajadorSocial;
-    }
-
-    public String getNumTelefonoTrabajadorSocial() {
-        return numTelefonoTrabajadorSocial;
-    }
-
-    public void setNumTelefonoTrabajadorSocial(String numTelefonoTrabajadorSocial) {
-        this.numTelefonoTrabajadorSocial = numTelefonoTrabajadorSocial;
-    }
-
-    public String getDesObservaciones() {
-        return desObservaciones;
-    }
-
-    public void setDesObservaciones(String desObservaciones) {
-        this.desObservaciones = desObservaciones;
-    }
-
-    public Date getFecExpira() {
-        return fecExpira;
-    }
-
-    public void setFecExpira(Date fecExpira) {
-        this.fecExpira = fecExpira;
-    }
-
-    public Instant getFecAlta() {
-        return fecAlta;
-    }
-
-    public void setFecAlta(Instant fecAlta) {
-        this.fecAlta = fecAlta;
-    }
-
-    public Date getFecActualizacion() {
-        return fecActualizacion;
-    }
-
-    public void setFecActualizacion(Date fecActualizacion) {
-        this.fecActualizacion = fecActualizacion;
-    }
-
-    public Date getFecBaja() {
-        return fecBaja;
-    }
-
-    public void setFecBaja(Date fecBaja) {
-        this.fecBaja = fecBaja;
-    }
-
-    public Boolean getIndActivo() {
-        return indActivo;
-    }
-
-    public void setIndActivo(Boolean indActivo) {
-        this.indActivo = indActivo;
-    }
-
-    public String getTipoSangre() {
-        return tipoSangre;
-    }
-
-    public void setTipoSangre(String tipoSangre) {
-        this.tipoSangre = tipoSangre;
-    }
 }
